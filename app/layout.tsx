@@ -1,38 +1,46 @@
-import AutoAlert from '@/component/common/AutoAlert/AutoAlert';
 import NextAuthProvider from '@/providers/NextAuthProvider';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import '@/style/globals.scss';
 import localFont from 'next/font/local';
-import ErrorBoundary from '@/component/common/ErrorBoundary/ErrorBoundary';
 
 // font
-const pretendard = localFont({
+const dole = localFont({
   src: [
     {
-      path: '../fonts/Pretendard/Pretendard-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/Pretendard/Pretendard-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/Pretendard/Pretendard-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/Pretendard/Pretendard-Bold.woff2',
-      weight: '700',
+      path: '../fonts/DelaGothicOne.woff',
+      weight: '600',
       style: 'normal',
     },
   ],
-  variable: '--pretendard',
+  variable: '--dole',
   display: 'fallback',
 });
+// const pretendard = localFont({
+//   src: [
+//     {
+//       path: '../fonts/Pretendard/Pretendard-Light.woff2',
+//       weight: '300',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../fonts/Pretendard/Pretendard-Regular.woff2',
+//       weight: '400',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../fonts/Pretendard/Pretendard-Medium.woff2',
+//       weight: '500',
+//       style: 'normal',
+//     },
+//     {
+//       path: '../fonts/Pretendard/Pretendard-Bold.woff2',
+//       weight: '700',
+//       style: 'normal',
+//     },
+//   ],
+//   variable: '--pretendard',
+//   display: 'fallback',
+// });
 const Gmarket = localFont({
   src: [
     {
@@ -93,12 +101,15 @@ export default function RootLayout({
           defer
         /> */}
       </head>
-      <body className={`${pretendard.variable} ${Gmarket.variable}`}>
-        <ErrorBoundary>
-          <NextAuthProvider>
-            <RecoilRootProvider>{children}</RecoilRootProvider>
-          </NextAuthProvider>
-        </ErrorBoundary>
+      <body
+        // className={`${dole.variable} ${pretendard.variable} ${Gmarket.variable}`}
+        className={`${dole.variable} ${Gmarket.variable}`}
+      >
+        {/* <ErrorBoundary> */}
+        <NextAuthProvider>
+          <RecoilRootProvider>{children}</RecoilRootProvider>
+        </NextAuthProvider>
+        {/* </ErrorBoundary> */}
       </body>
     </html>
   );

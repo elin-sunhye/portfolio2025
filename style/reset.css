@@ -120,14 +120,14 @@ li {
 }
 a {
   text-decoration: none;
-  color: var(--main-green-1);
+  color: var(--black);
 }
 input,
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  color: var(--main-green-1);
+  color: var(--black);
 }
 /* // input:focus,
 // textarea:focus,

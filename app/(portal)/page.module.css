@@ -1,0 +1,50 @@
+.main_visual {
+  width: 100%;
+  height: 50rem;
+  background: url('../../public/img/img_main_visual_bg.svg') no-repeat 0 0 /
+    cover;
+
+  & > div {
+    width: fit-content;
+    height: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+    gap: 3rem;
+    position: relative;
+
+    h1 {
+      width: 100%;
+      font-size: var(--fs-72);
+      font-stretch: wider;
+      line-height: 1;
+    }
+
+    p {
+      font-family: 'Gmarket';
+      font-weight: 900;
+    }
+    span {
+      display: inline-block;
+      width: 35rem;
+      position: absolute;
+      top: 50%;
+      right: -30%;
+      transform: translate(0, -50%);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.infinity_scroll {
+  width: 100vw;
+  background-color: var(--sub-orange-01);
+  color: var(--white);
+  font-size: var(--fs-36);
+  padding: 1.5rem 0;
+}
