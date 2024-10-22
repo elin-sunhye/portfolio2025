@@ -1,6 +1,6 @@
 'use client';
 
-import style from './page.module.css';
+import style from './page.module.scss';
 import Image from 'next/image';
 
 export default function Home() {
