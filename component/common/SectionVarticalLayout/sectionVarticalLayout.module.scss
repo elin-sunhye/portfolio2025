@@ -1,0 +1,42 @@
+.section_box {
+  gap: 1rem;
+
+  .title,
+  .children {
+    width: 50%;
+  }
+
+  .title {
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    // & > .title {
+    //   width: 100%;
+    //   font-size: var(--fs-48);
+    //   font-weight: var(--fw-700);
+    //   text-align: right;
+    // }
+  }
+}
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  .section_box {
+    flex-wrap: wrap;
+    gap: 5rem;
+
+    .title,
+    .children {
+      width: 100%;
+    }
+
+    .title {
+      justify-content: center;
+
+      // & > .title {
+      //   font-size: var(--fs-24);
+      //   text-align: center;
+      // }
+    }
+  }
+}

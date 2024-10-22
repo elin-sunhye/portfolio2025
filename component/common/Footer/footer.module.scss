@@ -1,0 +1,181 @@
+// 공통
+.legals {
+  gap: 1rem;
+  font-size: var(--fs-14);
+
+  & > li {
+    & > a {
+      padding: 0.3rem 1.5rem;
+      background-color: var(--gray-1-trans);
+      border-radius: var(--br-50);
+      transition: var(--transition-03);
+
+      // hover
+      &:hover {
+        background-color: var(--white);
+      }
+    }
+  }
+}
+
+//푸터
+.footer_wrap {
+  padding: 8rem 0;
+  background-color: var(--main-green-1);
+
+  &.sticky {
+    position: sticky;
+    bottom: 0;
+  }
+
+  & > .footer_box {
+    .left,
+    .middle,
+    .right {
+      height: 30rem;
+      flex-wrap: wrap;
+      align-content: space-between;
+
+      & > * {
+        width: 100%;
+      }
+    }
+
+    .left {
+      width: 50%;
+
+      .title,
+      .adress {
+        color: var(--white);
+      }
+
+      .title {
+        font-size: var(--fs-24);
+        font-weight: var(--fw-700);
+
+        a,
+        button {
+          font-size: var(--fs-14);
+          width: 10rem;
+          margin-top: 0.5rem;
+        }
+      }
+
+      .adress {
+        font-size: var(--fs-14);
+        line-height: var(--lh-15);
+      }
+    }
+
+    .middle {
+      width: 30%;
+      font-size: var(--fs-24);
+
+      & > li {
+        & > a {
+          display: inline-block;
+          color: var(--gray-1-trans);
+          transition: var(--transition-03);
+
+          // hover
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 20%;
+
+      & > .sns_box {
+        & > p {
+          font-size: var(--fs-14);
+          color: var(--white);
+          margin-bottom: 1rem;
+        }
+
+        & > ul {
+          gap: 1rem;
+
+          & > li {
+            & > a {
+              width: 3.2rem;
+              height: 3.2rem;
+              border-radius: var(--br-50pro);
+              background-color: var(--gray-1-trans);
+              transition: var(--transition-03);
+
+              & > .ico_sns {
+                font-size: var(--fs-16);
+              }
+              & > .ico_youtube {
+                font-size: var(--fs-18);
+              }
+              & > .ico_blog {
+                font-size: var(--fs-14);
+              }
+
+              // hover
+              &:hover.link_youtube {
+                background-color: #ed5e5e;
+              }
+              &:hover.link_facebook {
+                background-color: #6495f7;
+              }
+              &:hover.link_blog {
+                background-color: #45d354;
+              }
+              &:hover.link_linkedin {
+                background-color: #0a66c2;
+              }
+            }
+          }
+        }
+      }
+
+      .copy_right {
+        font-size: var(--fs-14);
+        color: var(--white);
+      }
+    }
+  }
+}
+
+// 모바일
+@media screen and (max-width: 1024px) {
+  .footer_wrap {
+    padding: 5rem 0;
+
+    & > .footer_box {
+      flex-wrap: wrap;
+      gap: 3rem;
+
+      .left,
+      .middle,
+      .right {
+        width: 100%;
+        height: auto;
+        gap: 1rem;
+      }
+
+      .left {
+        .title {
+          font-size: var(--fs-20);
+        }
+      }
+
+      .middle {
+        font-size: var(--fs-16);
+      }
+
+      .right {
+        & > .sns_box {
+          & > ul {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

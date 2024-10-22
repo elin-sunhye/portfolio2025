@@ -1,0 +1,52 @@
+.card {
+  width: 100%;
+  border-radius: var(--br-10);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  overflow: hidden;
+
+  & > .card_title_box,
+  & > .card_img_box {
+    width: 100%;
+    padding: 3rem;
+  }
+
+  & > .card_title_box {
+    flex-wrap: wrap;
+    gap: 2rem;
+    height: 20rem;
+
+    .card_title {
+      font-size: var(--fs-24);
+      font-weight: var(--fw-700);
+      margin-bottom: 2rem;
+    }
+  }
+
+  & > .card_img_box {
+    height: 27.8rem;
+  }
+}
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  .card {
+    gap: 1rem;
+
+    & > .card_title_box,
+    & > .card_img_box {
+      padding: 2rem;
+    }
+
+    & > .card_title_box {
+      gap: 1rem;
+
+      .card_title {
+        font-size: var(--fs-18);
+
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

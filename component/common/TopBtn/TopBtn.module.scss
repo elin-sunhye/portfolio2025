@@ -1,0 +1,23 @@
+.top_btn {
+  width: 48px;
+  height: 48px;
+
+  position: unset;
+  margin-left: auto;
+  margin-right: 42px;
+  margin-bottom: 41px;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &.sticky {
+    position: fixed;
+    right: 42px;
+    bottom: 41px;
+
+    margin-left: unset;
+    margin-right: unset;
+    margin-bottom: unset;
+  }
+}

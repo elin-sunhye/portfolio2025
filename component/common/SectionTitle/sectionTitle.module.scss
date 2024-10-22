@@ -1,0 +1,29 @@
+.section_title_box {
+  width: 100%;
+
+  & > .section_title {
+    width: 100%;
+    font-weight: var(--fw-700);
+  }
+
+  & > .section_desc {
+    width: 100%;
+    font-weight: var(--fw-100);
+    line-height: var(--lh-15);
+  }
+}
+
+// 반응형
+@media screen and (max-width: 1024px) {
+  .section_title_box {
+    gap: 2rem;
+
+    & > .section_title {
+      font-size: var(--fs-24) !important;
+    }
+
+    &.mo_center {
+      text-align: center !important;
+    }
+  }
+}

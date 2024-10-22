@@ -1,0 +1,96 @@
+.link_btn {
+  background-color: var(--sub-yellow-1);
+  color: var(--white);
+
+  // size
+  &.sm {
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    border-radius: var(--br-5);
+  }
+  &.md {
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1.5rem;
+    border-radius: var(--br-5);
+  }
+  &.lg {
+    height: 5rem;
+    line-height: 5rem;
+    padding: 0 2rem;
+    border-radius: var(--br-10);
+  }
+  &.xlg {
+    height: 6rem;
+    line-height: 6rem;
+    padding: 0 2rem;
+    border-radius: var(--br-10);
+  }
+
+  & > .ico_link_btn {
+    display: inline-flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    overflow: hidden;
+    vertical-align: middle;
+    transition: var(--transition-03);
+    margin-left: 0.5rem;
+    margin-right: 0;
+
+    // &.mg_right {
+    //   margin-left: 0;
+    //   margin-right: 0.5rem;
+    // }
+    & > svg {
+      font-size: var(--fs-18);
+    }
+  }
+
+  // hover
+  &.hover {
+    & > .ico_link_btn {
+      opacity: 0;
+      margin-left: -1.8rem;
+
+      &.mg_right {
+        margin-left: 0;
+        margin-right: -1.8rem;
+      }
+    }
+  }
+  &.hover:hover {
+    & > .ico_link_btn {
+      opacity: 1;
+      margin-left: 0.5rem;
+
+      &.mg_right {
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .link_btn {
+    padding: 1rem 1.5rem;
+
+    & > .ico_link_btn {
+      width: 1.6rem;
+      height: 1.6rem;
+      margin-left: 0.3rem;
+
+      &.mg_right {
+        margin-right: 0.3rem;
+      }
+      & > svg {
+        font-size: var(--fs-16);
+      }
+    }
+
+    & > .ico_link_btn.hover {
+      margin-left: -1.6rem;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.left {
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  p,
+  ul {
+    width: 100%;
+  }
+
+  p {
+    font-size: var(--fs-20);
+    font-weight: var(--fw-700);
+  }
+
+  ul {
+    li {
+      .ico_pdf,
+      .ico_excel {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1rem;
+        font-size: var(--fs-20);
+      }
+
+      .ico_pdf {
+        color: var(--error-3);
+      }
+      .ico_excel {
+        color: var(--info-3);
+      }
+    }
+    li:first-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+}

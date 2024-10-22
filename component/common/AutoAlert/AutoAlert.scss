@@ -1,0 +1,102 @@
+.alert {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -9;
+  opacity: 0;
+  transition: all 0.2s;
+
+  &.animation_wrap {
+    z-index: 999999999999;
+    opacity: 1;
+    transition: all 0.2s;
+  }
+
+  p {
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    width: 95%;
+    height: 46px;
+    padding: 12px;
+    background: var(--white);
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-10);
+    line-height: 1.3;
+    z-index: -9;
+    opacity: 0;
+    transition: all 0.2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    &.animation_p {
+      z-index: 999999999999;
+      opacity: 1;
+      transition: all 0.2s;
+    }
+    span {
+      display: inline-block;
+      height: 100%;
+    }
+  }
+}
+// error 색깔
+.alert.error p {
+  border: 2px solid var(--error-3);
+  color: var(--error-3);
+}
+// warning 색깔
+.alert.warning p {
+  border: 2px solid var(--warning-3);
+  color: var(--warning-3);
+}
+// info 색깔
+.alert.info p {
+  border: 2px solid var(--inf0-3);
+  color: var(--info-3);
+}
+// success 색깔
+.alert.success p {
+  border: 2px solid var(--success-3);
+  color: var(--success-3);
+}
+.alert.disabled p {
+  border: 2px solid var(--gray-3);
+  color: var(--gray-3);
+}
+
+@media screen and (max-width: 743px) {
+  // 모바일
+  .alert {
+    p {
+      max-width: unset;
+      width: 95%;
+      font-size: var(--fs-14);
+      padding: 1.5rem 2rem;
+
+      left: 50%;
+      top: unset;
+      bottom: -100vh;
+      transform: translateX(-50%);
+
+      &.animation_p {
+        z-index: 999999999999;
+        opacity: 1;
+        bottom: 10px;
+      }
+    }
+  }
+}

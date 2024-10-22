@@ -1,0 +1,43 @@
+.error_box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .error_img_box {
+    width: 50%;
+    height: auto;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+    h1 {
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #bdc9ea;
+      opacity: 0.2;
+      font-size: 20vw;
+      text-align: center;
+      z-index: -1;
+      font-weight: bold;
+    }
+  }
+
+  .error_txt {
+    margin: 2rem 0;
+    font-size: 3vw;
+    color: var(--mblue04);
+  }
+
+  & > button {
+    width: 30vw;
+    height: 50px;
+  }
+}

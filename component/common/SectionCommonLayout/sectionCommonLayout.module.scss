@@ -1,0 +1,10 @@
+.section_box {
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .section_box {
+    gap: 2rem;
+  }
+}
