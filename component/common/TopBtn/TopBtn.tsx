@@ -38,13 +38,13 @@ export default function TopBtn() {
 
   return (
     <div className={`${style.top_btn} ${sticky ? style.sticky : ''}`}>
-      {/* <Btn
+      <Btn
         title={'상단으로 가기'}
-        ico={<IoArrowUp role="img" aria-label="위로 화살표 아이콘" />}
         id={'BtnTop'}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        hover={false}
-      /> */}
+      >
+        <IoArrowUp role="img" aria-label="위로 화살표 아이콘" />
+      </Btn>
     </div>
   );
 }

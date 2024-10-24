@@ -17,8 +17,6 @@
 
 :root {
   // font fam
-  // --pretendard: 'Pretendard';
-  // --gmarket: 'Gmarket';
 
   // font size
   --fs-14: 1.4rem;
@@ -60,9 +58,14 @@
   // --main-green-1: #164400;
 
   // sub color
-  // --sub-yellow-1: #ffc421;
-  --sub-pink-01: rgb(196, 161, 171);
+  --sub-pink-01: #c4a1ab;
+
   --sub-orange-01: #ff4f4f;
+  --sub-orange-02: #ee5129;
+
+  --sub-yellow-01: #fffef2;
+
+  --sub-blue-01: #00254e;
 
   // error
   --error-1: #fdeaea;
@@ -144,7 +147,7 @@ body {
   max-width: 100vw;
   // overflow-x: hidden;
   font-weight: var(--fw-400);
-  font-family: var(--dole);
+  font-family: var(--Radiate);
 }
 
 html {

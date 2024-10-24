@@ -18,7 +18,6 @@ export default function Header() {
           setOpen(true);
         }}
       >
-        <p className={style.txt}>MENU</p>
         <span className={style.face}>
           <Image
             src={'/img/ico_menu_face.svg'}

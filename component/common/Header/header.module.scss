@@ -2,8 +2,8 @@
   width: 14rem;
   height: 14rem;
   position: fixed;
-  left: 10rem;
-  top: 10rem;
+  left: 13rem;
+  top: 8rem;
 
   &::before {
     content: '';
@@ -16,6 +16,7 @@
     background: url('../../../public/img/img_menu.svg') no-repeat 0 0 / cover;
     z-index: -1;
     transition: all 0.5s;
+    opacity: 0.8;
   }
 
   &:hover {
@@ -24,16 +25,10 @@
     }
   }
 
-  .txt {
-    color: var(--sub-pink-01);
-    font-family: 'Gmarket';
-    font-weight: 900;
-    margin-bottom: 0.3rem;
-  }
-
   .face {
     display: inline-block;
-    width: 4.2rem;
+    width: 6rem;
+
     img {
       width: 100%;
       height: auto;
@@ -52,6 +47,7 @@
   left: 0;
   top: 0;
   transition: all 0.5s;
+  z-index: 9999999;
 
   &.close {
     left: -70rem;

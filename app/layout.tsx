@@ -1,65 +1,131 @@
-import NextAuthProvider from '@/providers/NextAuthProvider';
 import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import '@/style/globals.scss';
 import localFont from 'next/font/local';
 
 // font
-const dole = localFont({
+const Radiate = localFont({
   src: [
     {
-      path: '../fonts/DelaGothicOne.woff',
-      weight: '600',
-      style: 'normal',
-    },
-  ],
-  variable: '--dole',
-  display: 'fallback',
-});
-// const pretendard = localFont({
-//   src: [
-//     {
-//       path: '../fonts/Pretendard/Pretendard-Light.woff2',
-//       weight: '300',
-//       style: 'normal',
-//     },
-//     {
-//       path: '../fonts/Pretendard/Pretendard-Regular.woff2',
-//       weight: '400',
-//       style: 'normal',
-//     },
-//     {
-//       path: '../fonts/Pretendard/Pretendard-Medium.woff2',
-//       weight: '500',
-//       style: 'normal',
-//     },
-//     {
-//       path: '../fonts/Pretendard/Pretendard-Bold.woff2',
-//       weight: '700',
-//       style: 'normal',
-//     },
-//   ],
-//   variable: '--pretendard',
-//   display: 'fallback',
-// });
-const Gmarket = localFont({
-  src: [
-    {
-      path: '../fonts/Gmarket/GmarketSansLight.woff2',
+      path: '../fonts/radiatesansLight.woff2',
       weight: '100',
       style: 'normal',
     },
     {
-      path: '../fonts/Gmarket/GmarketSansMedium.woff2',
+      path: '../fonts/radiatesansRegular.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../fonts/Gmarket/GmarketSansBold.woff2',
+      path: '../fonts/radiatesansBold.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/radiatesansExtrabold.woff2',
       weight: '900',
       style: 'normal',
     },
   ],
-  variable: '--gmarket',
+  variable: '--Radiate',
+  display: 'fallback',
+});
+const RadiateSemiEx = localFont({
+  src: [
+    {
+      path: '../fonts/radiatesansLightsemiexpanded.woff2',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/radiatesansRegularsemiexpanded.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/radiatesansBoldsemiexpanded.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/radiatesansExtraboldsemiexpanded.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--RadiateSemiEx',
+  display: 'fallback',
+});
+const Brice = localFont({
+  src: [
+    {
+      path: '../fonts/BriceExtraLight.woff2',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceLight.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceRegular.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceSemiBold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceBold.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceBlack.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--Brice',
+  display: 'fallback',
+});
+
+const BriceSemiEx = localFont({
+  src: [
+    {
+      path: '../fonts/BriceExtraLightSemiExpanded.woff2',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceLightSemiExpanded.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceRegularSemiExpanded.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceSemiBoldSemiExpanded.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceBoldSemiExpanded.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/BriceBlackSemiExpanded.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  variable: '--BriceSemiEx',
   display: 'fallback',
 });
 
@@ -69,7 +135,7 @@ export const metadata = {
   description: 'PORTFOLIO',
   openGraph: {
     type: 'website',
-    title: 'WIKPORTFOLIO',
+    title: 'PORTFOLIO',
     description: 'PORTFOLIO',
     images: '',
     // url: "https://PORTFOLIO.com",
@@ -102,13 +168,12 @@ export default function RootLayout({
         /> */}
       </head>
       <body
-        // className={`${dole.variable} ${pretendard.variable} ${Gmarket.variable}`}
-        className={`${dole.variable} ${Gmarket.variable}`}
+        className={`${Radiate.variable} ${RadiateSemiEx.variable} ${Brice.variable} ${BriceSemiEx.variable}`}
       >
         {/* <ErrorBoundary> */}
-        <NextAuthProvider>
-          <RecoilRootProvider>{children}</RecoilRootProvider>
-        </NextAuthProvider>
+
+        <RecoilRootProvider>{children}</RecoilRootProvider>
+
         {/* </ErrorBoundary> */}
       </body>
     </html>
