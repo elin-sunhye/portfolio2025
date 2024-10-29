@@ -1,3 +1,5 @@
+import Header from '@/component/common/Header/Hedaer';
+import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import '@/style/globals.scss';
 import localFont from 'next/font/local';
@@ -172,7 +174,23 @@ export default function RootLayout({
       >
         {/* <ErrorBoundary> */}
 
-        <RecoilRootProvider>{children}</RecoilRootProvider>
+        <RecoilRootProvider>
+          {/* header */}
+          <Header />
+          {/* content */}
+          <ReactQueryProvider>
+            <div>
+              {/* <SubTop /> */}
+              {children}
+            </div>
+            {/* <div className="wrap"></div> */}
+
+            {/* autoAlert */}
+            {/* <AutoAlert /> */}
+          </ReactQueryProvider>
+          {/* footer */}
+          {/* <Footer /> */}
+        </RecoilRootProvider>
 
         {/* </ErrorBoundary> */}
       </body>
