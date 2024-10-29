@@ -1,5 +1,3 @@
-import Header from '@/component/common/Header/Hedaer';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
 import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import '@/style/globals.scss';
 import localFont from 'next/font/local';

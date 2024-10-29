@@ -3,10 +3,6 @@
 import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
-import { useEffect } from 'react';
-import { FaJava, FaNode, FaNodeJs } from 'react-icons/fa';
-import { BiLogoSpringBoot } from 'react-icons/bi';
-import { GrMysql } from 'react-icons/gr';
 // import { useEffect, useState } from 'react';
 
 export default function Home() {
