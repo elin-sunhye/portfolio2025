@@ -5,56 +5,55 @@ import '@/style/globals.scss';
 import localFont from 'next/font/local';
 
 // font
-const Radiate = localFont({
+const Termina = localFont({
   src: [
     {
-      path: '../fonts/radiatesansLight.woff2',
+      path: '../fonts/TerminaThin.otf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: '../fonts/radiatesansRegular.woff2',
+      path: '../fonts/TerminaExtraLight.otf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/TerminaLight.otf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/TerminaRegular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/TerminaMedium.otf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../fonts/radiatesansBold.woff2',
+      path: '../fonts/TerminaDemi.otf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/TerminaBold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/TerminaHeavy.otf',
       weight: '800',
       style: 'normal',
     },
     {
-      path: '../fonts/radiatesansExtrabold.woff2',
+      path: '../fonts/TerminaBlack.otf',
       weight: '900',
       style: 'normal',
     },
   ],
-  variable: '--Radiate',
-  display: 'fallback',
-});
-const RadiateSemiEx = localFont({
-  src: [
-    {
-      path: '../fonts/radiatesansLightsemiexpanded.woff2',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/radiatesansRegularsemiexpanded.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/radiatesansBoldsemiexpanded.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/radiatesansExtraboldsemiexpanded.woff2',
-      weight: '900',
-      style: 'normal',
-    },
-  ],
-  variable: '--RadiateSemiEx',
+  variable: '--Termina',
   display: 'fallback',
 });
 const Brice = localFont({
@@ -154,7 +153,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // https://www.crosstarget.co.kr/main/
+  // https://www.dopplepress.com/
   return (
     // <html lang="en">
     //   <body>{children}</body>
@@ -170,27 +169,11 @@ export default function RootLayout({
         /> */}
       </head>
       <body
-        className={`${Radiate.variable} ${RadiateSemiEx.variable} ${Brice.variable} ${BriceSemiEx.variable}`}
+        className={`${Termina.variable} ${Brice.variable} ${BriceSemiEx.variable}`}
       >
         {/* <ErrorBoundary> */}
 
-        <RecoilRootProvider>
-          {/* header */}
-          <Header />
-          {/* content */}
-          <ReactQueryProvider>
-            <div>
-              {/* <SubTop /> */}
-              {children}
-            </div>
-            {/* <div className="wrap"></div> */}
-
-            {/* autoAlert */}
-            {/* <AutoAlert /> */}
-          </ReactQueryProvider>
-          {/* footer */}
-          {/* <Footer /> */}
-        </RecoilRootProvider>
+        <RecoilRootProvider>{children}</RecoilRootProvider>
 
         {/* </ErrorBoundary> */}
       </body>
