@@ -63,22 +63,21 @@
   .inner {
     width: calc(100% / 3);
     height: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 3rem;
+    padding: 5rem 0;
+    box-sizing: border-box;
+    transition: all 0.5s;
 
     p {
+      height: 12rem;
       text-align: center;
       font-size: var(--fs-60);
       font-weight: 800;
       font-family: 'RadiateSemiEx';
       position: relative;
       transition: all 0.5s;
-
-      &:hover {
-        scale: 1.2;
-      }
-
-      .img {
-        transition: all 0.5s;
-      }
     }
 
     &:first-of-type {
@@ -97,12 +96,6 @@
           img {
             width: 100%;
             height: auto;
-          }
-        }
-
-        &:hover {
-          .img {
-            transform: translate(-50%, -50%) rotate(45deg);
           }
         }
       }
@@ -125,12 +118,6 @@
             height: auto;
           }
         }
-
-        &:hover {
-          .img {
-            top: -2rem;
-          }
-        }
       }
     }
 
@@ -145,7 +132,7 @@
         .img {
           width: 4.7rem;
           position: absolute;
-          top: -6.8rem;
+          top: -3.8rem;
           right: 7.7rem;
 
           img {
@@ -153,21 +140,65 @@
             height: auto;
           }
         }
+      }
+    }
 
+    ul {
+      width: 100%;
+      height: calc(100% - 15rem);
+      // background-color: bisque;
+    }
+
+    &:hover {
+      p {
+        scale: 1.2;
+        .img {
+          transition: all 0.5s;
+        }
+      }
+
+      &:first-of-type {
         &:hover {
-          .img {
-            // transform: rotate(
-            //   20deg
-            // ); /* 이미지를 시계 방향으로 30도 회전합니다. */
-            // transform-origin: bottom left; /* 회전 중심을 요소의 좌측 상단으로 설정합니다. */
-            transform: rotate(10deg);
+          p {
+            .img {
+              transform: translate(-50%, -50%) rotate(45deg);
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        &:hover {
+          p {
+            .img {
+              top: -2rem;
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+        &:hover {
+          p {
+            .img {
+              // transform: rotate(
+              //   20deg
+              // ); /* 이미지를 시계 방향으로 30도 회전합니다. */
+              // transform-origin: bottom left; /* 회전 중심을 요소의 좌측 상단으로 설정합니다. */
+              transform: rotate(10deg);
+            }
           }
         }
       }
     }
 
-    &.open {
-      scale: 0.5;
-    }
+    // &.open {
+    //   align-content: space-between;
+    //   // scale: 0.5;
+
+    //   ul {
+    //     height: 20rem;
+    //   }
+    // }
   }
 }

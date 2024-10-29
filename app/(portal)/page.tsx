@@ -10,11 +10,11 @@ export default function Home() {
   const skillArr: string[] = ['back', 'front', 'design'];
 
   // 스킬 클릭한 배열
-  const [clickSkill, setClickSkill] = useState<string[]>([]);
+  // const [clickSkill, setClickSkill] = useState<string[]>([]);
 
-  useEffect(() => {
-    console.log('clickSkill', clickSkill);
-  }, [clickSkill]);
+  // useEffect(() => {
+  //   console.log('clickSkill', clickSkill);
+  // }, [clickSkill]);
   return (
     <>
       {/* 메인 비주얼 */}
@@ -66,65 +66,75 @@ export default function Home() {
           return (
             <div
               key={skill + idx}
-              className={`flex_center ${style.inner} ${
-                clickSkill.some((ss) => ss === skill) ? style.open : ''
-              }`}
-              onClick={() => {
-                if (clickSkill.length === 0) {
-                  // 최초 클릭
-                  setClickSkill([skill]);
-                } else {
-                  if (clickSkill.some((ss) => ss === skill)) {
-                    // 중복
-                    const remove = clickSkill.filter((ns) => ns !== skill);
-                    setClickSkill(remove);
-                  } else {
-                    // 중복아님
-                    setClickSkill([...clickSkill, skill]);
-                  }
-                }
-              }}
+              className={`flex_center ${style.inner}`}
+              // className={`flex_center ${style.inner} ${
+              //   clickSkill.some((ss) => ss === skill) ? style.open : ''
+              // }`}
+              // onClick={() => {
+              //   if (clickSkill.length === 0) {
+              //     // 최초 클릭
+              //     setClickSkill([skill]);
+              //   } else {
+              //     if (clickSkill.some((ss) => ss === skill)) {
+              //       // 중복
+              //       const remove = clickSkill.filter((ns) => ns !== skill);
+              //       setClickSkill(remove);
+              //     } else {
+              //       // 중복아님
+              //       setClickSkill([...clickSkill, skill]);
+              //     }
+              //   }
+              // }}
             >
               {skill === 'back' ? (
-                <p>
-                  BACK
-                  <br />
-                  END
-                  <span className={style.img}>
-                    <Image
-                      src={'/img/ico_sun_line.svg'}
-                      alt="해 라인 아이콘"
-                      width={0}
-                      height={0}
-                    />
-                  </span>
-                </p>
+                <>
+                  <p className="flex_center">
+                    BACK
+                    <br />
+                    END
+                    <span className={style.img}>
+                      <Image
+                        src={'/img/ico_sun_line.svg'}
+                        alt="해 라인 아이콘"
+                        width={0}
+                        height={0}
+                      />
+                    </span>
+                  </p>
+                  <ul></ul>
+                </>
               ) : skill === 'front' ? (
-                <p>
-                  FRONT
-                  <br />
-                  END
-                  <span className={style.img}>
-                    <Image
-                      src={'/img/ico_eye.svg'}
-                      alt="눈 아이콘"
-                      width={0}
-                      height={0}
-                    />
-                  </span>
-                </p>
+                <>
+                  <p className="flex_center">
+                    FRONT
+                    <br />
+                    END
+                    <span className={style.img}>
+                      <Image
+                        src={'/img/ico_eye.svg'}
+                        alt="눈 아이콘"
+                        width={0}
+                        height={0}
+                      />
+                    </span>
+                  </p>
+                  <ul></ul>
+                </>
               ) : (
-                <p>
-                  DESIGN
-                  <span className={style.img}>
-                    <Image
-                      src={'/img/ico_v_2.svg'}
-                      alt="브이 아이콘"
-                      width={0}
-                      height={0}
-                    />
-                  </span>
-                </p>
+                <>
+                  <p className="flex_center">
+                    DESIGN
+                    <span className={style.img}>
+                      <Image
+                        src={'/img/ico_v_2.svg'}
+                        alt="브이 아이콘"
+                        width={0}
+                        height={0}
+                      />
+                    </span>
+                  </p>
+                  <ul></ul>
+                </>
               )}
             </div>
           );
