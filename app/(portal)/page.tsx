@@ -3,7 +3,7 @@
 import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 export default function Home() {
   // 스킬 배열
