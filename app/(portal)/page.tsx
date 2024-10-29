@@ -101,7 +101,10 @@ export default function Home() {
                       />
                     </span>
                   </p>
-                  <ul></ul>
+                  <ul>
+                    <li>JAVA</li>
+                    <li>MySQL</li>
+                  </ul>
                 </>
               ) : skill === 'front' ? (
                 <>
@@ -118,7 +121,16 @@ export default function Home() {
                       />
                     </span>
                   </p>
-                  <ul></ul>
+                  <ul>
+                    <li>Next.js</li>
+                    <li>JavaScript</li>
+                    <li>TypeScript</li>
+                    <li>HTML</li>
+                    <li>SCSS</li>
+                    <li>React.js</li>
+                    <li>React Query</li>
+                    <li>React Hook Form</li>
+                  </ul>
                 </>
               ) : (
                 <>
