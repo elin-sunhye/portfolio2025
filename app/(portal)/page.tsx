@@ -3,8 +3,7 @@
 import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
-import { useEffect, useRef, useState } from 'react';
-// import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 //
 interface certifiType {
@@ -54,34 +53,25 @@ export default function Home() {
   //   console.log('clickSkill', clickSkill);
   // }, [clickSkill]);
 
-  // 브라우저 크기 ---------------------------------
-  const [browserHeight, setBrowserHeight] = useState<number>(0);
-
   // 스크롤 배경 ---------------------------------
   const scrollBgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // 브라우저 크기
-      setBrowserHeight(window.innerHeight);
-      window.addEventListener('resize', function () {
-        setBrowserHeight(window.innerHeight);
-      });
-
       // scroll
-      let lastScroll = 0;
+      // let lastScroll = 0;
       window.addEventListener('scroll', function () {
-        let currentScroll = document.documentElement.scrollTop;
+        // const currentScroll = document.documentElement.scrollTop;
 
         if (scrollBgRef.current !== null) {
           if (window.scrollY >= window.innerHeight / 1.5) {
-            let num1 = String(window.scrollY / 2.25 - window.innerHeight);
+            const num1 = String(window.scrollY / 2.25 - window.innerHeight);
 
             scrollBgRef.current.style.setProperty(
               'transform',
               `translateY(${num1}px)`
             );
-            lastScroll = currentScroll;
+            // lastScroll = currentScroll;
           }
         }
       });
