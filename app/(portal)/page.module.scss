@@ -1,7 +1,7 @@
 // 메인 비주얼
 .main_visual {
   width: 100%;
-  height: 55rem;
+  height: 60rem;
   background: url('../../public/img/img_main_visual_bg.svg') no-repeat 0 0 /
     cover;
 
@@ -66,10 +66,9 @@
     flex-wrap: wrap;
     align-content: space-between;
     padding: 3rem 5rem;
-    box-sizing: border-box;
     transition: all 0.5s;
 
-    p {
+    h6 {
       height: 12rem;
       text-align: center;
       font-size: var(--fs-60);
@@ -106,7 +105,6 @@
           background-color: var(--white);
           border-radius: var(--br-50pro);
           padding: 0.5rem;
-          box-sizing: border-box;
           overflow: hidden;
 
           img {
@@ -120,7 +118,7 @@
     &:first-of-type {
       background: url('../../public/img/img_skill_1.svg') no-repeat 0 0 / cover;
 
-      p {
+      h6 {
         color: var(--white);
 
         .img {
@@ -138,8 +136,8 @@
 
       ul {
         li {
-          &:nth-child(7),
-          &:nth-child(8)
+          &:nth-of-type(7),
+          &:nth-of-type(8)
           // &:last-of-type
           {
             width: 100%;
@@ -151,7 +149,7 @@
     &:nth-of-type(2) {
       background: url('../../public/img/img_skill_2.svg') no-repeat 0 0 / cover;
 
-      p {
+      h6 {
         color: var(--sub-orange-02);
 
         .img {
@@ -168,11 +166,11 @@
 
       ul {
         li {
-          &:first-child,
-          &:nth-child(2),
-          &:nth-child(3),
-          &:nth-child(5),
-          &:nth-child(8) {
+          &:first-of-type,
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(5),
+          &:nth-of-type(8) {
             span {
               padding: 0;
             }
@@ -185,7 +183,7 @@
       background: url('../../public/img/img_main_visual_bg.svg') no-repeat 0 0 /
         cover;
 
-      p {
+      h6 {
         font-family: 'BriceSemiEx';
         color: var(--sub-blue-01);
 
@@ -203,8 +201,8 @@
 
       ul {
         li {
-          &:nth-child(2),
-          &:last-child {
+          &:nth-of-type(2),
+          &:last-of-type {
             span {
               padding: 0;
             }
@@ -214,7 +212,7 @@
     }
 
     &:hover {
-      p {
+      h6 {
         scale: 1.2;
         .img {
           transition: all 0.5s;
@@ -223,7 +221,7 @@
 
       &:first-of-type {
         &:hover {
-          p {
+          h6 {
             .img {
               transform: translate(-50%, -50%) rotate(45deg);
             }
@@ -233,7 +231,7 @@
 
       &:nth-of-type(2) {
         &:hover {
-          p {
+          h6 {
             .img {
               top: -2rem;
             }
@@ -243,7 +241,7 @@
 
       &:last-of-type {
         &:hover {
-          p {
+          h6 {
             .img {
               // transform: rotate(
               //   20deg
@@ -264,5 +262,195 @@
     //     height: 20rem;
     //   }
     // }
+  }
+}
+
+// 자소서
+.resume_box {
+  background: url('../../public/img/img_resume_bg.svg') no-repeat 0 0 / cover;
+
+  .resume_wrap {
+    align-items: flex-end;
+    gap: 10rem;
+
+    .left {
+      width: 46%;
+
+      .shortcut {
+        width: 100%;
+        height: 16rem;
+        position: relative;
+
+        a {
+          width: 45%;
+          height: 8rem;
+          font-size: var(--fs-24);
+          font-family: 'Brice';
+          font-weight: 800;
+          background-color: var(--white);
+          border: 1px solid var(--black);
+          border-radius: var(--br-50);
+          transition: all 0.5s;
+          position: absolute;
+
+          &:first-of-type {
+            transform: rotate(336deg);
+            left: 0;
+            top: -1rem;
+          }
+          &:nth-of-type(2) {
+            transform: rotate(12deg);
+            left: 7rem;
+            bottom: 0;
+          }
+          &:nth-of-type(3) {
+            transform: rotate(351deg);
+            right: 13rem;
+            top: 1rem;
+          }
+          &:last-of-type {
+            transform: rotate(3deg);
+            right: 0;
+            bottom: 1rem;
+          }
+
+          &:hover {
+            font-size: 2.8rem;
+          }
+        }
+      }
+
+      .title {
+        width: 100%;
+        font-size: var(--fs-60);
+        font-weight: 900;
+        margin: 5rem 0 2rem 0;
+      }
+
+      .txt {
+        width: 100%;
+
+        p {
+          line-height: 1.2;
+
+          &:nth-of-type(2) {
+            margin: 1rem 0;
+          }
+          &:last-of-type {
+            font-weight: 900;
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 30%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+// 미정
+.no_name_box {
+  overflow: hidden;
+
+  .scroll_bg {
+    width: 100%;
+    height: 100vh;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// 자격증
+.certification_box {
+  background: url('../../public/img/img_certification_bg.svg') no-repeat 0 0 /
+    cover;
+
+  .certification_wap {
+    width: 100%;
+
+    h6 {
+      margin-bottom: 3rem;
+      font-size: var(--fs-60);
+      font-family: 'Brice';
+      font-weight: 800;
+      text-align: center;
+      color: var(--sub-yellow-02);
+    }
+
+    .crti_card {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      & > div {
+        width: calc((100% - 2rem) / 2);
+        flex-wrap: wrap;
+        background-color: var(--white);
+        padding: 5rem 3rem;
+        background: url('../../public/img/img_main_visual_bg.svg') no-repeat 0 0 /
+          cover;
+
+        p {
+          width: 100%;
+          text-align: center;
+          font-size: var(--fs-24);
+          font-weight: 900;
+
+          &.detail {
+            width: 100%;
+            font-size: var(--fs-16);
+            font-weight: 400;
+            text-align: start;
+            line-height: 1.2;
+          }
+        }
+
+        span {
+          margin: 1.5rem 0 1rem;
+          font-weight: 600;
+        }
+
+        &:last-of-type {
+          position: relative;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 10rem;
+            height: 22.4rem;
+            background: url('../../public/img/gif_clip.png') no-repeat 0 0 /
+              100%;
+            position: absolute;
+            right: -1rem;
+            bottom: -3.4rem;
+          }
+
+          p {
+            &.detail {
+              width: 90%;
+              font-size: var(--fs-16);
+              font-weight: 400;
+              text-align: start;
+              line-height: 1.2;
+            }
+          }
+
+          span {
+            &:last-of-type {
+              margin-right: 7rem;
+            }
+          }
+        }
+      }
+    }
   }
 }

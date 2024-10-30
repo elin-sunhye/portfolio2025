@@ -3,11 +3,49 @@
 import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
+import { useEffect, useRef, useState } from 'react';
 // import { useEffect, useState } from 'react';
 
+//
+interface certifiType {
+  name: string;
+  date: string; // (YYYY-MM-DD)
+  agency: string;
+  detail: string;
+}
 export default function Home() {
-  // 스킬 배열
+  // 스킬 배열 ---------------------------------
   const skillArr: string[] = ['back', 'front', 'design'];
+
+  // 자격증 배열 ---------------------------------
+  const certifiArr: certifiType[] = [
+    {
+      name: '정보처리기사',
+      date: '2025-06',
+      agency: '한국산업인력공단',
+      detail:
+        '정보시스템의 생명주기 전반에 걸친 프로젝트 업무를 수행하는 직무로서 계획수립, 분석, 설계, 구현, 시험, 운영, 유지보수 등의 업무를 수행할 수 있는 능력 검증',
+    },
+    {
+      name: 'SQLD',
+      date: '2025-04',
+      agency: '한국산업인력공단',
+      detail:
+        '데이터모델링에 기본 지식을 바탕으로 SQL 작성, 성능 최적화 등 데이터베이스 개체 설계 및 구현 등에 대한 전문지식 및 실무적 수행 능력 검증',
+    },
+    {
+      name: 'Web Design 기능사',
+      date: '2020-11-05',
+      agency: '한국산업인력공단',
+      detail: '웹 페이지를 제작할 수 있는 실무 능력을 인정',
+    },
+    {
+      name: 'ACA Photoshop',
+      date: '2016-10-16',
+      agency: 'ADOBE',
+      detail: 'Adobe Photoshop 소프트웨어 사용 능력을 공인',
+    },
+  ];
 
   // 스킬 클릭한 배열
   // const [clickSkill, setClickSkill] = useState<string[]>([]);
@@ -16,10 +54,44 @@ export default function Home() {
   //   console.log('clickSkill', clickSkill);
   // }, [clickSkill]);
 
+  // 브라우저 크기 ---------------------------------
+  const [browserHeight, setBrowserHeight] = useState<number>(0);
+
+  // 스크롤 배경 ---------------------------------
+  const scrollBgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // 브라우저 크기
+      setBrowserHeight(window.innerHeight);
+      window.addEventListener('resize', function () {
+        setBrowserHeight(window.innerHeight);
+      });
+
+      // scroll
+      let lastScroll = 0;
+      window.addEventListener('scroll', function () {
+        let currentScroll = document.documentElement.scrollTop;
+
+        if (scrollBgRef.current !== null) {
+          if (window.scrollY >= window.innerHeight / 1.5) {
+            let num1 = String(window.scrollY / 2.25 - window.innerHeight);
+
+            scrollBgRef.current.style.setProperty(
+              'transform',
+              `translateY(${num1}px)`
+            );
+            lastScroll = currentScroll;
+          }
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
       {/* 메인 비주얼 */}
-      <div className={` ${style.main_visual}`}>
+      <section className={` ${style.main_visual}`}>
         <div className=" flex_center">
           <h1>
             FULL STACK <br />
@@ -36,37 +108,39 @@ export default function Home() {
             />
           </span>
         </div>
-      </div>
+      </section>
 
       {/* 무한 롤링 */}
-      <Rolling
-        speed="120s"
-        bg="var(--sub-orange-01)"
-        color="var(--sub-yellow-01)"
-      >
-        <Image
-          src={'/img/ico_flower.svg'}
-          alt="꽃 아이콘"
-          className={style.ico_flower}
-          width={0}
-          height={0}
-        />
-        PARADISE IS WHERE I AM
-        <Image
-          src={'/img/ico_v.svg'}
-          alt="브이 아이콘"
-          className={style.ico_v}
-          width={0}
-          height={0}
-        />
-      </Rolling>
+      <section>
+        <Rolling
+          speed="120s"
+          bg="var(--sub-orange-01)"
+          color="var(--sub-yellow-01)"
+        >
+          <Image
+            src={'/img/ico_flower.svg'}
+            alt="꽃 아이콘"
+            className={style.ico_flower}
+            width={0}
+            height={0}
+          />
+          PARADISE IS WHERE I AM
+          <Image
+            src={'/img/ico_v.svg'}
+            alt="브이 아이콘"
+            className={style.ico_v}
+            width={0}
+            height={0}
+          />
+        </Rolling>
+      </section>
 
       {/* 스킬 */}
-      <div className={`flex_start ${style.skill_box}`}>
-        {skillArr.map((skill, idx) => {
+      <section className={`flex_start ${style.skill_box}`}>
+        {skillArr.map((skill: string, idx1: number) => {
           return (
             <div
-              key={skill + idx}
+              key={skill + idx1}
               className={`flex_center ${style.inner}`}
               // className={`flex_center ${style.inner} ${
               //   clickSkill.some((ss) => ss === skill) ? style.open : ''
@@ -89,7 +163,7 @@ export default function Home() {
             >
               {skill === 'back' ? (
                 <>
-                  <p className="flex_center">
+                  <h6 className="flex_center">
                     BACK
                     <br />
                     END
@@ -101,7 +175,7 @@ export default function Home() {
                         height={0}
                       />
                     </span>
-                  </p>
+                  </h6>
                   <ul className="flex_start">
                     <li>
                       <span>
@@ -229,7 +303,7 @@ export default function Home() {
                 </>
               ) : skill === 'front' ? (
                 <>
-                  <p className="flex_center">
+                  <h6 className="flex_center">
                     FRONT
                     <br />
                     END
@@ -241,7 +315,7 @@ export default function Home() {
                         height={0}
                       />
                     </span>
-                  </p>
+                  </h6>
                   <ul className="flex_start">
                     <li>
                       <span>
@@ -346,7 +420,7 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <p className="flex_center">
+                  <h6 className="flex_center">
                     DESIGN
                     <span className={style.img}>
                       <Image
@@ -356,7 +430,7 @@ export default function Home() {
                         height={0}
                       />
                     </span>
-                  </p>
+                  </h6>
                   <ul className="flex_start">
                     <li>
                       <span>
@@ -397,7 +471,113 @@ export default function Home() {
             </div>
           );
         })}
-      </div>
+      </section>
+
+      {/* 자소서 */}
+      <section className={style.resume_box}>
+        <div className={`wrap flex_center ${style.resume_wrap}`}>
+          <div className={style.left}>
+            <div className={` ${style.shortcut}`}>
+              <a
+                href="/project"
+                title="프로젝트 바로가기"
+                className={`flex_center`}
+              >
+                PROJECT
+              </a>
+              <a
+                href="/contact"
+                title="컨텍트 바로가기"
+                className={`flex_center`}
+              >
+                CONTACT
+              </a>
+
+              <a
+                href="/career"
+                title="커리어 바로가기"
+                className={`flex_center`}
+              >
+                CAREER
+              </a>
+              <a
+                href="https://thunhye.notion.site/dde0ea1679e5421e868e63a9410ccbcf?pvs=4"
+                target="_blank"
+                title="이력서 바로가기"
+                className={`flex_center`}
+              >
+                RESUME
+              </a>
+            </div>
+
+            <h6 className={style.title}>FULL-STACK DEVELOPER</h6>
+
+            <div className={style.txt}>
+              <p>
+                탄핵소추의 의결을 받은 자는 탄핵심판이 있을 때까지 그 권한행사가
+                정지된다. 각급 선거관리위원회의 조직·직무범위 기타 필요한 사항은
+                법률로 정한다. 국회는 상호원조 또는 안전보장에 관한 조약, 중요한
+                국제조직에 관한 조약, 우호통상항해조약, 주권의 제약에 관한 조약,
+                강화조약, 국가나 국민에게 중대한 재정적 부담을 지우는 조약 또는
+                입법사항에 관한 조약의 체결·비준에 대한 동의권을 가진다.
+              </p>
+
+              <p>
+                근로자는 근로조건의 향상을 위하여 자주적인 단결권·단체교섭권 및
+                단체행동권을 가진다. 모든 국민은 학문과 예술의 자유를 가진다.
+                재산권의 행사는 공공복리에 적합하도록 하여야 한다. 군인 또는
+                군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상
+                기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이
+                정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의
+                재판을 받지 아니한다.
+              </p>
+
+              <p>국회는 의원의 자격을 심사하며, 의원을 징계할 수 있다.</p>
+            </div>
+          </div>
+          <div className={style.right}>
+            <Image
+              src={'/img/gif_computer.png'}
+              alt="컴퓨터 gif"
+              width={0}
+              height={0}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 미정 */}
+      <section className={style.no_name_box}>
+        <div ref={scrollBgRef} className={style.scroll_bg}>
+          <Image
+            src={'/img/img_no_name_bg.svg'}
+            alt="배경"
+            width={0}
+            height={0}
+          />
+        </div>
+        {/* <div className={`wrap ${style.no_name_wrap}`}></div> */}
+      </section>
+
+      {/* 자격증 */}
+      <section className={style.certification_box}>
+        <div className={`wrap ${style.certification_wap}`}>
+          <h6>MY CERTIFICATION</h6>
+
+          <div className={`flex_between ${style.crti_card}`}>
+            {certifiArr.map((crti: certifiType, idx2: number) => {
+              return (
+                <div key={crti.name + idx2} className="flex_between">
+                  <p>{crti.name}</p>
+                  <span className={style.date}>{crti.date}</span>
+                  <span className={style.agency}>{crti.agency}</span>
+                  <p className={style.detail}>{crti.detail}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

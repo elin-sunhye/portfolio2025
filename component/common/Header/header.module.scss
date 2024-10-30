@@ -4,6 +4,7 @@
   position: fixed;
   left: 13rem;
   top: 8rem;
+  z-index: 999999;
 
   &::before {
     content: '';
