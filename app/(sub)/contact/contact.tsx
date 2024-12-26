@@ -46,7 +46,7 @@ export default function Contact() {
         <>
             {/* 서브탑 */}
             <div className={style.sub_top}>
-                <p>Let`&apos;s Connect</p>
+                <h2>Let&apos;s Connect</h2>
             </div>
 
             {/* 컨텐츠 */}
@@ -106,7 +106,7 @@ export default function Contact() {
                             />
                         </div>
                         <div className={style.row}>
-                            <label htmlFor={"pn"}>Company Number or Reply Number</label>
+                            <label htmlFor={"pn"}>Reply Number</label>
                             <input
                                 id={"pn"}
                                 className={`${inpStyle.input} ${inpStyle.lg}`}
@@ -119,7 +119,8 @@ export default function Contact() {
                                 {...register("pn", {
                                     required: "회신 받을 연락처를 입력해주세요.",
                                     pattern: {
-                                        value: /(01[016789])-(\d{3,4})-(\d{4})/,
+                                        value: /(\d{3})-(\d{3,4})-(\d{4})/,
+                                        // value: /(01[016789])-(\d{3,4})-(\d{4})/,
                                         message: "숫자만 입력해주세요.",
                                     },
                                 })}
@@ -155,7 +156,7 @@ export default function Contact() {
                         </div>
 
                         <div className={style.row}>
-                            <p className={style.essential}>모두 필수 사항입니다.</p>
+                            <p className={style.essential}>모두 필수 사항입니다 :)</p>
                             <p className={style.error_message}>
                                 <span>
                                     {errors.compNm && errors.compNm.message}
@@ -172,8 +173,9 @@ export default function Contact() {
                             </p>
 
                             <Btn id={'contact'} title={'연락하기'}
+                                 color={"blue"}
+                                 isHover
                                  type="submit"
-
                             >SEND</Btn>
                         </div>
 

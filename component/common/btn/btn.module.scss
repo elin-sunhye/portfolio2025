@@ -21,68 +21,114 @@ a.btn {
     font-size: var(--fs-14);
     padding: 0 1rem;
   }
+
   &.sm {
     height: 3.2rem;
     padding: 0 1.2rem;
   }
+
   &.md {
     // 기본 사이즈
     height: 4.4rem;
     font-size: var(--fs-16);
     padding: 0 2rem;
   }
+
   &.lg {
     height: 5.6rem;
     font-size: var(--fs-18);
     padding: 0 2.4rem;
   }
+
   &.xlg {
     height: 6.4rem;
     font-size: var(--fs-18);
     padding: 0 2.4rem;
   }
 
-  /* color */
+  /* color + hover */
   &.white {
     // 기본 컬러
     border-color: var(--gray-3);
+
+    &.white_hover {
+
+    }
   }
+
+
   &.black {
     background-color: var(--black);
     border-color: var(--black);
     color: var(--white);
+
+    &.black_hover:hover {
+    }
   }
-  &.mainColor {
-    background-color: var(--main-orange-1);
-    border-color: var(--main-orange-1);
+
+  &.orange {
+    background-color: var(--orange-01);
+    border-color: var(--orange-01);
     color: var(--white);
+
+    &.orange_hover:hover {
+    }
   }
-  &.mainColorBorder {
-    border-color: var(--main-orange-1);
-    color: var(--main-orange-1);
+
+  &.orangeBorder {
+    border-color: var(--orange-01);
+    color: var(--orange-1);
+
+    &.orangeBorder_hover:hover {
+    }
+  }
+
+  &.blue {
+    background-color: var(--blue-01);
+    border-color: var(--blue-01);
+    color: var(--white);
+
+    &.blue_hover:hover {
+      background-color: var(--white);
+      color: var(--blue-01);
+    }
+  }
+
+  &.blueBorder {
+    border-color: var(--blue-01);
+    color: var(--blue-01);
+
+    &.blueBorder_hover:hover {
+    }
   }
 
   /* border */
   &.br_square_round_1 {
     border-radius: var(--br-3);
   }
+
   &.br_square_round_2 {
     &.xsm {
       border-radius: var(--br-8);
     }
+
     &.sm {
       border-radius: var(--br-10);
     }
+
     &.md {
       border-radius: var(--br-12);
     }
+
     &.lg {
       border-radius: var(--br-14);
     }
+
     &.xlg {
       border-radius: var(--br-16);
     }
   }
+
   &.br_round {
     border-radius: var(--br-50);
   }
