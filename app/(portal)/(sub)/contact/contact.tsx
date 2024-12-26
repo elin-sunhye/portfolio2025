@@ -10,7 +10,6 @@ import {useForm} from "react-hook-form";
 import {ChangeEvent} from "react";
 import Textarea from "@/component/common/Textarea/Textarea";
 import Btn from "@/component/common/btn/Btn";
-import {useRouter} from "next/navigation";
 import {useAutoAlert} from "@/hook/useAutoAlert";
 
 //
@@ -23,7 +22,6 @@ interface sendMailForm {
 
 export default function Contact() {
     //
-    const router = useRouter();
     const {setIsChange, setStatus, setText} = useAutoAlert();
 
     // 메일 연락 ---------------------------------
@@ -34,9 +32,6 @@ export default function Contact() {
         reset,
         handleSubmit,
         setValue,
-        getValues,
-        setError,
-        setFocus,
     } = useForm<sendMailForm>({
         mode: "onChange",
         defaultValues: {
@@ -51,7 +46,7 @@ export default function Contact() {
         <>
             {/* 서브탑 */}
             <div className={style.sub_top}>
-                <p>Let's Connect</p>
+                <p>Let`&apos;s Connect</p>
             </div>
 
             {/* 컨텐츠 */}
@@ -92,7 +87,7 @@ export default function Contact() {
 
                     {/* 메일 연락 */}
                     <form className={style.right}
-                          onSubmit={handleSubmit((data: sendMailForm) => {
+                          onSubmit={handleSubmit(() => {
                               setIsChange(true);
                               setStatus("success");
                               setText("전송되었습니다.")
