@@ -7,10 +7,11 @@ import {MdOutlineMarkEmailUnread, MdSocialDistance} from "react-icons/md";
 import {BsTelephone} from "react-icons/bs";
 import {IoMdInformationCircleOutline} from "react-icons/io";
 import {useForm} from "react-hook-form";
-import {ChangeEvent} from "react";
+import {ChangeEvent, useRef} from "react";
 import Textarea from "@/component/common/Textarea/Textarea";
 import Btn from "@/component/common/btn/Btn";
 import {useAutoAlert} from "@/hook/useAutoAlert";
+import emailjs from "@emailjs/browser";
 
 //
 interface sendMailForm {
@@ -41,6 +42,8 @@ export default function Contact() {
             message: "",
         },
     });
+
+    const form = useRef<HTMLFormElement>(null);
 
     return (
         <>
@@ -87,11 +90,42 @@ export default function Contact() {
 
                     {/* 메일 연락 */}
                     <form className={style.right}
+                          ref={form}
                           onSubmit={handleSubmit(() => {
-                              setIsChange(true);
-                              setStatus("success");
-                              setText("전송되었습니다.")
-                              reset();
+                              if (form.current) {
+                                  emailjs
+                                      .sendForm(
+                                          "service_rhrlprh",
+                                          "template_e41jyxh",
+                                          form.current,
+                                          "ZpeMXkqsMX992vcEG"
+                                      )
+                                      .then(
+                                          (result) => {
+                                              if (result.status === 200) {
+                                                  setIsChange(true);
+                                                  setStatus("success");
+                                                  setText("전송되었습니다.")
+                                                  form.current?.reset();
+                                                  reset();
+                                              } else {
+                                                  setText(
+                                                      `이메일 전송이 실패되었습니다. | ${result.text}`
+                                                  );
+                                                  setIsChange(true);
+                                                  setStatus("success");
+                                              }
+                                          },
+                                          (error) => {
+                                              setText(
+                                                  `이메일 전송이 실패되었습니다. | ${error.text}`
+                                              );
+                                              setIsChange(true);
+                                              setStatus("success");
+                                          }
+                                      )
+
+                              }
                           })}>
                         <div className={style.row}>
                             <label htmlFor={"compNm"}>Company</label>
