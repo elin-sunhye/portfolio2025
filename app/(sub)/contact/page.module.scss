@@ -5,8 +5,31 @@
   text-align: center;
 
   h2 {
+    width: fit-content;
+    margin: 0 auto;
     font-size: var(--fs-36);
     padding: 12rem 0;
+    font-weight: 900;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 470px;
+      height: 174px;
+      background: url("../../../public/img/img_oval_bg.svg") no-repeat 0 0 / cover;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s;
+    }
+
+    &:hover {
+      &::before {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
   }
 }
 
