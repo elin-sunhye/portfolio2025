@@ -85,7 +85,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* 메일 연락 */}
+                    {/* 메일 연락 */}몃
                     <form className={style.right}
                           onSubmit={handleSubmit(() => {
                               setIsChange(true);

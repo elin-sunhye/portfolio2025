@@ -6,7 +6,7 @@ import {
     openAlertStatus,
     openAlertText,
 } from "@/recoil/autoAlert";
-import "./AutoAlert.scss";
+import "./autoAlert.scss";
 import {
     BsXCircleFill,
     BsExclamationTriangleFill,
