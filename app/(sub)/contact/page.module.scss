@@ -1,13 +1,18 @@
 // 서브탑
 .sub_top {
   width: 100%;
-  height: 27rem;
-  background: url('../../../../public/img/img_paper_bg_1.svg') no-repeat 0 0 / cover;
+  background: url('../../../public/img/img_paper_bg_3.svg') no-repeat 0 0 / cover;
+  text-align: center;
+
+  h2 {
+    font-size: var(--fs-36);
+    padding: 12rem 0;
+  }
 }
 
 // 컨텐츠
 .contact_box {
-  background: url('../../../../public/img/img_paper_bg_2.svg') no-repeat 0 0 / cover;
+  background: url('../../../public/img/img_paper_bg_2.svg') no-repeat 0 0 / cover;
   border-width: 1px 0 1px 0;
   border: solid #333;
 
@@ -87,6 +92,8 @@
         input, textarea {
           background: transparent;
           border: 1px solid var(--black);
+          border-radius: 0;
+          transition: all 0.2s;
 
           &:hover,
           &:focus {
@@ -94,7 +101,6 @@
             outline: none;
           }
         }
-
 
         .essential,
         .error_message {
@@ -109,8 +115,12 @@
             color: var(--error-3);
           }
         }
-      }
 
+        button {
+          width: 100%;
+          border: 1px solid var(--blue-01);
+        }
+      }
     }
   }
 }

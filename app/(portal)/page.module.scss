@@ -29,7 +29,7 @@
 
     span {
       display: inline-block;
-      width: 35rem;
+      width: 350px;
       position: absolute;
       top: 50%;
       right: -30%;
@@ -46,12 +46,12 @@
 // 무한 롤링
 .ico_flower,
 .ico_v {
-  width: 3rem;
+  width: 30px;
   height: auto;
   margin-bottom: 1rem;
 
   &.ico_v {
-    width: 2.3rem;
+    width: 23px;
   }
 }
 
@@ -101,7 +101,7 @@
 
         span {
           display: inline-block;
-          width: 5rem;
+          width: 50px;
           background-color: var(--white);
           border-radius: var(--br-50pro);
           padding: 0.5rem;
@@ -150,7 +150,7 @@
       background: url('../../public/img/img_skill_2.svg') no-repeat 0 0 / cover;
 
       h6 {
-        color: var(--sub-orange-02);
+        color: var(--orange-02);
 
         .img {
           width: 4rem;
@@ -185,7 +185,7 @@
 
       h6 {
         font-family: 'BriceSemiEx';
-        color: var(--sub-blue-01);
+        color: var(--blue-01);
 
         .img {
           width: 4.7rem;
@@ -388,7 +388,7 @@
       font-family: 'Brice';
       font-weight: 800;
       text-align: center;
-      color: var(--sub-yellow-02);
+      color: var(--yellow-02);
     }
 
     .crti_card {
