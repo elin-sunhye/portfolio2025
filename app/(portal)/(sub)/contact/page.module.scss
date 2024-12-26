@@ -1,0 +1,116 @@
+// 서브탑
+.sub_top {
+  width: 100%;
+  height: 27rem;
+  background: url('../../../../public/img/img_paper_bg_1.svg') no-repeat 0 0 / cover;
+}
+
+// 컨텐츠
+.contact_box {
+  background: url('../../../../public/img/img_paper_bg_2.svg') no-repeat 0 0 / cover;
+  border-width: 1px 0 1px 0;
+  border: solid #333;
+
+  .contact_wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .left,
+    .right {
+      width: 50%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    // 정보
+    .left {
+      box-sizing: border-box;
+      padding: 10rem 5rem 10rem 0;
+
+      & > div {
+        width: 50%;
+        height: 16rem;
+
+        span.ico {
+          font-size: var(--fs-36);
+        }
+
+        p:not(.information) {
+          margin: 1rem 0;
+          font-size: var(--fs-20);
+          font-family: 'Brice';
+        }
+
+        a {
+          display: inline-block;
+          line-height: 1.2;
+
+          &.ico {
+            font-size: 2.8rem;
+            margin-right: 1rem;
+          }
+        }
+
+        .information {
+          span {
+            display: block;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+
+    // 메일 연락
+    .right {
+      padding: 10rem 0 10rem 5rem;
+      border-left: 1px solid #333;
+
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+
+        label {
+          width: 100%;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+
+        input, textarea {
+          background: transparent;
+          border: 1px solid var(--black);
+
+          &:hover,
+          &:focus {
+            background-color: var(--white);
+            outline: none;
+          }
+        }
+
+
+        .essential,
+        .error_message {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        .error_message {
+          span {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--error-3);
+          }
+        }
+      }
+
+    }
+  }
+}
