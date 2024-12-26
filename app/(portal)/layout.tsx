@@ -1,6 +1,6 @@
 import Header from '@/component/common/Header/Hedaer';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import AutoAlert from "@/component/common/AutoAlert/Auto";
+import AutoAlert from "@/component/common/AutoAlert/AutoAlert";
 
 export default function MainLayout({
                                        children,
