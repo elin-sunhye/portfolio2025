@@ -1,0 +1,14 @@
+// 서브탑
+.sub_top {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+        width: fit-content;
+        margin: 0 auto;
+        font-size: var(--fs-48);
+        color: var(--pink-01);
+        padding: 12rem 0;
+        font-weight: 900;
+    }
+}
