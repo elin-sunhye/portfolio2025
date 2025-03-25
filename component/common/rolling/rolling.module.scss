@@ -1,141 +1,143 @@
 // rolling_box
 .rolling_box {
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 
-  .rolling_list {
-    position: relative;
-    gap: 5rem;
-    padding: 3rem 0 2.2rem 0;
-
-    p {
-      width: max-content;
-      text-align: center;
-      font-size: var(--fs-48);
-      font-family: 'BriceSemiEx';
-      font-weight: 800;
-      // line-height: 1;
-      gap: 1rem;
-    }
-
-    &.original {
-      // animation: 50s linear infinite normal none running rolling1;
-      animation: flow 30s linear infinite;
-    }
-    &.clone {
-      // animation: 50s linear infinite rolling2;
-      animation: flow 30s linear infinite;
-    }
-    &.original.stop,
-    &.clone.stop {
-      animation-play-state: paused;
-    }
-
-    & > div,
-    & > a,
-    & > button {
-      margin: 0 1.5rem;
-    }
-  }
-
-  // right
-  &.right {
     .rolling_list {
-      position: relative;
+        position: relative;
+        gap: 5rem;
+        padding: 3rem 0 2.2rem 0;
 
-      &.original {
-        // animation: 30s linear infinite normal none running rollingRight1;
-        animation: flow2 30s linear infinite;
-      }
-      &.clone {
-        // animation: 30s linear infinite rollingRight2;
-        animation: flow2 30s linear infinite;
-      }
-      &.original.stop,
-      &.clone.stop {
-        animation-play-state: paused;
-      }
+        p {
+            width: max-content;
+            text-align: center;
+            font-size: var(--fs-48);
+            font-family: 'Brice';
+            font-weight: 800;
+            // line-height: 1;
+            gap: 1rem;
+
+            cursor: default;
+        }
+
+        &.original {
+            // animation: 50s linear infinite normal none running rolling1;
+            animation: flow 30s linear infinite;
+        }
+        &.clone {
+            // animation: 50s linear infinite rolling2;
+            animation: flow 30s linear infinite;
+        }
+        &.original.stop,
+        &.clone.stop {
+            animation-play-state: paused;
+        }
+
+        & > div,
+        & > a,
+        & > button {
+            margin: 0 1.5rem;
+        }
     }
-  }
+
+    // right
+    &.right {
+        .rolling_list {
+            position: relative;
+
+            &.original {
+                // animation: 30s linear infinite normal none running rollingRight1;
+                animation: flow2 30s linear infinite;
+            }
+            &.clone {
+                // animation: 30s linear infinite rollingRight2;
+                animation: flow2 30s linear infinite;
+            }
+            &.original.stop,
+            &.clone.stop {
+                animation-play-state: paused;
+            }
+        }
+    }
 }
 
 @keyframes rolling1 {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-100%);
-  }
-  50.1% {
-    transform: translateX(100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    50.1% {
+        transform: translateX(100%);
+    }
 
-  100% {
-    transform: translateX(0);
-  }
+    100% {
+        transform: translateX(0);
+    }
 }
 @keyframes rolling2 {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-200%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
 }
 
 // right
 @keyframes rollingRight1 {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(100%);
-  }
-  50.1% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    50.1% {
+        transform: translateX(-100%);
+    }
 
-  100% {
-    transform: translateX(0);
-  }
+    100% {
+        transform: translateX(0);
+    }
 }
 @keyframes rollingRight2 {
-  0% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 // animation: flow 30s linear infinite;
 @keyframes flow {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 @keyframes flow2 {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 // 모바일 ---------------------------------
 @media screen and (max-width: 640px) {
-  // rolling_box
-  .rolling_box {
-    .rolling_list {
-      & > div,
-      & > a,
-      & > button {
-        margin: 0 0.5rem;
-      }
+    // rolling_box
+    .rolling_box {
+        .rolling_list {
+            & > div,
+            & > a,
+            & > button {
+                margin: 0 0.5rem;
+            }
+        }
     }
-  }
 }

@@ -1,0 +1,36 @@
+.modal_wrap {
+    position: fixed;
+    left: 0;
+    transform: translate(0, -50%);
+
+    width: 100vw;
+    height: 100vh;
+
+    transition: all 0.5s;
+
+    &.open {
+        top: 50%;
+    }
+
+    &.close {
+        top: 200%;
+    }
+
+    .modal_box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 50%;
+        height: 70rem;
+
+        background: url('../../../public/img/img_paper_bg_5.svg') no-repeat 0 0 /
+            cover;
+
+        .btn_close {
+            font-family: 'Brice';
+            background-color: transparent;
+        }
+    }
+}

@@ -1,15 +1,15 @@
 import Header from '@/component/common/Header/Hedaer';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import AutoAlert from "@/component/common/AutoAlert/AutoAlert";
+import AutoAlert from '@/component/common/AutoAlert/AutoAlert';
 
 export default function MainLayout({
-                                       children,
-                                   }: {
+    children,
+}: {
     children: React.ReactNode;
 }) {
     return (
         <>
-            <Header/>
+            <Header />
             {/* content */}
             <ReactQueryProvider>
                 <div>
@@ -19,7 +19,7 @@ export default function MainLayout({
                 {/* <div className="wrap"></div> */}
 
                 {/* autoAlert */}
-                <AutoAlert/>
+                <AutoAlert />
             </ReactQueryProvider>
             {/* footer */}
             {/* <Footer /> */}

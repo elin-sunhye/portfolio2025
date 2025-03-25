@@ -16,86 +16,89 @@
 // animation :name | duration | timing-function | delay | iteration-count | direction | fill-mode;
 
 :root {
-  // font fam
+    // font fam
 
-  // font size
-  --fs-14: 1.4rem;
-  --fs-16: 1.6rem;
-  --fs-18: 1.8rem;
-  --fs-20: 2rem;
-  --fs-24: 2.4rem;
-  --fs-36: 3.6rem;
-  --fs-48: 4.8rem;
-  --fs-60: 6rem;
-  --fs-72: 7.2rem;
+    // font size
+    --fs-14: 1.4rem;
+    --fs-16: 1.6rem;
+    --fs-18: 1.8rem;
+    --fs-20: 2rem;
+    --fs-24: 2.4rem;
+    --fs-36: 3.6rem;
+    --fs-48: 4.8rem;
+    --fs-60: 6rem;
+    --fs-72: 7.2rem;
 
-  // line height
-  --lh-12: 1.2;
-  --lh-15: 1.5;
+    // line height
+    --lh-12: 1.2;
+    --lh-15: 1.5;
 
-  // border radius
-  --br-5: 0.5rem;
-  --br-10: 1rem;
-  --br-50: 5rem;
-  --br-50pro: 50%;
+    // border radius
+    --br-5: 0.5rem;
+    --br-10: 1rem;
+    --br-50: 5rem;
+    --br-50pro: 50%;
 
-  // gray scale
-  --white: #fff;
-  --gray-1: #eee;
-  --gray-1-trans: #eeeeee61;
-  --gray-2: #dfdfdf;
-  --gray-3: #ccc; // disabled
-  --gray-4: #a3a3a3;
-  --gray-5: #747474;
-  --black: #0c0c0c;
+    // gray scale
+    --white: #fff;
+    --gray-1: #eee;
+    --gray-1-trans: #eeeeee61;
+    --gray-2: #dfdfdf;
+    --gray-3: #ccc; // disabled
+    --gray-4: #a3a3a3;
+    --gray-5: #747474;
+    --black: #0c0c0c;
 
-  // main color
-  // --main-green-1: #164400;
+    // main color
+    // --main-green-1: #164400;
 
-  // sub color
-  --pink-01: #c4a1ab;
+    // sub color
+    --pink-01: #c4a1ab;
 
-  --orange-01: #ff4f4f;
-  --orange-02: #ee5129;
+    --orange-01: #ff4f4f;
+    --orange-02: #ee5129;
 
-  --yellow-01: #fffef2;
-  --yellow-02: #fef9f6;
+    --yellow-01: #fffef2;
+    --yellow-02: #fef9f6;
 
-  --blue-01: #00254e;
+    --blue-01: #00254e;
+    --blue-02: #3d9be9;
 
-  // error
-  --error-1: #fdeaea;
-  --error-2: #fab2a9;
-  --error-3: #ed5e5e;
-  --error03: #f40000;
+    --pink-01: #ff77b8;
 
-  // warning
-  --warning-1: #fff5e9;
-  --warning-2: #ffde8a;
-  --warning-3: #ffc421;
-  --warning-4: #ff8a00;
+    // error
+    --error-1: #fdeaea;
+    --error-2: #fab2a9;
+    --error-3: #ed5e5e;
+    --error03: #f40000;
 
-  // info
-  --info-1: #e8f5e8;
-  --info-2: #8adaa0;
-  --info-3: #3ebe4b;
-  --info-4: #006434;
+    // warning
+    --warning-1: #fff5e9;
+    --warning-2: #ffde8a;
+    --warning-3: #ffc421;
+    --warning-4: #ff8a00;
 
-  // success
-  --success-1: #e8edf5;
-  --success-2: #b4cfff;
-  --success-3: #6495f7;
-  --success-4: #013872;
+    // info
+    --info-1: #e8f5e8;
+    --info-2: #8adaa0;
+    --info-3: #3ebe4b;
+    --info-4: #006434;
 
-  // shadow
-  --menu-shadow: 1rem 1rem 3rem rgba(36, 36, 36, 0.2);
-  --shadow-1: 2rem 2rem 4rem rgba(36, 36, 36, 0.2);
+    // success
+    --success-1: #e8edf5;
+    --success-2: #b4cfff;
+    --success-3: #6495f7;
+    --success-4: #013872;
 
-  // blur
-  --blur-1: blur(1rem);
+    // shadow
+    --menu-shadow: 1rem 1rem 3rem rgba(36, 36, 36, 0.2);
+    --shadow-1: 2rem 2rem 4rem rgba(36, 36, 36, 0.2);
 
-  // transition
-  --transition-03: all 0.3s;
+    // blur
+    --blur-1: blur(1rem);
+
+    // transition
+    --transition-03: all 0.3s;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -132,35 +135,35 @@
 } */
 
 * {
-  box-sizing: border-box;
-  -webkit-text-size-adjust: none;
-  // outline-color: var(--main-green-1);
-  word-break: keep-all;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    // outline-color: var(--main-green-1);
+    word-break: keep-all;
 }
 
 html,
 body {
-  max-width: 100vw;
-  // overflow-x: hidden;
-  font-weight: 400;
-  font-family: var(--Termina);
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-weight: 400;
+    font-family: var(--Termina);
 }
 
 html {
-  font-size: 62.5%;
-  // overflow-x: hidden;
+    font-size: 62.5%;
+    // overflow-x: hidden;
 }
 
 body {
-  font-size: var(--fs-16);
-  color: var(--black);
-  // color: var(--main-green-1);
-  background: var(--white);
-  // line-height: var(--lh-12);
+    font-size: var(--fs-16);
+    color: var(--black);
+    // color: var(--main-green-1);
+    background: var(--white);
+    // line-height: var(--lh-12);
 }
 
 section {
-  min-width: 130px;
+    min-width: 130px;
 }
 
 // .section_padding {
@@ -168,15 +171,15 @@ section {
 // }
 
 .wrap {
-  max-width: 1200px;
-  width: 100%;
-  padding: 10rem 5rem;
-  margin: 0 auto;
-  transition: all 0.5s;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10rem 5rem;
+    margin: 0 auto;
+    transition: all 0.5s;
 }
 
 img {
-  width: 100%;
+    width: 100%;
 }
 
 /* SCROLL BAR COMMON */
@@ -197,85 +200,85 @@ img {
 
 // pc에서 모바일 숨기기
 [class^='mo_'] {
-  display: none !important;
+    display: none !important;
 }
 
 // 웹표준
 // 스크린 리더에는 읽히지만 보이지 않음
 .screen_out {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -0.1rem;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0); /* 구형 브라우저를 위해 사용 */
-  clip-path: polygon(0 0, 0 0, 0 0); /* inset(50%) 와 동일한 표현 */
-  border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -0.1rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* 구형 브라우저를 위해 사용 */
+    clip-path: polygon(0 0, 0 0, 0 0); /* inset(50%) 와 동일한 표현 */
+    border: 0;
 }
 
 // 랜더링 딘 후 처음 tab 클릭 시 보여지는 버튼들
 // 아이디 사용 필수
 #accessibility {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 }
 
 // #accessibility li{position:absolute; left:0; top:0; width:100%; z-index:9999;}
 #accessibility a,
 #accessibility button {
-  overflow: hidden;
-  display: block;
-  width: 1px;
-  height: 1px;
-  margin-bottom: -0.1rem;
-  color: #444;
-  font-size: 0;
-  text-decoration: none;
+    overflow: hidden;
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-bottom: -0.1rem;
+    color: #444;
+    font-size: 0;
+    text-decoration: none;
 }
 
 #accessibility a:active,
 #accessibility a:focus,
 #accessibility button:active,
 #accessibility button:focus {
-  width: 100%;
-  height: auto;
-  padding: 0.5rem 0;
-  background: #eee;
-  font-size: var(--fs-14);
-  text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0;
+    background: #eee;
+    font-size: var(--fs-14);
+    text-align: center;
 }
 
 // 공통 flex_class
 .no_scroll {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .flex_center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex_between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .flex_start {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .flex_end {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -290,42 +293,42 @@ img {
 // @media screen and (max-width: 1200px){}
 // 테블릿
 @media screen and (max-width: 1024px) {
-  body {
-    font-size: var(--fs-16);
-  }
-  // .wrap {
-  //   max-width: unset;
-  //   width: 100%;
-  //   padding: 0 calc(15% / 2);
-  // }
+    body {
+        font-size: var(--fs-16);
+    }
+    // .wrap {
+    //   max-width: unset;
+    //   width: 100%;
+    //   padding: 0 calc(15% / 2);
+    // }
 
-  .section_padding {
-    padding: 8rem 0;
-  }
+    .section_padding {
+        padding: 8rem 0;
+    }
 }
 
 // 모바일
 @media screen and (max-width: 768px) {
-  .section_padding {
-    padding: 4rem 0;
-  }
+    .section_padding {
+        padding: 4rem 0;
+    }
 
-  .wrap {
-    padding: 0 2rem;
-  }
+    .wrap {
+        padding: 0 2rem;
+    }
 
-  br {
-    display: none;
-  }
+    br {
+        display: none;
+    }
 
-  // 모바일에서 pc 숨기기
-  [class^='pc_'] {
-    display: none !important;
-  }
-  // 모바일에서 모바일 생성
-  [class^='mo_'] {
-    display: flex !important;
-  }
+    // 모바일에서 pc 숨기기
+    [class^='pc_'] {
+        display: none !important;
+    }
+    // 모바일에서 모바일 생성
+    [class^='mo_'] {
+        display: flex !important;
+    }
 }
 
 // @media screen and (max-width: 640px){}
