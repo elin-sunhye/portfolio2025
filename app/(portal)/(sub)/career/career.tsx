@@ -3,13 +3,10 @@ import style from './page.module.scss';
 import { careerType } from '@/type/career';
 import Card from '@/component/common/Card/Card';
 import SubTop from '@/component/common/SubTop/Subtop';
-import { useRouter } from 'next/navigation';
 import Modal from '@/component/common/Modal/Modal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Career() {
-    //
-    const route = useRouter();
 
     // 커리어 리스트
     const careerArr: careerType[] = [

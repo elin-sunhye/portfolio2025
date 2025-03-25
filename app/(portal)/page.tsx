@@ -4,7 +4,6 @@ import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
 import { useEffect, useRef } from 'react';
-import RollingDemo from '@/component/common/rolling/rollingDemo';
 
 //
 interface certifiType {
