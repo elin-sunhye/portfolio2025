@@ -10,6 +10,7 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
+
         padding-top: 0;
 
         & > div {
@@ -37,6 +38,47 @@
             &:hover {
                 scale: 0.9;
             }
+        }
+    }
+
+    .modal_box {
+        .desc,
+        .title,
+        .img_box {
+            margin-bottom: 2rem;
+        }
+
+        .desc {
+            display: block;
+            font-size: var(--fs-14);
+        }
+
+        .title {
+            font-family: 'Brice';
+            font-size: var(--fs-36);
+            font-weight: 900;
+        }
+
+        .img_box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+
+            width: 100%;
+
+            span {
+                display: inline-block;
+
+                width: 100%;
+                aspect-ratio: 1 / 1;
+
+                border: 1px solid #333;
+            }
+        }
+
+        .btn_url {
+            background-color: transparent;
         }
     }
 }

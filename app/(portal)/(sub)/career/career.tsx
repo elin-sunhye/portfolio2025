@@ -1,150 +1,19 @@
 'use client';
 import style from './page.module.scss';
-import { careerType } from '@/type/career';
+import { cardType } from '@/type/commonType';
 import Card from '@/component/common/Card/Card';
 import SubTop from '@/component/common/SubTop/Subtop';
 import Modal from '@/component/common/Modal/Modal';
 import { useState } from 'react';
+import { careerArr } from '@/datas/career';
+import Btn from '@/component/common/btn/Btn';
 
 export default function Career() {
-
-    // 커리어 리스트
-    const careerArr: careerType[] = [
-        {
-            title: 'Back office',
-            desc: '프로젝트 운영, 관리, 지원 시스템',
-            site: '',
-            skill: [
-                'React.js',
-                'Next.js',
-                'JavaScript',
-                'TypeScript',
-                'SCSS',
-                'CSS',
-            ],
-            point: [
-                'NextAuth 라이브러리를 이용한 로그인 로그아웃 구현',
-                'Referer, X-Forwarded-For 접속 성세 로그 구현 구현',
-                '게시판 CRUD 기본적인 데이터 처리 기능 구현',
-                'chart.js를 활용한 데이터 시각화',
-                'Radix, mui 라이브러리를 활용한 컴포넌트 개발',
-            ],
-        },
-        {
-            title: 'Wisdom',
-            desc: '경남대학과 지역산업의 공생 발전을 위한 산학연 플랫폼(LINC 사업)',
-            site: 'https://wisdom.kyungnam.ac.kr/',
-            skill: [
-                'React.js',
-                'Next.js',
-                'JavaScript',
-                'TypeScript',
-                'SCSS',
-                'CSS',
-            ],
-            point: [
-                '카카오 맵 API를 활용한 마커 위치 구현',
-                '시간별 공간 대여 기능 구현',
-                '공통 게시판 모듈 구현',
-                '권한별 메뉴 관리 시스템 개발',
-                'html2canvas 라이브러리 및 react-to-print 라이브러리를 활용한 프린트 기능 구현',
-                'xlsx 라이브러리를 활용한 엑셀 다운로드 기능 구현',
-                'html2canvas 라이브러리를 활용한 PDF 다운로드 기능 구현',
-                'react-pdf 라이브러리를 활용한 PDF 내용 보기 구현',
-                '게시판 CRUD 기본적인 데이터 처리 기능 구현',
-                '카카오, 라인, 페이스북 공유 기능 구현',
-                'chart.js를 활용한 데이터 시각화',
-                'localStorage를 이용한 팝업 구현',
-                'Radix ux/ui 라이브러리를 활용한 컴포넌트 개발',
-                '미디어쿼리를 이용한 반응형/적응형 구현',
-            ],
-        },
-        {
-            title: 'GnCar',
-            desc: '경남 TP 버추얼 개발 기술 지원 플랫폼',
-            site: 'https://gncar.gntp.or.kr/',
-            skill: [
-                'React.js',
-                'Next.js',
-                'JavaScript',
-                'TypeScript',
-                'SCSS',
-                'CSS',
-            ],
-            point: [
-                '카카오 맵 API를 활용한 부품 장비 기업 검색 기능 구현',
-                '협약, 수행 등 단계별 지원 사업 관리 구현',
-                'react-to-print 라이브러리를 활용한 프린트 기능 구현',
-                'xlsx 라이브러리를 활용한 엑셀 다운로드 기능 구현',
-                'html2canvas 라이브러리를 활용한 PDF 다운로드 기능 구현',
-                'html2canvas 라이브러리 및 react-to-print 라이브러리를 활용한 프린트 기능 구현',
-                '권한별 메뉴 관리 시스템 개발',
-                '게시판 CRUD 기본적인 데이터 처리 기능 구현',
-                'localStorage를 이용한 팝업 구현',
-                'Radix ux/ui 라이브러리를 활용한 컴포넌트 개발',
-                '미디어쿼리를 이용한 반응형/적응형 구현',
-            ],
-        },
-        {
-            title: 'GnWp',
-            desc: '경상남도 통합 일자리 플랫폼',
-            site: 'https://job.giba.or.kr/',
-            skill: [
-                'React.js',
-                'Next.js',
-                'JavaScript',
-                'TypeScript',
-                'SCSS',
-                'CSS',
-            ],
-            point: [
-                '카카오 맵 API를 활용한 내 주변 채용 정보 및 검색 구현',
-                'xlsx 라이브러리를 활용한 엑셀 다운로드 기능 구현',
-                'html2canvas 라이브러리를 활용한 PDF 다운로드 기능 구현',
-                'html2canvas 라이브러리 및 react-to-print 라이브러리를 활용한 프린트 기능 구현',
-                '채용 정보 검색 필터링 구현',
-                '챗봇 기능 구현',
-                '미디어쿼리를 이용한 반응형/적응형 구현',
-            ],
-        },
-        {
-            title: 'GnHome',
-            desc: '경남 공동 주택 관리 통합 플랫폼',
-            site: 'https://gnhome.kr/',
-            skill: [
-                'React.js',
-                'Next.js',
-                'JavaScript',
-                'TypeScript',
-                'SCSS',
-                'CSS',
-            ],
-            point: [
-                'CMS 공문 서식 등록 기능 개발',
-                'CMS 공문 등록 및 결재 시스템 개발',
-                'xlsx 라이브러리를 활용한 엑셀 다운로드 기능 구현',
-                'html-docx-js-typescript 라이브러리를 이용한 활용한 PDF 다운로드 기능 구현',
-                'html2canvas 라이브러리 및 react-to-print 라이브러리를 활용한 프린트 기능 구현',
-                '게시판 CRUD 기본적인 데이터 처리 기능 구현',
-                '지역별 필터링 기능 구현',
-                '미디어쿼리를 이용한 반응형/적응형 구현',
-            ],
-        },
-        {
-            title: '3D Sandan',
-            desc: '경남 공단 환경 알리미',
-            site: '',
-            skill: ['HTML5', 'CSS', 'JavaScript', 'jQuery'],
-            point: [
-                '카카오 API를 이용한 공단 내 키오스크 위치 구현',
-                '환경 단위별 필터링 기능 구현',
-                '환경 수치에 대한 데이터 시각화',
-            ],
-        },
-    ];
-
     // 모달
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    // 클릭 데이터
+    const [clickData, setClickData] = useState<cardType>({} as cardType);
 
     return (
         <div className={style.career_wrap}>
@@ -153,13 +22,14 @@ export default function Career() {
 
             {/* 컨텐츠 */}
             <div className={`wrap ${style.career_box}`}>
-                {careerArr.map((career: careerType, idx: number) => {
+                {careerArr.map((career: cardType, idx: number) => {
                     return (
                         <Card
                             key={`career_${idx}`}
                             data={career}
                             onClick={() => {
                                 setIsOpen(!isOpen);
+                                setClickData(career);
                             }}
                         />
                     );
@@ -167,7 +37,36 @@ export default function Career() {
             </div>
 
             {/* 모달 */}
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+                {!!clickData ? (
+                    <div className={style.modal_box}>
+                        <span className={style.desc}>{clickData.desc}</span>
+                        <p className={style.title}>{clickData.title}</p>
+
+                        <div className={style.img_box}>
+                            <span>img1</span>
+                            <span>img2</span>
+                        </div>
+
+                        <div className={style.info}>
+                            <p>
+                                {clickData.skill?.map((skill) => `${skill}, `)}
+                            </p>
+                        </div>
+
+                        <Btn
+                            title={clickData.title}
+                            id={clickData.title}
+                            className={style.btn_url}
+                            href={clickData.site}
+                        >
+                            Go
+                        </Btn>
+                    </div>
+                ) : (
+                    <></>
+                )}
+            </Modal>
         </div>
     );
 }

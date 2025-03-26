@@ -1,23 +1,24 @@
 'use client';
 
-import {
-    Dispatch,
-    HTMLAttributes,
-    LegacyRef,
-    MutableRefObject,
-    RefAttributes,
-    SetStateAction,
-    useEffect,
-    useRef,
-} from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import style from './modal.module.scss';
 import Btn from '../btn/Btn';
+import Image from 'next/image';
 
 interface ModalProps {
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    children: React.ReactNode;
 }
-export default function Modal({ isOpen, setIsOpen }: ModalProps) {
+export default function Modal({ isOpen, setIsOpen, children }: ModalProps) {
+    useEffect(() => {
+        if (isOpen) {
+            document.documentElement.style.overflowY = 'hidden';
+        } else {
+            document.documentElement.style.overflowY = 'auto';
+        }
+    }, [isOpen]);
+
     return (
         <div
             className={`${style.modal_wrap} ${
@@ -29,15 +30,19 @@ export default function Modal({ isOpen, setIsOpen }: ModalProps) {
                     title={'닫기 버튼'}
                     id={'close'}
                     className={style.btn_close}
-                    btnSize="xlg"
                     onClick={() => {
                         setIsOpen(!isOpen);
                     }}
                 >
-                    X
+                    <Image
+                        src={'/img/ico_close.svg'}
+                        alt="브이 아이콘"
+                        width={0}
+                        height={0}
+                    />
                 </Btn>
 
-                <p>타이틀</p>
+                <div className={style.content}>{children}</div>
             </div>
         </div>
     );

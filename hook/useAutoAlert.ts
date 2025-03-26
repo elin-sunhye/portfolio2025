@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
 import {
     openAlertState,
     openAlertStatus,
     openAlertText,
-} from "@/recoil/autoAlert";
-import {StatusType} from "@/type/common/commonType";
-import {useState, useEffect} from "react";
-import {useRecoilState} from "recoil";
+} from '@/recoil/autoAlert';
+import { StatusType } from '@/type/commonType';
+import { useState, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 
 // customHook : useAutoAlert
 function useAutoAlert() {
@@ -62,7 +62,7 @@ function useAutoAlert() {
      * @setText : AutoAlert에 표시될 텍스트
      * @setStatus : AutoAlert의 상태(표시 색깔)로, error, info, success, warning
      */
-    return {setIsChange, setText, setStatus};
+    return { setIsChange, setText, setStatus };
 }
 
-export {useAutoAlert};
+export { useAutoAlert };
