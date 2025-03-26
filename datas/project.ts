@@ -6,7 +6,7 @@ export const projectArr: cardType[] = [
         title: 'StockSim',
         desc: '가상 주식 투자 시뮬레이터',
         site: '',
-        skill: [
+        skills: [
             'Spring Boot',
             'Java',
             'JWT',
@@ -15,7 +15,7 @@ export const projectArr: cardType[] = [
             'Redis',
             'Stripe/Toss Payments',
         ],
-        point: [
+        points: [
             '회원가입 및 로그인 기능 (JWT 기반)',
             '실시간 주식 시세 조회 (외부 API 연동)',
             '가상 포인트 충전 및 결제 시스템 (Stripe/Toss Payments 연동)',
@@ -28,7 +28,7 @@ export const projectArr: cardType[] = [
         title: 'DreamPath',
         desc: '멘토링 전문 사이트',
         site: '',
-        skill: [
+        skills: [
             'Spring Boot',
             'Java',
             'JWT',
@@ -40,13 +40,13 @@ export const projectArr: cardType[] = [
             'SCSS',
             'CSS',
         ],
-        point: [],
+        points: [],
     },
     {
         title: 'Wiko',
         desc: '',
         site: '',
-        skill: [
+        skills: [
             'React.js',
             'Next.js',
             'JavaScript',
@@ -54,6 +54,6 @@ export const projectArr: cardType[] = [
             'SCSS',
             'CSS',
         ],
-        point: [],
+        points: [],
     },
 ];

@@ -18,7 +18,7 @@ export default function Career() {
     return (
         <div className={style.career_wrap}>
             {/* 서브탑 */}
-            <SubTop title="CAREER" />
+            <SubTop title="CAREER" color="var(--pink-01)" />
 
             {/* 컨텐츠 */}
             <div className={`wrap ${style.career_box}`}>
@@ -42,16 +42,25 @@ export default function Career() {
                     <div className={style.modal_box}>
                         <span className={style.desc}>{clickData.desc}</span>
                         <p className={style.title}>{clickData.title}</p>
+                        <p className={style.skills}>
+                            {clickData.skills?.map(
+                                (skill: string, idx: number) => {
+                                    console.log('ASd', clickData.skills.length);
+                                    console.log('idx', idx - 1);
+                                    return (
+                                        <span>
+                                            {clickData.skills.length === idx + 1
+                                                ? skill
+                                                : `${skill}, `}
+                                        </span>
+                                    );
+                                }
+                            )}
+                        </p>
 
                         <div className={style.img_box}>
                             <span>img1</span>
                             <span>img2</span>
-                        </div>
-
-                        <div className={style.info}>
-                            <p>
-                                {clickData.skill?.map((skill) => `${skill}, `)}
-                            </p>
                         </div>
 
                         <Btn
@@ -59,6 +68,8 @@ export default function Career() {
                             id={clickData.title}
                             className={style.btn_url}
                             href={clickData.site}
+                            btnSize="xlg"
+                            borderRadius="br_round"
                         >
                             Go
                         </Btn>
