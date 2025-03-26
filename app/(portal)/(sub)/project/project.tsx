@@ -9,7 +9,7 @@ export default function Project() {
     return (
         <div className={style.project_wrap}>
             {/* 서브탑 */}
-            <SubTop title="PROJECT" />
+            <SubTop title="PROJECT" color={'var(--blue-02)'} />
 
             {/* 컨텐츠 */}
             <div className={` ${style.project_box}`}>
