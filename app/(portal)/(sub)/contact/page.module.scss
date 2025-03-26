@@ -1,29 +1,36 @@
 // 서브탑
 .sub_top {
     width: 100%;
+    text-align: center;
     background: url('../../../../public/img/img_paper_bg_3.svg') no-repeat 0 0 /
         cover;
-    text-align: center;
 
     h2 {
-        width: fit-content;
-        margin: 0 auto;
-        font-size: var(--fs-48);
-        padding: 12rem 0;
-        font-weight: 900;
         position: relative;
+
+        width: fit-content;
+
+        font-size: var(--fs-48);
+        font-weight: 900;
+
+        padding: 12rem 0;
+        margin: 0 auto;
 
         &::before {
             content: '';
             display: inline-block;
-            width: 470px;
-            height: 174px;
-            background: url('../../../../public/img/img_oval_bg.svg') no-repeat
-                0 0 / cover;
+
             position: absolute;
             left: 50%;
             top: 50%;
+
+            width: 470px;
+            height: 174px;
+
+            background: url('../../../../public/img/img_oval_bg.svg') no-repeat
+                0 0 / cover;
             transform: translate(-50%, -50%);
+
             transition: all 0.5s;
         }
 
@@ -37,25 +44,29 @@
 
 // 컨텐츠
 .contact_wrap {
+    border: solid #333;
+    border-width: 1px 0 1px 0;
+
     background: url('../../../../public/img/img_paper_bg_2.svg') no-repeat 0 0 /
         cover;
-    border-width: 1px 0 1px 0;
-    border: solid #333;
 
     .contact_box {
-        padding-top: 0;
-        padding-bottom: 0;
         display: flex;
         justify-content: space-around;
         align-items: center;
 
+        padding-top: 0;
+        padding-bottom: 0;
+
         .left,
         .right {
-            width: 50%;
-            box-sizing: border-box;
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+
+            width: 50%;
+
+            box-sizing: border-box;
         }
 
         // 정보
@@ -72,9 +83,9 @@
                 }
 
                 p:not(.information) {
-                    margin: 1rem 0;
-                    font-size: var(--fs-20);
                     font-family: 'Brice';
+                    font-size: var(--fs-20);
+                    margin: 1rem 0;
                 }
 
                 a {
@@ -102,11 +113,13 @@
             border-left: 1px solid #333;
 
             .row {
-                width: 100%;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 flex-wrap: wrap;
+
+                width: 100%;
+
                 margin: 1.5rem 0;
 
                 label {
@@ -117,15 +130,15 @@
 
                 input,
                 textarea {
-                    background: transparent;
                     border: 1px solid var(--black);
                     border-radius: 0;
+                    background: transparent;
                     transition: all 0.2s;
 
                     &:hover,
                     &:focus {
-                        background-color: var(--white);
                         outline: none;
+                        background-color: var(--white);
                     }
                 }
 
@@ -138,8 +151,8 @@
                 .error_message {
                     span {
                         display: block;
-                        margin-bottom: 0.5rem;
                         color: var(--error-3);
+                        margin-bottom: 0.5rem;
                     }
                 }
 

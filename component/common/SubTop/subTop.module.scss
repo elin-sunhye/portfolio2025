@@ -5,10 +5,27 @@
 
     h2 {
         width: fit-content;
-        margin: 0 auto;
-        font-size: var(--fs-48);
-        color: var(--pink-01);
+
         padding: 12rem 0;
+        margin: 0 auto;
+
+        font-size: var(--fs-48);
         font-weight: 900;
+        color: var(--pink-01);
+
+        animation: title_expand 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    }
+}
+
+@keyframes title_expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
     }
 }

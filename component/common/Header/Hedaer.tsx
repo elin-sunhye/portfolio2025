@@ -4,18 +4,24 @@ import style from './header.module.scss';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Btn from '../btn/Btn';
-import { IoClose } from 'react-icons/io5';
-import { usePathname } from 'next/navigation';
 
 export default function Header() {
-    const [open, setOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.documentElement.style.overflowY = 'hidden';
+        } else {
+            document.documentElement.style.overflowY = 'auto';
+        }
+    }, [isOpen]);
 
     return (
         <>
             <button
                 className={style.menu_box}
                 onClick={() => {
-                    setOpen(true);
+                    setIsOpen(!isOpen);
                 }}
             >
                 <span className={style.face}>
@@ -28,7 +34,7 @@ export default function Header() {
                 </span>
             </button>
 
-            <div className={`${style.menu_wrap} ${open ? '' : style.close}`}>
+            <div className={`${style.menu_wrap} ${isOpen ? '' : style.close}`}>
                 <div className={`${style.side_menu}`}>
                     <Btn
                         title={'닫기 버튼'}
@@ -36,7 +42,7 @@ export default function Header() {
                         className={style.btn_close}
                         btnSize="xlg"
                         onClick={() => {
-                            setOpen(false);
+                            setIsOpen(!isOpen);
                         }}
                     >
                         {/* <IoClose
@@ -64,6 +70,18 @@ export default function Header() {
                     </ul>
 
                     <div className={`flex_end ${style.sns_box}`}>
+                        <a
+                            href="https://www.notion.so/thunhye/dde0ea1679e5421e868e63a9410ccbcf?pvs=4"
+                            target="_blank"
+                            className="flex_center"
+                        >
+                            <Image
+                                src={'/img/ico_clip.svg'}
+                                alt="클립 아이콘"
+                                width={0}
+                                height={0}
+                            />
+                        </a>
                         <a
                             href="https://github.com/elin-sunhye"
                             target="_blank"

@@ -1,9 +1,9 @@
 import { MouseEventHandler } from 'react';
 import style from './card.module.scss';
-import { careerType } from '@/type/career';
+import { cardType } from '@/type/commonType';
 
 interface cardProps {
-    data: careerType;
+    data: cardType;
     onClick?: MouseEventHandler<HTMLDivElement>;
 }
 export default function Card({ data, onClick }: cardProps) {

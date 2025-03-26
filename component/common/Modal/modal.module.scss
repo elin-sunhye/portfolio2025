@@ -30,7 +30,23 @@
 
         .btn_close {
             font-family: 'Brice';
+            font-size: var(--fs-36);
+
+            margin: 2rem 0;
+            margin-left: auto;
+
             background-color: transparent;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .content {
+            width: 90%;
+            height: calc(100% - 10rem);
+
+            margin: 0 auto;
         }
     }
 }
