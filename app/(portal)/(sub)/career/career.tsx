@@ -44,17 +44,13 @@ export default function Career() {
                         <p className={style.title}>{clickData.title}</p>
                         <p className={style.skills}>
                             {clickData.skills?.map(
-                                (skill: string, idx: number) => {
-                                    console.log('ASd', clickData.skills.length);
-                                    console.log('idx', idx - 1);
-                                    return (
-                                        <span>
-                                            {clickData.skills.length === idx + 1
-                                                ? skill
-                                                : `${skill}, `}
-                                        </span>
-                                    );
-                                }
+                                (skill: string, idx: number) => (
+                                    <span key={`careerSkill_${idx}`}>
+                                        {clickData.skills.length === idx + 1
+                                            ? skill
+                                            : `${skill}, `}
+                                    </span>
+                                )
                             )}
                         </p>
 
