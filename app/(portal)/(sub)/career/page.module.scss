@@ -71,10 +71,23 @@
             span {
                 display: inline-block;
 
-                width: 100%;
+                position: relative;
+
+                width: calc((100% - 1rem) / 2);
                 aspect-ratio: 1 / 0.9;
+                overflow: hidden;
 
                 border: 1px solid var(--black);
+
+                img {
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    transform: translateX(-50%);
+
+                    width: auto;
+                    height: 100%;
+                }
             }
         }
 
@@ -84,7 +97,7 @@
             font-size: var(--fs-36);
             color: var(--white);
 
-            background-color: var(--black);
+            background-color: var(--pink-01);
             animation: heartbeat 1.5s ease-in-out infinite both;
         }
     }
