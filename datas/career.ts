@@ -3,7 +3,7 @@ import { cardType } from '@/type/commonType';
 // 커리어 리스트
 export const careerArr: cardType[] = [
     {
-        title: 'Back office',
+        title: 'Back Office',
         desc: '프로젝트 운영, 관리, 지원 시스템',
         site: '',
         skills: [
@@ -52,7 +52,7 @@ export const careerArr: cardType[] = [
         ],
     },
     {
-        title: 'GnCar',
+        title: 'GNCAR',
         desc: '경남 TP 버추얼 개발 기술 지원 플랫폼',
         site: 'https://gncar.gntp.or.kr/',
         skills: [
@@ -78,7 +78,7 @@ export const careerArr: cardType[] = [
         ],
     },
     {
-        title: 'GnWp',
+        title: 'GNWP',
         desc: '경상남도 통합 일자리 플랫폼',
         site: 'https://job.giba.or.kr/',
         skills: [
@@ -100,7 +100,7 @@ export const careerArr: cardType[] = [
         ],
     },
     {
-        title: 'GnHome',
+        title: 'GNHOME',
         desc: '경남 공동 주택 관리 통합 플랫폼',
         site: 'https://gnhome.kr/',
         skills: [

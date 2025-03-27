@@ -7,6 +7,7 @@ import Modal from '@/component/common/Modal/Modal';
 import { useState } from 'react';
 import { careerArr } from '@/datas/career';
 import Btn from '@/component/common/btn/Btn';
+import Image from 'next/image';
 
 export default function Career() {
     // 모달
@@ -38,12 +39,12 @@ export default function Career() {
 
             {/* 모달 */}
             <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-                {!!clickData ? (
+                {Object.keys(clickData).length > 0 ? (
                     <div className={style.modal_box}>
                         <span className={style.desc}>{clickData.desc}</span>
                         <p className={style.title}>{clickData.title}</p>
                         <p className={style.skills}>
-                            {clickData.skills?.map(
+                            {clickData.skills.map(
                                 (skill: string, idx: number) => (
                                     <span key={`careerSkill_${idx}`}>
                                         {clickData.skills.length === idx + 1
@@ -55,8 +56,46 @@ export default function Career() {
                         </p>
 
                         <div className={style.img_box}>
-                            <span>img1</span>
-                            <span>img2</span>
+                            <span>
+                                <Image
+                                    src={`/img/img_career_${
+                                        clickData.title.includes('Back')
+                                            ? 'back'
+                                            : clickData.title.includes('Wisdom')
+                                            ? 'wisdom'
+                                            : clickData.title.includes('GNCAR')
+                                            ? 'gncar'
+                                            : clickData.title.includes('GNWP')
+                                            ? 'gnwp'
+                                            : clickData.title.includes('GNHOME')
+                                            ? 'gnhome'
+                                            : 'sandan'
+                                    }_1.svg`}
+                                    alt={'사이트 이미지 1'}
+                                    width={0}
+                                    height={0}
+                                />
+                            </span>
+                            <span>
+                                <Image
+                                    src={`/img/img_career_${
+                                        clickData.title.includes('Back')
+                                            ? 'back'
+                                            : clickData.title.includes('Wisdom')
+                                            ? 'wisdom'
+                                            : clickData.title.includes('GNCAR')
+                                            ? 'gncar'
+                                            : clickData.title.includes('GNWP')
+                                            ? 'gnwp'
+                                            : clickData.title.includes('GNHOME')
+                                            ? 'gnhome'
+                                            : 'sandan'
+                                    }_2.svg`}
+                                    alt={'사이트 이미지 2'}
+                                    width={0}
+                                    height={0}
+                                />
+                            </span>
                         </div>
 
                         <Btn
