@@ -59,7 +59,7 @@ export default function Header() {
                             <a href="/">HOME</a>
                         </li>
                         <li>
-                            <a href="/career">CAREER</a>
+                            <a href="javascript:void(0)">CAREER</a>
                         </li>
                         <li>
                             <a href="/project">PROJECT</a>
