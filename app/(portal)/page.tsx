@@ -12,14 +12,23 @@ import { careerArr } from '@/datas/career';
 import Card from '@/component/common/Card/Card';
 import Modal from '@/component/common/Modal/Modal';
 import Btn from '@/component/common/btn/Btn';
+import { projectArr } from '@/datas/project';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Home() {
+    const router = useRouter();
     // 스킬 클릭한 배열
     // const [clickSkill, setClickSkill] = useState<string[]>([]);
 
     // useEffect(() => {
     //   console.log('clickSkill', clickSkill);
     // }, [clickSkill]);
+
+    // 모달 ---------------------------------
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    // 클릭 데이터 ---------------------------------
+    const [clickData, setClickData] = useState<cardType>({} as cardType);
 
     // career ---------------------------------
     const careerRef = useRef<HTMLDivElement>(null);
@@ -50,16 +59,24 @@ export default function Home() {
         }
     }, []);
 
-    // 모달
-    const [isCareerModalOpen, setIsCareerModalOpen] = useState<boolean>(false);
-
-    // 클릭 데이터
-    const [careerClickData, setCareerClickData] = useState<cardType>(
-        {} as cardType
-    );
-
     // project ---------------------------------
     const projectRef = useRef<HTMLDivElement>(null);
+
+    // ref 이동
+    const params = useSearchParams();
+    useEffect(() => {
+        if (params.get('section') === 'career') {
+            careerRef.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        } else if (params.get('section') === 'project') {
+            projectRef.current?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    }, [params]);
 
     return (
         <>
@@ -114,7 +131,7 @@ export default function Home() {
                     return (
                         <div
                             key={skill + idx}
-                            className={`flex_center ${style.inner}`}
+                            className={`flex_center ${style.skill_box}`}
                             // className={`flex_center ${style.inner} ${
                             //   clickSkill.some((ss) => ss === skill) ? style.open : ''
                             // }`}
@@ -272,14 +289,14 @@ export default function Home() {
 
             {/* 자소서 */}
             <section className={style.resume_section}>
-                <div className={`wrap flex_center ${style.resume_box}`}>
+                <div className={`wrap flex_center ${style.resume_wrap}`}>
                     <div className={style.left}>
                         <div className={` ${style.shortcut}`}>
-                            <a
-                                href="javascript:void(0);"
+                            <p
                                 title="프로젝트 바로가기"
                                 className={`flex_center`}
                                 onClick={() => {
+                                    // router.push('?section=career');
                                     projectRef.current?.scrollIntoView({
                                         behavior: 'smooth',
                                         block: 'start',
@@ -287,7 +304,7 @@ export default function Home() {
                                 }}
                             >
                                 PROJECT
-                            </a>
+                            </p>
                             <a
                                 href="/contact"
                                 title="컨텍트 바로가기"
@@ -296,11 +313,11 @@ export default function Home() {
                                 CONTACT
                             </a>
 
-                            <a
-                                href="javascript:void(0);"
+                            <p
                                 title="커리어 바로가기"
                                 className={`flex_center`}
                                 onClick={() => {
+                                    // router.push('?section=project');
                                     careerRef.current?.scrollIntoView({
                                         behavior: 'smooth',
                                         block: 'start',
@@ -308,7 +325,7 @@ export default function Home() {
                                 }}
                             >
                                 CAREER
-                            </a>
+                            </p>
                             <a
                                 href="https://thunhye.notion.site/dde0ea1679e5421e868e63a9410ccbcf?pvs=4"
                                 target="_blank"
@@ -366,205 +383,27 @@ export default function Home() {
                                     key={`career_${idx}`}
                                     data={career}
                                     onClick={() => {
-                                        setIsCareerModalOpen(
-                                            !isCareerModalOpen
-                                        );
-                                        setCareerClickData(career);
+                                        setIsModalOpen(!isModalOpen);
+                                        setClickData(career);
                                     }}
                                 />
                             );
                         })}
                     </div>
-
-                    {/* 모달 */}
-                    <Modal
-                        isOpen={isCareerModalOpen}
-                        setIsOpen={setIsCareerModalOpen}
-                    >
-                        {Object.keys(careerClickData).length > 0 ? (
-                            <div className={style.modal_box}>
-                                <span className={style.desc}>
-                                    {careerClickData.desc}
-                                </span>
-                                <p className={style.title}>
-                                    {careerClickData.title}
-                                </p>
-                                <p className={style.skills}>
-                                    {careerClickData.skills.map(
-                                        (skill: string, idx: number) => (
-                                            <span key={`careerSkill_${idx}`}>
-                                                {careerClickData.skills
-                                                    .length ===
-                                                idx + 1
-                                                    ? skill
-                                                    : `${skill}, `}
-                                            </span>
-                                        )
-                                    )}
-                                </p>
-
-                                <div className={style.img_box}>
-                                    {careerClickData.title.includes('Back') ? (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_back_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_back_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    ) : careerClickData.title.includes(
-                                          'Wisdom'
-                                      ) ? (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_wisdom_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_wisdom_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    ) : careerClickData.title.includes(
-                                          'GNCAR'
-                                      ) ? (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gncar_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gncar_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    ) : careerClickData.title.includes(
-                                          'GNWP'
-                                      ) ? (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gnwp_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gnwp_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    ) : careerClickData.title.includes(
-                                          'GNHOME'
-                                      ) ? (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gnhome_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_gnhome_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_sandan_1.svg`}
-                                                    alt={'사이트 이미지 1'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            <span>
-                                                <Image
-                                                    src={`/img/img_career_sandan_2.svg`}
-                                                    alt={'사이트 이미지 2'}
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                        </>
-                                    )}
-                                </div>
-
-                                {careerClickData.title.includes('Back') ||
-                                careerClickData.title.includes('Sandan') ? (
-                                    <></>
-                                ) : (
-                                    <Btn
-                                        title={careerClickData.title}
-                                        id={careerClickData.title}
-                                        className={style.btn_url}
-                                        href={careerClickData.site}
-                                        btnSize="xlg"
-                                        borderRadius="br_square_round_1"
-                                    >
-                                        Go
-                                    </Btn>
-                                )}
-                            </div>
-                        ) : (
-                            <></>
-                        )}
-                    </Modal>
                 </div>
             </section>
 
             {/* 프로젝트 */}
-            <section ref={projectRef} className={style.career_section}>
-                <SubTop title="PROJECT" color="var(--blue-02)" />
-
-                <div className={`wrap ${style.career_box}`}>
-                    {careerArr.map((career: cardType, idx: number) => {
+            <section ref={projectRef} className={style.project_section}>
+                <div className={style.project_wrap}>
+                    {projectArr.map((pj: cardType, idx: number) => {
                         return (
                             <Card
                                 key={`career_${idx}`}
-                                data={career}
+                                data={pj}
                                 onClick={() => {
-                                    setIsCareerModalOpen(!isCareerModalOpen);
-                                    setCareerClickData(career);
+                                    setIsModalOpen(!isModalOpen);
+                                    setClickData(pj);
                                 }}
                             />
                         );
@@ -600,6 +439,163 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* 모달 */}
+            <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
+                {Object.keys(clickData).length > 0 ? (
+                    <div className={style.modal_box}>
+                        <span className={style.desc}>{clickData.desc}</span>
+                        <p className={style.title}>{clickData.title}</p>
+                        <p className={style.skills}>
+                            {clickData.skills.map(
+                                (skill: string, idx: number) => (
+                                    <span key={`careerSkill_${idx}`}>
+                                        {clickData.skills.length === idx + 1
+                                            ? skill
+                                            : `${skill}, `}
+                                    </span>
+                                )
+                            )}
+                        </p>
+
+                        <div className={style.img_box}>
+                            {clickData.title.includes('Back') ? (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_back_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_back_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            ) : clickData.title.includes('Wisdom') ? (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_wisdom_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_wisdom_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            ) : clickData.title.includes('GNCAR') ? (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gncar_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gncar_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            ) : clickData.title.includes('GNWP') ? (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gnwp_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gnwp_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            ) : clickData.title.includes('GNHOME') ? (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gnhome_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_gnhome_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_sandan_1.svg`}
+                                            alt={'사이트 이미지 1'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                    <span>
+                                        <Image
+                                            src={`/img/img_career_sandan_2.svg`}
+                                            alt={'사이트 이미지 2'}
+                                            width={0}
+                                            height={0}
+                                        />
+                                    </span>
+                                </>
+                            )}
+                        </div>
+
+                        {clickData.title.includes('Back') ||
+                        clickData.title.includes('Sandan') ? (
+                            <></>
+                        ) : (
+                            <Btn
+                                title={clickData.title}
+                                id={clickData.title}
+                                className={style.btn_url}
+                                href={clickData.site}
+                                btnSize="xlg"
+                                borderRadius="br_square_round_1"
+                            >
+                                Go
+                            </Btn>
+                        )}
+                    </div>
+                ) : (
+                    <></>
+                )}
+            </Modal>
         </>
     );
 }

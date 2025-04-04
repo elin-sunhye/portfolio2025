@@ -1,4 +1,89 @@
-// 메인 비주얼
+// 애니메이션
+@keyframes heartbeat {
+    from {
+        transform: scale(1);
+        transform-origin: center center;
+        animation-timing-function: ease-out;
+    }
+    10% {
+        transform: scale(0.91);
+        animation-timing-function: ease-in;
+    }
+    17% {
+        transform: scale(0.98);
+        animation-timing-function: ease-out;
+    }
+    33% {
+        transform: scale(0.87);
+        animation-timing-function: ease-in;
+    }
+    45% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+    }
+}
+
+// 모달
+.modal_box {
+    .desc,
+    .title,
+    .skills,
+    .img_box {
+        margin-bottom: 2rem;
+    }
+
+    .desc {
+        display: block;
+        font-size: var(--fs-14);
+    }
+
+    .title {
+        font-family: var(--Brice);
+        font-size: var(--fs-36);
+        font-weight: 900;
+    }
+
+    .img_box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        width: 100%;
+
+        span {
+            display: inline-block;
+
+            position: relative;
+
+            width: calc((100% - 1rem) / 2);
+            aspect-ratio: 1 / 0.9;
+            overflow: hidden;
+
+            border: 1px solid var(--black);
+
+            img {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+
+    .btn_url {
+        font-size: var(--fs-36);
+        color: var(--white);
+
+        background-color: var(--pink-01);
+        animation: heartbeat 1.5s ease-in-out infinite both;
+    }
+}
+
+// 메인 비주얼 ---------------------------------
 .main_visual {
     width: 100%;
     height: 60rem;
@@ -51,7 +136,7 @@
     }
 }
 
-// 무한 롤링
+// 무한 롤링 ---------------------------------
 .ico_flower,
 .ico_v {
     width: 30px;
@@ -64,12 +149,12 @@
     }
 }
 
-// 스킬
+// 스킬 ---------------------------------
 .skill_section {
     width: 100%;
     height: 62rem;
 
-    .inner {
+    .skill_box {
         flex-wrap: wrap;
         align-content: space-between;
 
@@ -294,11 +379,11 @@
     }
 }
 
-// 자소서
+// 자소서 ---------------------------------
 .resume_section {
     background: url('../../public/img/img_resume_bg.svg') no-repeat 0 0 / cover;
 
-    .resume_box {
+    .resume_wrap {
         align-items: flex-end;
         gap: 10rem;
 
@@ -311,7 +396,8 @@
                 width: 100%;
                 height: 16rem;
 
-                a {
+                a,
+                p {
                     position: absolute;
 
                     width: 45%;
@@ -328,32 +414,35 @@
 
                     transition: all 0.5s;
 
+                    &:hover {
+                        font-size: 2.8rem;
+                    }
+                }
+
+                a {
                     &:first-of-type {
                         left: 0;
                         top: -1rem;
                         transform: rotate(336deg);
                     }
 
-                    &:nth-of-type(2) {
-                        left: 7rem;
-                        bottom: 0;
-                        transform: rotate(12deg);
-                    }
-
-                    &:nth-of-type(3) {
+                    &:last-of-type {
                         right: 13rem;
                         top: 1rem;
                         transform: rotate(351deg);
+                    }
+                }
+                p {
+                    &:first-of-type {
+                        left: 7rem;
+                        bottom: 0;
+                        transform: rotate(12deg);
                     }
 
                     &:last-of-type {
                         right: 0;
                         bottom: 1rem;
                         transform: rotate(3deg);
-                    }
-
-                    &:hover {
-                        font-size: 2.8rem;
                     }
                 }
             }
@@ -395,7 +484,7 @@
     }
 }
 
-// 커리어
+// 커리어 ---------------------------------
 .career_section {
     overflow: hidden;
     position: relative;
@@ -454,93 +543,46 @@
                 }
             }
         }
-
-        .modal_box {
-            .desc,
-            .title,
-            .skills,
-            .img_box {
-                margin-bottom: 2rem;
-            }
-
-            .desc {
-                display: block;
-                font-size: var(--fs-14);
-            }
-
-            .title {
-                font-family: var(--Brice);
-                font-size: var(--fs-36);
-                font-weight: 900;
-            }
-
-            .img_box {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 1rem;
-
-                width: 100%;
-
-                span {
-                    display: inline-block;
-
-                    position: relative;
-
-                    width: calc((100% - 1rem) / 2);
-                    aspect-ratio: 1 / 0.9;
-                    overflow: hidden;
-
-                    border: 1px solid var(--black);
-
-                    img {
-                        position: absolute;
-                        left: 50%;
-                        top: 0;
-                        transform: translateX(-50%);
-
-                        width: auto;
-                        height: 100%;
-                    }
-                }
-            }
-
-            .btn_url {
-                font-size: var(--fs-36);
-                color: var(--white);
-
-                background-color: var(--pink-01);
-                animation: heartbeat 1.5s ease-in-out infinite both;
-            }
-        }
     }
+}
 
-    @keyframes heartbeat {
-        from {
-            transform: scale(1);
-            transform-origin: center center;
-            animation-timing-function: ease-out;
-        }
-        10% {
-            transform: scale(0.91);
-            animation-timing-function: ease-in;
-        }
-        17% {
-            transform: scale(0.98);
-            animation-timing-function: ease-out;
-        }
-        33% {
-            transform: scale(0.87);
-            animation-timing-function: ease-in;
-        }
-        45% {
-            transform: scale(1);
-            animation-timing-function: ease-out;
+// 프로젝트 ---------------------------------
+.project_section {
+    background: url('../../public/img/img_project_bg.svg') no-repeat 0 0 / cover;
+
+    // 컨텐츠
+    .project_wrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        & > div {
+            width: calc(100% / 3);
+
+            &:nth-of-type(1) {
+                background-image: url('../../public/img/img_paper_box_6.svg');
+            }
+            &:nth-of-type(2) {
+                background-image: url('../../public/img/img_paper_box_2.svg');
+            }
+            &:nth-of-type(3) {
+                background-image: url('../../public/img/img_paper_box_3.svg');
+            }
+            &:nth-of-type(4) {
+                background-image: url('../../public/img/img_paper_box_4.svg');
+            }
+            &:nth-of-type(5) {
+                background-image: url('../../public/img/img_paper_box_5.svg');
+            }
+            &:nth-of-type(6) {
+                background-image: url('../../public/img/img_paper_box_1.svg');
+            }
         }
     }
 }
 
-// 자격증
+// 자격증 ---------------------------------
 .certification_section {
     background: url('../../public/img/img_certification_bg.svg') no-repeat 0 0 /
         cover;

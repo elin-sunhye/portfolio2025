@@ -4,8 +4,11 @@ import style from './header.module.scss';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Btn from '../btn/Btn';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Header() {
+    const router = useRouter();
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useEffect(() => {
@@ -45,24 +48,41 @@ export default function Header() {
                             setIsOpen(!isOpen);
                         }}
                     >
-                        {/* <IoClose
-                            role="img"
-                            aria-label="메뉴 닫기"
-                            onClick={() => {
-                                setOpen(false);
-                            }}
-                        /> */}
-                        X
+                        <Image
+                            src={'/img/ico_close.svg'}
+                            alt="브이 아이콘"
+                            width={0}
+                            height={0}
+                        />
                     </Btn>
                     <ul className={style.menu}>
                         <li>
                             <a href="/">HOME</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">CAREER</a>
+                            <p
+                                onClick={() => {
+                                    router.push('/?section=career', {
+                                        scroll: false,
+                                    });
+
+                                    setIsOpen(!isOpen);
+                                }}
+                            >
+                                CAREER
+                            </p>
                         </li>
                         <li>
-                            <a href="/project">PROJECT</a>
+                            <p
+                                onClick={() => {
+                                    router.push('/?section=project', {
+                                        scroll: false,
+                                    });
+                                    setIsOpen(!isOpen);
+                                }}
+                            >
+                                PROJECT
+                            </p>
                         </li>
                         <li>
                             <a href="/contact">CONTACT</a>

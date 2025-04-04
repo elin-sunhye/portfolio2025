@@ -69,15 +69,22 @@
 
         .btn_close {
             font-family: var(--Brice);
-            font-size: var(--fs-48);
+            font-size: var(--fs-36);
 
             padding: 0 !important;
             margin: 0 5rem 0 auto !important;
 
             background-color: transparent;
 
-            svg {
-                font-size: var(--fs-60);
+            // svg {
+            //     font-size: var(--fs-60);
+            // }
+            & * {
+                cursor: pointer;
+            }
+
+            img {
+                height: 100%;
             }
         }
 
@@ -90,7 +97,8 @@
             li {
                 width: 100%;
 
-                a {
+                a,
+                p {
                     width: 100%;
 
                     font-size: var(--fs-24);
