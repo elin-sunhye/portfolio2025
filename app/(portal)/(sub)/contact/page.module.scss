@@ -83,7 +83,7 @@
                 }
 
                 p:not(.information) {
-                    font-family: 'Brice';
+                    font-family: var(--Brice);
                     font-size: var(--fs-20);
                     margin: 1rem 0;
                 }

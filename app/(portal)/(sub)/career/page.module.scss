@@ -55,7 +55,7 @@
         }
 
         .title {
-            font-family: 'Brice';
+            font-family: var(--Brice);
             font-size: var(--fs-36);
             font-weight: 900;
         }
@@ -92,8 +92,6 @@
         }
 
         .btn_url {
-            aspect-ratio: 1 / 1;
-
             font-size: var(--fs-36);
             color: var(--white);
 

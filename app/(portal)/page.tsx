@@ -3,9 +3,15 @@
 import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
-import { useEffect, useRef } from 'react';
-import { certifiArr, skillArr } from '@/datas/main';
+import { useEffect, useRef, useState } from 'react';
+import { certifiArr, fullSkillArr, skillArr } from '@/datas/main';
 import { certifiType } from '@/type/mainType';
+import { cardType } from '@/type/commonType';
+import SubTop from '@/component/common/SubTop/Subtop';
+import { careerArr } from '@/datas/career';
+import Card from '@/component/common/Card/Card';
+import Modal from '@/component/common/Modal/Modal';
+import Btn from '@/component/common/btn/Btn';
 
 export default function Home() {
     // 스킬 클릭한 배열
@@ -15,9 +21,11 @@ export default function Home() {
     //   console.log('clickSkill', clickSkill);
     // }, [clickSkill]);
 
-    // 스크롤 배경 ---------------------------------
-    const scrollBgRef = useRef<HTMLDivElement>(null);
+    // career ---------------------------------
+    const careerRef = useRef<HTMLDivElement>(null);
 
+    // 스크롤 배경
+    const scrollBgRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (typeof window !== 'undefined') {
             // scroll
@@ -33,7 +41,7 @@ export default function Home() {
 
                         scrollBgRef.current.style.setProperty(
                             'transform',
-                            `translateY(${num1}px)`
+                            `translate(-50%, ${num1}px)`
                         );
                         // lastScroll = currentScroll;
                     }
@@ -41,6 +49,17 @@ export default function Home() {
             });
         }
     }, []);
+
+    // 모달
+    const [isCareerModalOpen, setIsCareerModalOpen] = useState<boolean>(false);
+
+    // 클릭 데이터
+    const [careerClickData, setCareerClickData] = useState<cardType>(
+        {} as cardType
+    );
+
+    // project ---------------------------------
+    const projectRef = useRef<HTMLDivElement>(null);
 
     return (
         <>
@@ -90,7 +109,7 @@ export default function Home() {
             </section>
 
             {/* 스킬 */}
-            <section className={`flex_start ${style.skill_box}`}>
+            <section className={`flex_start ${style.skill_section}`}>
                 {skillArr.map((skill: string, idx: number) => {
                     return (
                         <div
@@ -131,130 +150,32 @@ export default function Home() {
                                         </span>
                                     </h6>
                                     <ul className="flex_start">
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_node.svg'}
-                                                    alt="노드 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Node.js
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_java.svg'}
-                                                    alt="자바 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            JAVA
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_springboot.svg'
-                                                    }
-                                                    alt="스프링부트 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Spring Boot
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_mysql.svg'}
-                                                    alt="마이에스큐엘 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            MySQL
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_mybatis.svg'}
-                                                    alt="마이바티스 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            MyBatis
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_restapi.svg'}
-                                                    alt="레스트에이피아이 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            REST API
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_aws.svg'}
-                                                    alt="아마존웹서비스 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            AWS &#40;EC2, S3, RDS &#41;
-                                        </li>
-                                        {/* <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_chatgpt.svg'}
-                                                    alt="챗피비티 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            chatGPT 및 OpenAI API
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_docker.svg'}
-                                                    alt="도커 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Docker
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_putty.svg'}
-                                                    alt="푸티 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            PuTTY
-                                        </li> */}
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_dbms.svg'}
-                                                    alt="디비엠에스 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            DBMS
-                                        </li>
-                                        {/* <li>Blue&#00;Green 무중단 배포</li> */}
+                                        {fullSkillArr.map(
+                                            (
+                                                back: {
+                                                    src: string;
+                                                    alt: string;
+                                                    name: string;
+                                                    type: string;
+                                                },
+                                                idxBack: number
+                                            ) =>
+                                                back.type === skill && (
+                                                    <li
+                                                        key={`skill_back_${idxBack}`}
+                                                    >
+                                                        <span>
+                                                            <Image
+                                                                src={back.src}
+                                                                alt={`${back} 아이콘`}
+                                                                width={0}
+                                                                height={0}
+                                                            />
+                                                        </span>
+                                                        {back.name}
+                                                    </li>
+                                                )
+                                        )}
                                     </ul>
                                 </>
                             ) : skill === 'front' ? (
@@ -273,113 +194,32 @@ export default function Home() {
                                         </span>
                                     </h6>
                                     <ul className="flex_start">
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_next.svg'}
-                                                    alt="넥스트 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Next.js
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_javascript.svg'
-                                                    }
-                                                    alt="자바스크립트 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            JavaScript
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_typescript.svg'
-                                                    }
-                                                    alt="타입스크립트 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            TypeScript
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_html.svg'}
-                                                    alt="에이치티엠엘 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            HTML
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_scss.svg'}
-                                                    alt="레스트에이피아이 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            SCSS
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_react.svg'}
-                                                    alt="리액트 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            React.js
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_query.svg'}
-                                                    alt="리액트 쿼리 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            React Query
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_hookform.svg'
-                                                    }
-                                                    alt="리액트 훅 폼 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            React Hook Form
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_nextauth.svg'
-                                                    }
-                                                    alt="넥스트어스 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            NextAuth.js
-                                        </li>
+                                        {fullSkillArr.map(
+                                            (
+                                                front: {
+                                                    src: string;
+                                                    alt: string;
+                                                    name: string;
+                                                    type: string;
+                                                },
+                                                idxBack: number
+                                            ) =>
+                                                front.type === skill && (
+                                                    <li
+                                                        key={`skill_front_${idxBack}`}
+                                                    >
+                                                        <span>
+                                                            <Image
+                                                                src={front.src}
+                                                                alt={`${front} 아이콘`}
+                                                                width={0}
+                                                                height={0}
+                                                            />
+                                                        </span>
+                                                        {front.name}
+                                                    </li>
+                                                )
+                                        )}
                                     </ul>
                                 </>
                             ) : (
@@ -396,43 +236,32 @@ export default function Home() {
                                         </span>
                                     </h6>
                                     <ul className="flex_start">
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={'/img/ico_figma.svg'}
-                                                    alt="피그마 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Figma
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_photoshop.svg'
-                                                    }
-                                                    alt="포토샵 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Photoshop
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        '/img/ico_illustrator.svg'
-                                                    }
-                                                    alt="일러스트레이터 아이콘"
-                                                    width={0}
-                                                    height={0}
-                                                />
-                                            </span>
-                                            Illustrator
-                                        </li>
+                                        {fullSkillArr.map(
+                                            (
+                                                design: {
+                                                    src: string;
+                                                    alt: string;
+                                                    name: string;
+                                                    type: string;
+                                                },
+                                                idxBack: number
+                                            ) =>
+                                                design.type === skill && (
+                                                    <li
+                                                        key={`skill_design_${idxBack}`}
+                                                    >
+                                                        <span>
+                                                            <Image
+                                                                src={design.src}
+                                                                alt={`${design} 아이콘`}
+                                                                width={0}
+                                                                height={0}
+                                                            />
+                                                        </span>
+                                                        {design.name}
+                                                    </li>
+                                                )
+                                        )}
                                     </ul>
                                 </>
                             )}
@@ -442,14 +271,20 @@ export default function Home() {
             </section>
 
             {/* 자소서 */}
-            <section className={style.resume_wrap}>
+            <section className={style.resume_section}>
                 <div className={`wrap flex_center ${style.resume_box}`}>
                     <div className={style.left}>
                         <div className={` ${style.shortcut}`}>
                             <a
-                                href="/project"
+                                href="javascript:void(0);"
                                 title="프로젝트 바로가기"
                                 className={`flex_center`}
+                                onClick={() => {
+                                    projectRef.current?.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start',
+                                    });
+                                }}
                             >
                                 PROJECT
                             </a>
@@ -462,9 +297,15 @@ export default function Home() {
                             </a>
 
                             <a
-                                href="/career"
+                                href="javascript:void(0);"
                                 title="커리어 바로가기"
                                 className={`flex_center`}
+                                onClick={() => {
+                                    careerRef.current?.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start',
+                                    });
+                                }}
                             >
                                 CAREER
                             </a>
@@ -504,21 +345,235 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* 미정 */}
-            <section className={style.no_name_box}>
-                <div ref={scrollBgRef} className={style.scroll_bg}>
-                    <Image
-                        src={'/img/img_no_name_bg.svg'}
-                        alt="배경"
-                        width={0}
-                        height={0}
-                    />
+            {/* 커리어 */}
+            <section ref={careerRef} className={style.career_section}>
+                <div className={style.career_wrap}>
+                    <div ref={scrollBgRef} className={style.scroll_bg}>
+                        <Image
+                            src={'/img/img_career_bg.svg'}
+                            alt="배경"
+                            width={0}
+                            height={0}
+                        />
+                    </div>
+
+                    <SubTop title="CAREER" color="var(--pink-01)" />
+
+                    <div className={`wrap ${style.career_box}`}>
+                        {careerArr.map((career: cardType, idx: number) => {
+                            return (
+                                <Card
+                                    key={`career_${idx}`}
+                                    data={career}
+                                    onClick={() => {
+                                        setIsCareerModalOpen(
+                                            !isCareerModalOpen
+                                        );
+                                        setCareerClickData(career);
+                                    }}
+                                />
+                            );
+                        })}
+                    </div>
+
+                    {/* 모달 */}
+                    <Modal
+                        isOpen={isCareerModalOpen}
+                        setIsOpen={setIsCareerModalOpen}
+                    >
+                        {Object.keys(careerClickData).length > 0 ? (
+                            <div className={style.modal_box}>
+                                <span className={style.desc}>
+                                    {careerClickData.desc}
+                                </span>
+                                <p className={style.title}>
+                                    {careerClickData.title}
+                                </p>
+                                <p className={style.skills}>
+                                    {careerClickData.skills.map(
+                                        (skill: string, idx: number) => (
+                                            <span key={`careerSkill_${idx}`}>
+                                                {careerClickData.skills
+                                                    .length ===
+                                                idx + 1
+                                                    ? skill
+                                                    : `${skill}, `}
+                                            </span>
+                                        )
+                                    )}
+                                </p>
+
+                                <div className={style.img_box}>
+                                    {careerClickData.title.includes('Back') ? (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_back_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_back_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    ) : careerClickData.title.includes(
+                                          'Wisdom'
+                                      ) ? (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_wisdom_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_wisdom_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    ) : careerClickData.title.includes(
+                                          'GNCAR'
+                                      ) ? (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gncar_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gncar_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    ) : careerClickData.title.includes(
+                                          'GNWP'
+                                      ) ? (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gnwp_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gnwp_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    ) : careerClickData.title.includes(
+                                          'GNHOME'
+                                      ) ? (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gnhome_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_gnhome_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_sandan_1.svg`}
+                                                    alt={'사이트 이미지 1'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                            <span>
+                                                <Image
+                                                    src={`/img/img_career_sandan_2.svg`}
+                                                    alt={'사이트 이미지 2'}
+                                                    width={0}
+                                                    height={0}
+                                                />
+                                            </span>
+                                        </>
+                                    )}
+                                </div>
+
+                                {careerClickData.title.includes('Back') ||
+                                careerClickData.title.includes('Sandan') ? (
+                                    <></>
+                                ) : (
+                                    <Btn
+                                        title={careerClickData.title}
+                                        id={careerClickData.title}
+                                        className={style.btn_url}
+                                        href={careerClickData.site}
+                                        btnSize="xlg"
+                                        borderRadius="br_square_round_1"
+                                    >
+                                        Go
+                                    </Btn>
+                                )}
+                            </div>
+                        ) : (
+                            <></>
+                        )}
+                    </Modal>
                 </div>
-                {/* <div className={`wrap ${style.no_name_wrap}`}></div> */}
+            </section>
+
+            {/* 프로젝트 */}
+            <section ref={projectRef} className={style.career_section}>
+                <SubTop title="PROJECT" color="var(--blue-02)" />
+
+                <div className={`wrap ${style.career_box}`}>
+                    {careerArr.map((career: cardType, idx: number) => {
+                        return (
+                            <Card
+                                key={`career_${idx}`}
+                                data={career}
+                                onClick={() => {
+                                    setIsCareerModalOpen(!isCareerModalOpen);
+                                    setCareerClickData(career);
+                                }}
+                            />
+                        );
+                    })}
+                </div>
             </section>
 
             {/* 자격증 */}
-            <section className={style.certification_box}>
+            <section className={style.certification_section}>
                 <div className={`wrap ${style.certification_wap}`}>
                     <h6>MY CERTIFICATION</h6>
 

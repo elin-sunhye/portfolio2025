@@ -36,9 +36,11 @@
                 background-image: url('../../../../public/img/img_paper_box_1.svg');
             }
 
-            // &:hover {
-            //     scale: 0.9;
-            // }
+            &:hover {
+                * {
+                    scale: 1.2;
+                }
+            }
         }
     }
 }

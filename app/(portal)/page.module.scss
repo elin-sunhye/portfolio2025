@@ -29,7 +29,7 @@
         }
 
         p {
-            font-family: 'Brice';
+            font-family: var(--Brice);
             font-weight: 600;
         }
 
@@ -65,7 +65,7 @@
 }
 
 // 스킬
-.skill_box {
+.skill_section {
     width: 100%;
     height: 62rem;
 
@@ -211,7 +211,7 @@
                 cover;
 
             h6 {
-                font-family: 'Brice';
+                font-family: var(--Brice);
                 color: var(--blue-01);
 
                 .img {
@@ -295,7 +295,7 @@
 }
 
 // 자소서
-.resume_wrap {
+.resume_section {
     background: url('../../public/img/img_resume_bg.svg') no-repeat 0 0 / cover;
 
     .resume_box {
@@ -317,7 +317,7 @@
                     width: 45%;
                     height: 8rem;
 
-                    font-family: 'Brice';
+                    font-family: var(--Brice);
                     font-size: var(--fs-24);
                     font-weight: 800;
 
@@ -395,11 +395,18 @@
     }
 }
 
-// 미정
-.no_name_box {
+// 커리어
+.career_section {
     overflow: hidden;
+    position: relative;
 
     .scroll_bg {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, 0);
+        z-index: -1;
+
         width: 100%;
         height: 100vh;
 
@@ -408,10 +415,133 @@
             height: auto;
         }
     }
+
+    .career_wrap {
+        // 컨텐츠
+        .career_box {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            padding-top: 0;
+
+            & > div {
+                width: calc((100% - 2rem) / 3);
+
+                &:nth-of-type(1) {
+                    background-image: url('../../public/img/img_paper_box_1.svg');
+                }
+                &:nth-of-type(2) {
+                    background-image: url('../../public/img/img_paper_box_2.svg');
+                }
+                &:nth-of-type(3) {
+                    background-image: url('../../public/img/img_paper_box_3.svg');
+                }
+                &:nth-of-type(4) {
+                    background-image: url('../../public/img/img_paper_box_4.svg');
+                }
+                &:nth-of-type(5) {
+                    background-image: url('../../public/img/img_paper_box_5.svg');
+                }
+                &:nth-of-type(6) {
+                    background-image: url('../../public/img/img_paper_box_6.svg');
+                }
+
+                &:hover {
+                    scale: 0.9;
+                }
+            }
+        }
+
+        .modal_box {
+            .desc,
+            .title,
+            .skills,
+            .img_box {
+                margin-bottom: 2rem;
+            }
+
+            .desc {
+                display: block;
+                font-size: var(--fs-14);
+            }
+
+            .title {
+                font-family: var(--Brice);
+                font-size: var(--fs-36);
+                font-weight: 900;
+            }
+
+            .img_box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+
+                width: 100%;
+
+                span {
+                    display: inline-block;
+
+                    position: relative;
+
+                    width: calc((100% - 1rem) / 2);
+                    aspect-ratio: 1 / 0.9;
+                    overflow: hidden;
+
+                    border: 1px solid var(--black);
+
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        top: 0;
+                        transform: translateX(-50%);
+
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .btn_url {
+                font-size: var(--fs-36);
+                color: var(--white);
+
+                background-color: var(--pink-01);
+                animation: heartbeat 1.5s ease-in-out infinite both;
+            }
+        }
+    }
+
+    @keyframes heartbeat {
+        from {
+            transform: scale(1);
+            transform-origin: center center;
+            animation-timing-function: ease-out;
+        }
+        10% {
+            transform: scale(0.91);
+            animation-timing-function: ease-in;
+        }
+        17% {
+            transform: scale(0.98);
+            animation-timing-function: ease-out;
+        }
+        33% {
+            transform: scale(0.87);
+            animation-timing-function: ease-in;
+        }
+        45% {
+            transform: scale(1);
+            animation-timing-function: ease-out;
+        }
+    }
 }
 
 // 자격증
-.certification_box {
+.certification_section {
     background: url('../../public/img/img_certification_bg.svg') no-repeat 0 0 /
         cover;
 
@@ -419,7 +549,7 @@
         width: 100%;
 
         h6 {
-            font-family: 'Brice';
+            font-family: var(--Brice);
             font-size: var(--fs-60);
             font-weight: 800;
             text-align: center;
