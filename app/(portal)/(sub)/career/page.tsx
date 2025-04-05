@@ -1,5 +1,5 @@
-import CarrerServer from "./carrerServer";
+import CareerServer from './careerServer';
 
 export default function CarrerPage() {
-  return <CarrerServer />;
+    return <CareerServer />;
 }

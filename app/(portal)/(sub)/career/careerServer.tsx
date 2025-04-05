@@ -1,5 +1,5 @@
 import Career from './career';
 
-export default function CarrerServer() {
+export default function CareerServer() {
     return <Career />;
 }
