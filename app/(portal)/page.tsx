@@ -35,34 +35,11 @@ export default function Home() {
 
     // 스크롤 배경
     const scrollBgRef = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            // scroll
-            // let lastScroll = 0;
-            window.addEventListener('scroll', function () {
-                // const currentScroll = document.documentElement.scrollTop;
-
-                if (scrollBgRef.current !== null) {
-                    if (window.scrollY >= window.innerHeight / 1.5) {
-                        const num1 = String(
-                            window.scrollY / 2.25 - window.innerHeight
-                        );
-
-                        scrollBgRef.current.style.setProperty(
-                            'transform',
-                            `translate(-50%, ${num1}px)`
-                        );
-                        // lastScroll = currentScroll;
-                    }
-                }
-            });
-        }
-    }, []);
 
     // project ---------------------------------
     const projectRef = useRef<HTMLDivElement>(null);
 
-    // ref 이동
+    // ref 이동 ---------------------------------
     const params = useSearchParams();
     useEffect(() => {
         if (params.get('section') === 'career') {
@@ -77,6 +54,68 @@ export default function Home() {
             });
         }
     }, [params]);
+
+    // 페이지 로드 시 ---------------------------------
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            // scroll
+            // let lastScroll = 0;
+            window.addEventListener('scroll', function () {
+                // const currentScroll = document.documentElement.scrollTop;
+
+                // career 배경 스크롤 이동
+                if (scrollBgRef.current !== null) {
+                    if (window.scrollY >= window.innerHeight / 1.5) {
+                        const num1 = String(
+                            window.scrollY / 2.25 - window.innerHeight
+                        );
+
+                        scrollBgRef.current.style.setProperty(
+                            'transform',
+                            `translate(-50%, ${num1}px)`
+                        );
+                        // lastScroll = currentScroll;
+                    }
+                }
+
+                if (careerRef.current !== null) {
+                    const observerCallback = (entries: any) => {
+                        const [entry] = entries;
+                        if (!entry.isIntersecting) {
+                            router.push('/', { scroll: false });
+                        }
+                    };
+                    const observerOption = {
+                        threshold: 1.0,
+                    };
+                    const observer = new IntersectionObserver(
+                        observerCallback,
+                        observerOption
+                    );
+
+                    observer.observe(careerRef.current);
+                }
+
+                if (projectRef.current !== null) {
+                    const observerCallback = (entries: any) => {
+                        const [entry] = entries;
+                        if (!entry.isIntersecting) {
+                            router.push('/', { scroll: false });
+                        }
+                    };
+                    const observerOption = {
+                        threshold: 1.0,
+                    };
+                    const observer = new IntersectionObserver(
+                        observerCallback,
+                        observerOption
+                    );
+
+                    observer.observe(projectRef.current);
+                }
+            });
+        }
+    }, []);
 
     return (
         <>
@@ -296,7 +335,7 @@ export default function Home() {
                                 title="프로젝트 바로가기"
                                 className={`flex_center`}
                                 onClick={() => {
-                                    // router.push('?section=career');
+                                    router.push('/', { scroll: false });
                                     projectRef.current?.scrollIntoView({
                                         behavior: 'smooth',
                                         block: 'start',
@@ -317,7 +356,7 @@ export default function Home() {
                                 title="커리어 바로가기"
                                 className={`flex_center`}
                                 onClick={() => {
-                                    // router.push('?section=project');
+                                    router.push('/', { scroll: false });
                                     careerRef.current?.scrollIntoView({
                                         behavior: 'smooth',
                                         block: 'start',
@@ -373,7 +412,6 @@ export default function Home() {
                             height={0}
                         />
                     </div>
-
                     <SubTop title="CAREER" color="var(--pink-01)" />
 
                     <div className={`wrap ${style.career_box}`}>
