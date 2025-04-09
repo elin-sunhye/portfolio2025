@@ -30,7 +30,7 @@ export default function Header() {
                 <span className={style.face}>
                     <Image
                         src={'/img/ico_menu_face.svg'}
-                        alt="얼굴"
+                        alt={'얼굴'}
                         width={0}
                         height={0}
                     />
@@ -43,21 +43,21 @@ export default function Header() {
                         title={'닫기 버튼'}
                         id={'close'}
                         className={style.btn_close}
-                        btnSize="xlg"
+                        btnSize={'xlg'}
                         onClick={() => {
                             setIsOpen(!isOpen);
                         }}
                     >
                         <Image
                             src={'/img/ico_close.svg'}
-                            alt="브이 아이콘"
+                            alt={'브이 아이콘'}
                             width={0}
                             height={0}
                         />
                     </Btn>
                     <ul className={style.menu}>
                         <li>
-                            <a href="/">HOME</a>
+                            <a href={'/'}>HOME</a>
                         </li>
                         <li>
                             <p
@@ -85,31 +85,33 @@ export default function Header() {
                             </p>
                         </li>
                         <li>
-                            <a href="/contact">CONTACT</a>
+                            <a href={'/contact'}>CONTACT</a>
                         </li>
                     </ul>
 
                     <div className={`flex_end ${style.sns_box}`}>
                         <a
-                            href="https://www.notion.so/thunhye/dde0ea1679e5421e868e63a9410ccbcf?pvs=4"
-                            target="_blank"
-                            className="flex_center"
+                            href={
+                                'https://www.notion.so/thunhye/dde0ea1679e5421e868e63a9410ccbcf?pvs=4'
+                            }
+                            target={'_blank'}
+                            className={'flex_center'}
                         >
                             <Image
                                 src={'/img/ico_clip.svg'}
-                                alt="클립 아이콘"
+                                alt={'클립 아이콘'}
                                 width={0}
                                 height={0}
                             />
                         </a>
                         <a
-                            href="https://github.com/elin-sunhye"
-                            target="_blank"
-                            className="flex_center"
+                            href={'https://github.com/elin-sunhye'}
+                            target={'_blank'}
+                            className={'flex_center'}
                         >
                             <Image
                                 src={'/img/ico_sns_github.svg'}
-                                alt="깃허브 아이콘"
+                                alt={'깃허브 아이콘'}
                                 width={0}
                                 height={0}
                             />

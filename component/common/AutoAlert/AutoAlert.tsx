@@ -36,14 +36,14 @@ export default function AutoAlert() {
         >
             <p className={openState ? 'animation_p' : ''}>
                 {status === 'error' ? (
-                    <BsXCircleFill color="var(--error-3)" size={18} />
+                    <BsXCircleFill color={'var(--error-3)'} size={18} />
                 ) : status === 'info' ? (
-                    <BsInfoCircleFill color="var(--info-3)" size={18} />
+                    <BsInfoCircleFill color={'var(--info-3)'} size={18} />
                 ) : status === 'success' ? (
-                    <BsCheckCircleFill color="var(--success-3)" size={18} />
+                    <BsCheckCircleFill color={'var(--success-3)'} size={18} />
                 ) : (
                     <BsExclamationTriangleFill
-                        color="var(--warning-3)"
+                        color={'var(--warning-3)'}
                         size={18}
                     />
                 )}

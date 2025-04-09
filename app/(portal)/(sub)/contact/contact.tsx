@@ -244,7 +244,7 @@ export default function Contact() {
                                 title={'연락하기'}
                                 color={'blue'}
                                 isHover
-                                type="submit"
+                                type={'submit'}
                             >
                                 SEND
                             </Btn>

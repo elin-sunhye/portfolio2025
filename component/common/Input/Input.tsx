@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
 import {
     ChangeEventHandler,
     KeyboardEventHandler,
     Ref,
     forwardRef,
-} from "react";
-import style from "./input.module.scss";
+} from 'react';
+import style from './input.module.scss';
 
 interface InputProps {
-    size?: "sm" | "md" | "xlg";
+    size?: 'sm' | 'md' | 'xlg';
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onKeyUp?: KeyboardEventHandler<HTMLInputElement>;
     // 웹접근성
     id: string;
     labelNm: string;
-    type: "text" | "password";
+    type: 'text' | 'password';
     value?: string;
     name: string;
 }
@@ -54,7 +54,7 @@ const Input = forwardRef(
     ) => {
         return (
             <>
-                <label htmlFor={id} className="screen_out">
+                <label htmlFor={id} className={'screen_out'}>
                     {labelNm}
                 </label>
                 <input
@@ -62,16 +62,18 @@ const Input = forwardRef(
                     type={type}
                     name={name}
                     id={id}
-                    className={`${style.input} ${size ? style[size] : style.lg}`}
+                    className={`${style.input} ${
+                        size ? style[size] : style.lg
+                    }`}
                     value={value}
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                     onKeyDown={(e) => {
-                        if (e.key === "Enter") {
+                        if (e.key === 'Enter') {
                             e.preventDefault();
                         }
                     }}
-                    autoComplete={"off"}
+                    autoComplete={'off'}
                     {...props}
                 />
             </>
@@ -79,7 +81,7 @@ const Input = forwardRef(
     }
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 export default Input as <T extends {}>(
     props: InputProps & {
         ref: Ref<HTMLInputElement>;

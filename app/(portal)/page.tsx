@@ -126,7 +126,7 @@ export default function Home() {
         <>
             {/* 메인 비주얼 */}
             <section className={` ${style.main_visual}`}>
-                <div className=" flex_center">
+                <div className={'flex_center'}>
                     <h1>
                         FULL STACK <br />
                         SUNHYE
@@ -136,7 +136,7 @@ export default function Home() {
                     <span>
                         <Image
                             src={'/img/ico_main_visual.svg'}
-                            alt="메인 아이콘"
+                            alt={'메인 아이콘'}
                             width={0}
                             height={0}
                         />
@@ -147,13 +147,13 @@ export default function Home() {
             {/* 무한 롤링 */}
             <section>
                 <Rolling
-                    speed="120s"
-                    bg="var(--orange-01)"
-                    color="var(--yellow-01)"
+                    speed={'120s'}
+                    bg={'var(--orange-01)'}
+                    color={'var(--yellow-01)'}
                 >
                     <Image
                         src={'/img/ico_flower.svg'}
-                        alt="꽃 아이콘"
+                        alt={'꽃 아이콘'}
                         className={style.ico_flower}
                         width={0}
                         height={0}
@@ -161,7 +161,7 @@ export default function Home() {
                     PARADISE IS WHERE I AM
                     <Image
                         src={'/img/ico_v.svg'}
-                        alt="브이 아이콘"
+                        alt={'브이 아이콘'}
                         className={style.ico_v}
                         width={0}
                         height={0}
@@ -197,20 +197,20 @@ export default function Home() {
                         >
                             {skill === 'back' ? (
                                 <>
-                                    <h6 className="flex_center">
+                                    <h6 className={'flex_center'}>
                                         BACK
                                         <br />
                                         END
                                         <span className={style.img}>
                                             <Image
                                                 src={'/img/ico_sun_line.svg'}
-                                                alt="해 라인 아이콘"
+                                                alt={'해 라인 아이콘'}
                                                 width={0}
                                                 height={0}
                                             />
                                         </span>
                                     </h6>
-                                    <ul className="flex_start">
+                                    <ul className={'flex_start'}>
                                         {fullSkillArr.map(
                                             (
                                                 back: {
@@ -241,20 +241,20 @@ export default function Home() {
                                 </>
                             ) : skill === 'front' ? (
                                 <>
-                                    <h6 className="flex_center">
+                                    <h6 className={'flex_center'}>
                                         FRONT
                                         <br />
                                         END
                                         <span className={style.img}>
                                             <Image
                                                 src={'/img/ico_eye.svg'}
-                                                alt="눈 아이콘"
+                                                alt={'눈 아이콘'}
                                                 width={0}
                                                 height={0}
                                             />
                                         </span>
                                     </h6>
-                                    <ul className="flex_start">
+                                    <ul className={'flex_start'}>
                                         {fullSkillArr.map(
                                             (
                                                 front: {
@@ -285,18 +285,18 @@ export default function Home() {
                                 </>
                             ) : (
                                 <>
-                                    <h6 className="flex_center">
+                                    <h6 className={'flex_center'}>
                                         DESIGN
                                         <span className={style.img}>
                                             <Image
                                                 src={'/img/ico_v_2.svg'}
-                                                alt="브이 아이콘"
+                                                alt={'브이 아이콘'}
                                                 width={0}
                                                 height={0}
                                             />
                                         </span>
                                     </h6>
-                                    <ul className="flex_start">
+                                    <ul className={'flex_start'}>
                                         {fullSkillArr.map(
                                             (
                                                 design: {
@@ -337,7 +337,7 @@ export default function Home() {
                     <div className={style.left}>
                         <div className={` ${style.shortcut}`}>
                             <p
-                                title="프로젝트 바로가기"
+                                title={'프로젝트 바로가기'}
                                 className={`flex_center`}
                                 onClick={() => {
                                     router.push('/', { scroll: false });
@@ -350,15 +350,15 @@ export default function Home() {
                                 PROJECT
                             </p>
                             <a
-                                href="/contact"
-                                title="컨텍트 바로가기"
+                                href={'/contact'}
+                                title={'컨텍트 바로가기'}
                                 className={`flex_center`}
                             >
                                 CONTACT
                             </a>
 
                             <p
-                                title="커리어 바로가기"
+                                title={'커리어 바로가기'}
                                 className={`flex_center`}
                                 onClick={() => {
                                     router.push('/', { scroll: false });
@@ -371,9 +371,11 @@ export default function Home() {
                                 CAREER
                             </p>
                             <a
-                                href="https://thunhye.notion.site/dde0ea1679e5421e868e63a9410ccbcf?pvs=4"
-                                target="_blank"
-                                title="이력서 바로가기"
+                                href={
+                                    'https://thunhye.notion.site/dde0ea1679e5421e868e63a9410ccbcf?pvs=4'
+                                }
+                                target={'_blank'}
+                                title={'이력서 바로가기'}
                                 className={`flex_center`}
                             >
                                 RESUME
@@ -398,7 +400,7 @@ export default function Home() {
                     <div className={style.right}>
                         <Image
                             src={'/img/gif_computer.png'}
-                            alt="컴퓨터 gif"
+                            alt={'컴퓨터 gif'}
                             width={0}
                             height={0}
                         />
@@ -412,12 +414,13 @@ export default function Home() {
                     <div ref={scrollBgRef} className={style.scroll_bg}>
                         <Image
                             src={'/img/img_career_bg.svg'}
-                            alt="배경"
+                            alt={'배경'}
                             width={0}
                             height={0}
                         />
                     </div>
-                    <SubTop title="CAREER" color="var(--pink-01)" />
+
+                    <SubTop title={'CAREER'} color={'var(--pink-01)'} />
 
                     <div className={`wrap ${style.career_box}`}>
                         {careerArr.map((career: cardType, idx: number) => {
@@ -438,19 +441,58 @@ export default function Home() {
 
             {/* 프로젝트 */}
             <section ref={projectRef} className={style.project_section}>
-                <div className={style.project_wrap}>
-                    {projectArr.map((pj: cardType, idx: number) => {
-                        return (
-                            <Card
-                                key={`career_${idx}`}
-                                data={pj}
-                                onClick={() => {
-                                    setIsModalOpen(!isModalOpen);
-                                    setClickData(pj);
-                                }}
-                            />
-                        );
-                    })}
+                <div className={`wrap ${style.project_wrap}`}>
+                    <SubTop title={'PROJECT'} color={'var(--blue-01)'} />
+
+                    <div className={style.project_box}>
+                        {projectArr.map((pj: cardType, idx: number) => {
+                            return (
+                                <div
+                                    key={`project_${idx}`}
+                                    className={style.col}
+                                >
+                                    <p
+                                    // onClick={() => {
+                                    //     setIsModalOpen(!isModalOpen);
+                                    //     setClickData(pj);
+                                    // }}
+                                    >
+                                        {pj.title}
+                                    </p>
+
+                                    <p>
+                                        기획부터 개발까지 전 과정을 경험하며
+                                        실무 역량을 쌓아온 풀스택 개발자입니다.
+                                        퍼블리셔로 시작하여 프론트엔드와
+                                        백엔드까지 차근차근 성장하며, 기술적
+                                        기반을 탄탄히 다져왔습니다.
+                                    </p>
+
+                                    <Btn
+                                        href={pj.site}
+                                        title={'GO LINK'}
+                                        id={'link'}
+                                        btnSize={'sm'}
+                                        color={'blue'}
+                                        borderRadius={'br_round'}
+                                        className={style.btn_link}
+                                        isHover
+                                    >
+                                        GO LINK
+                                        <svg
+                                            data-bbox="9 70.9 181 59"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 200 200"
+                                        >
+                                            <g>
+                                                <path d="M159 70.9l-2.2 2.4L183.6 99H9v3h174.6l-26.2 25.3 2.1 2.6 30.5-29.3-31-29.7z"></path>
+                                            </g>
+                                        </svg>
+                                    </Btn>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </section>
 
@@ -464,7 +506,7 @@ export default function Home() {
                             return (
                                 <div
                                     key={crti.name + idx}
-                                    className="flex_between"
+                                    className={'flex_between'}
                                 >
                                     <p>{crti.name}</p>
                                     <span className={style.date}>
@@ -628,8 +670,8 @@ export default function Home() {
                                 id={clickData.title}
                                 className={style.btn_url}
                                 href={clickData.site}
-                                btnSize="xlg"
-                                borderRadius="br_square_round_1"
+                                btnSize={'xlg'}
+                                borderRadius={'br_square_round_1'}
                             >
                                 Go
                             </Btn>
