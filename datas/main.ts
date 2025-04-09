@@ -48,7 +48,8 @@ export const fullSkillArr: {
     {
         src: '/img/ico_aws.svg',
         alt: '아마존웹서비스',
-        name: 'AWS (EC2, S3, RDS)',
+        // name: 'AWS (EC2, S3, RDS)',
+        name: 'AWS RDS',
         type: 'back',
     },
     // {
