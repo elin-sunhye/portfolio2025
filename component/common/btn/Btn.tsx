@@ -1,6 +1,6 @@
 'use client';
 
-import {Ref, forwardRef, useState} from 'react';
+import { Ref, forwardRef, useState } from 'react';
 import style from './btn.module.scss';
 
 interface BtnProps {
@@ -83,30 +83,29 @@ const Btn = (
         <a
             href={href}
             id={id}
-            role="link"
+            role={'link'}
             title={title}
             aria-label={title}
             tabIndex={tabIndex !== undefined ? tabIndex : 0}
-            onBlur={onBlur ? onBlur : () => {
-            }}
-            target="_blank"
+            onBlur={onBlur ? onBlur : () => {}}
+            target={'_blank'}
             className={`${style.btn} ${
                 btnSize === 'xsm'
                     ? style.xsm
                     : btnSize === 'sm'
-                        ? style.sm
-                        : btnSize === 'lg'
-                            ? style.lg
-                            : btnSize === 'xlg'
-                                ? style.xlg
-                                : style.md
+                    ? style.sm
+                    : btnSize === 'lg'
+                    ? style.lg
+                    : btnSize === 'xlg'
+                    ? style.xlg
+                    : style.md
             } ${color && color !== '' ? style[color] : style.white} ${
                 borderRadius ? style[borderRadius] : ''
-            } ${isHover && isHover === true ? `${style[color + '_hover']}` : ''} ${
-                className ? className : ''
-            }`}
+            } ${
+                isHover && isHover === true ? `${style[color + '_hover']}` : ''
+            } ${className ? className : ''}`}
             disabled={color === 'disabled' ? true : false}
-            style={{...btnStyle}}
+            style={{ ...btnStyle }}
             {...props}
         >
             {children}
@@ -116,29 +115,28 @@ const Btn = (
             ref={ref}
             id={id}
             type={type ? type : 'button'}
-            role="button"
+            role={'button'}
             title={title}
             aria-label={title}
             tabIndex={tabIndex !== undefined ? tabIndex : 0}
-            onBlur={onBlur ? onBlur : () => {
-            }}
+            onBlur={onBlur ? onBlur : () => {}}
             className={`${style.btn} ${
                 btnSize === 'xsm'
                     ? style.xsm
                     : btnSize === 'sm'
-                        ? style.sm
-                        : btnSize === 'lg'
-                            ? style.lg
-                            : btnSize === 'xlg'
-                                ? style.xlg
-                                : style.md
+                    ? style.sm
+                    : btnSize === 'lg'
+                    ? style.lg
+                    : btnSize === 'xlg'
+                    ? style.xlg
+                    : style.md
             } ${color && color !== '' ? style[color] : style.white} ${
                 borderRadius ? style[borderRadius] : ''
             } ${isHover === true ? `${style[color + '_hover']}` : ''} ${
                 className ? className : ''
             }`}
             disabled={color === 'disabled' ? true : false}
-            style={{...btnStyle}}
+            style={{ ...btnStyle }}
             {...props}
         >
             {children}

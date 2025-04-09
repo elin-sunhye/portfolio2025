@@ -45,7 +45,7 @@ export const projectArr: cardType[] = [
     {
         title: 'Wiko',
         desc: '',
-        site: '',
+        site: 'https://wiko.netlify.app/',
         skills: [
             'React.js',
             'Next.js',

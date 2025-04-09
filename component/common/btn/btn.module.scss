@@ -85,13 +85,12 @@
     }
 
     &.blue {
-        color: var(--white);
-        border-color: var(--blue-01);
-        background-color: var(--blue-01);
+        color: var(--blue-01);
+        border-color: var(--white);
+        background-color: var(--white);
 
         &.blue_hover:hover {
-            color: var(--blue-01);
-            background-color: var(--white);
+            background-color: var(--blue-02);
         }
     }
 

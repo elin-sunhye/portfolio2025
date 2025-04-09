@@ -14,12 +14,14 @@ export default function Career() {
     const [isCareerModalOpen, setIsCareerModalOpen] = useState<boolean>(false);
 
     // 클릭 데이터
-    const [careerClickData, setCareerClickData] = useState<cardType>({} as cardType);
+    const [careerClickData, setCareerClickData] = useState<cardType>(
+        {} as cardType
+    );
 
     return (
         <div className={style.career_wrap}>
             {/* 서브탑 */}
-            <SubTop title="CAREER" color="var(--pink-01)" />
+            <SubTop title={'CAREER'} color={'var(--pink-01)'} />
 
             {/* 컨텐츠 */}
             <div className={`wrap ${style.career_box}`}>
@@ -41,13 +43,16 @@ export default function Career() {
             <Modal isOpen={isCareerModalOpen} setIsOpen={setIsCareerModalOpen}>
                 {Object.keys(careerClickData).length > 0 ? (
                     <div className={style.modal_box}>
-                        <span className={style.desc}>{careerClickData.desc}</span>
+                        <span className={style.desc}>
+                            {careerClickData.desc}
+                        </span>
                         <p className={style.title}>{careerClickData.title}</p>
                         <p className={style.skills}>
                             {careerClickData.skills.map(
                                 (skill: string, idx: number) => (
                                     <span key={`careerSkill_${idx}`}>
-                                        {careerClickData.skills.length === idx + 1
+                                        {careerClickData.skills.length ===
+                                        idx + 1
                                             ? skill
                                             : `${skill}, `}
                                     </span>
@@ -182,8 +187,8 @@ export default function Career() {
                                 id={careerClickData.title}
                                 className={style.btn_url}
                                 href={careerClickData.site}
-                                btnSize="xlg"
-                                borderRadius="br_square_round_1"
+                                btnSize={'xlg'}
+                                borderRadius={'br_square_round_1'}
                             >
                                 Go
                             </Btn>
