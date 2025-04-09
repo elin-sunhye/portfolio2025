@@ -56,17 +56,26 @@ export const fullSkillArr: {
     //     src: '/img/ico_chatgpt.svg',
     //     alt: '챗피비티',
     //     name: 'chatGPT 및 OpenAI API',
+    //     type: 'back',
     // },
-    // {
-    //     src: '/img/ico_docker.svg',
-    //     alt: '도커',
-    //     name: 'Docker',
-    // },
+    {
+        src: '/img/ico_docker.svg',
+        alt: '도커',
+        name: 'Docker',
+        type: 'back',
+    },
     // {
     //     src: '/img/ico_putty.svg',
     //     alt: '푸티',
     //     name: 'PuTTY',
+    //     type: 'back',
     // },
+    {
+        src: '/img/ico_nginx.svg',
+        alt: '엔진엑스',
+        name: 'Nginx',
+        type: 'back',
+    },
     {
         src: '/img/ico_dbms.svg',
         alt: '디비엠에스',
