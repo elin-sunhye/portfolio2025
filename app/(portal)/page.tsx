@@ -17,6 +17,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Home() {
     const router = useRouter();
+
     // 스킬 클릭한 배열
     // const [clickSkill, setClickSkill] = useState<string[]>([]);
 
@@ -79,7 +80,9 @@ export default function Home() {
                 }
 
                 if (careerRef.current !== null) {
-                    const observerCallback = (entries: any) => {
+                    const observerCallback = (
+                        entries: IntersectionObserverEntry[]
+                    ) => {
                         const [entry] = entries;
                         if (!entry.isIntersecting) {
                             router.push('/', { scroll: false });
@@ -97,7 +100,9 @@ export default function Home() {
                 }
 
                 if (projectRef.current !== null) {
-                    const observerCallback = (entries: any) => {
+                    const observerCallback = (
+                        entries: IntersectionObserverEntry[]
+                    ) => {
                         const [entry] = entries;
                         if (!entry.isIntersecting) {
                             router.push('/', { scroll: false });
