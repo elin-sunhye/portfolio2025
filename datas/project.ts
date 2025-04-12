@@ -5,7 +5,7 @@ export const projectArr: cardType[] = [
     {
         title: 'StockSim',
         desc: '가상 주식 투자 시뮬레이터',
-        site: '',
+        site: 'https://stocksim.store/swagger-ui/index.html',
         skills: [
             'Spring Boot',
             'Java',
@@ -27,7 +27,7 @@ export const projectArr: cardType[] = [
     {
         title: 'DreamPath',
         desc: '멘토링 전문 사이트',
-        site: '',
+        site: 'https://dreampathpj.store',
         skills: [
             'Spring Boot',
             'Java',
