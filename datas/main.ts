@@ -52,6 +52,12 @@ export const fullSkillArr: {
         name: 'AWS RDS',
         type: 'back',
     },
+    {
+        src: '/img/ico_oraclecloud.svg',
+        alt: '오라클 클라우드',
+        name: '오라클 클라우드',
+        type: 'back',
+    },
     // {
     //     src: '/img/ico_chatgpt.svg',
     //     alt: '챗피비티',

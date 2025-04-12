@@ -9,7 +9,7 @@ interface SubtopProps {
 const SubTop = ({ title, color }: SubtopProps, ref: Ref<HTMLDivElement>) => {
     return (
         <div className={style.sub_top}>
-            <h2 style={{ color: color }}>{title}</h2>
+            <h6 style={{ color: color }}>{title}</h6>
         </div>
     );
 };

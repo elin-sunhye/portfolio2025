@@ -508,38 +508,36 @@
     .career_wrap {
         // 컨텐츠
         .career_box {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            .cont {
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
 
-            padding-top: 0;
+                & > div {
+                    width: calc((100% - 2rem) / 3);
 
-            & > div {
-                width: calc((100% - 2rem) / 3);
+                    &:nth-of-type(1) {
+                        background-image: url('../../public/img/img_paper_box_1.svg');
+                    }
+                    &:nth-of-type(2) {
+                        background-image: url('../../public/img/img_paper_box_2.svg');
+                    }
+                    &:nth-of-type(3) {
+                        background-image: url('../../public/img/img_paper_box_3.svg');
+                    }
+                    &:nth-of-type(4) {
+                        background-image: url('../../public/img/img_paper_box_4.svg');
+                    }
+                    &:nth-of-type(5) {
+                        background-image: url('../../public/img/img_paper_box_5.svg');
+                    }
+                    &:nth-of-type(6) {
+                        background-image: url('../../public/img/img_paper_box_6.svg');
+                    }
 
-                &:nth-of-type(1) {
-                    background-image: url('../../public/img/img_paper_box_1.svg');
-                }
-                &:nth-of-type(2) {
-                    background-image: url('../../public/img/img_paper_box_2.svg');
-                }
-                &:nth-of-type(3) {
-                    background-image: url('../../public/img/img_paper_box_3.svg');
-                }
-                &:nth-of-type(4) {
-                    background-image: url('../../public/img/img_paper_box_4.svg');
-                }
-                &:nth-of-type(5) {
-                    background-image: url('../../public/img/img_paper_box_5.svg');
-                }
-                &:nth-of-type(6) {
-                    background-image: url('../../public/img/img_paper_box_6.svg');
-                }
-
-                &:hover {
-                    scale: 0.9;
+                    &:hover {
+                        scale: 0.9;
+                    }
                 }
             }
         }
@@ -552,8 +550,6 @@
 
     // 컨텐츠
     .project_wrap {
-        padding-top: 0;
-
         .project_box {
             display: flex;
             justify-content: space-between;
@@ -606,16 +602,6 @@
     .certification_wap {
         width: 100%;
 
-        h6 {
-            font-family: var(--Brice);
-            font-size: var(--fs-60);
-            font-weight: 800;
-            text-align: center;
-            color: var(--yellow-02);
-
-            margin-bottom: 3rem;
-        }
-
         .crti_card {
             flex-wrap: wrap;
             gap: 2rem;
@@ -633,8 +619,10 @@
 
                 p {
                     width: 100%;
+
+                    font-family: var(--Brice);
                     font-size: var(--fs-24);
-                    font-weight: 900;
+                    font-weight: 700;
                     text-align: center;
 
                     &.detail {
