@@ -135,7 +135,7 @@ export default function Home() {
 
                     <span>
                         <Image
-                            src={'/img/ico_main_visual.svg'}
+                            src={'/img/ico_main_visual2.svg'}
                             alt={'메인 아이콘'}
                             width={0}
                             height={0}
@@ -399,7 +399,7 @@ export default function Home() {
                     </div>
                     <div className={style.right}>
                         <Image
-                            src={'/img/gif_computer.png'}
+                            src={'/img/gif_computer2.gif'}
                             alt={'컴퓨터 gif'}
                             width={0}
                             height={0}
