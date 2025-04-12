@@ -420,21 +420,23 @@ export default function Home() {
                         />
                     </div>
 
-                    <SubTop title={'CAREER'} color={'var(--pink-01)'} />
-
                     <div className={`wrap ${style.career_box}`}>
-                        {careerArr.map((career: cardType, idx: number) => {
-                            return (
-                                <Card
-                                    key={`career_${idx}`}
-                                    data={career}
-                                    onClick={() => {
-                                        setIsModalOpen(!isModalOpen);
-                                        setClickData(career);
-                                    }}
-                                />
-                            );
-                        })}
+                        <SubTop title={'CAREER'} color={'var(--pink-01)'} />
+
+                        <div className={`flex_start ${style.cont}`}>
+                            {careerArr.map((career: cardType, idx: number) => {
+                                return (
+                                    <Card
+                                        key={`career_${idx}`}
+                                        data={career}
+                                        onClick={() => {
+                                            setIsModalOpen(!isModalOpen);
+                                            setClickData(career);
+                                        }}
+                                    />
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -499,7 +501,10 @@ export default function Home() {
             {/* 자격증 */}
             <section className={style.certification_section}>
                 <div className={`wrap ${style.certification_wap}`}>
-                    <h6>MY CERTIFICATION</h6>
+                    <SubTop
+                        title={'MY CERTIFICATION'}
+                        color={'var(--yellow-02)'}
+                    />
 
                     <div className={`flex_between ${style.crti_card}`}>
                         {certifiArr.map((crti: certifiType, idx: number) => {

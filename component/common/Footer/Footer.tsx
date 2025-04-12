@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import style from './footer.module.scss';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
     const router = useRouter();
@@ -45,7 +46,12 @@ export default function Footer() {
 
                     {/* 로고 */}
                     <div className={style.logo_circle}>
-                        <span>asd</span>
+                        <Image
+                            src={'/img/ico_footer_logo.svg'}
+                            alt={'푸터 로고'}
+                            width={0}
+                            height={0}
+                        />
                     </div>
                 </div>
 

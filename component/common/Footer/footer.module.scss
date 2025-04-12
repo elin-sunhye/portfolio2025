@@ -1,46 +1,46 @@
-
 .footer {
-  background-color: var(--black);
+    background-color: var(--black);
 
-  & * {
-    color: var(--white);
-  }
+    & * {
+        color: var(--white);
+    }
 
-  .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    margin-bottom: 1rem;
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    // 메뉴
-    ul {
-      font-weight: 600;
+        margin-bottom: 1rem;
 
-      li {
-        display: inline-block;
-        width: 50%;
+        // 메뉴
+        ul {
+            font-weight: 600;
 
-        &:first-of-type,
-        &:nth-of-type(2) {
-          margin-bottom: 1rem;
+            li {
+                display: inline-block;
+                width: 50%;
+
+                &:first-of-type,
+                &:nth-of-type(2) {
+                    margin-bottom: 1rem;
+                }
+            }
         }
-      }
+
+        // 로고
+        .logo_circle {
+            width: 80px;
+            height: 80px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
     }
 
-    // 로고
-    .logo_circle {
-      width: 80px;
-      height: 80px;
-
-      box-sizing: border-boxs;
-      border: 1px solid var(--white);
-      border-radius: 50%;
+    // 카피라이트
+    .copy_right {
+        font-size: var(--fs-14);
     }
-  }
-
-  // 카피라이트
-  .copy_right {
-    font-size: var(--fs-14);
-  }
 }
