@@ -55,7 +55,7 @@ export const fullSkillArr: {
     {
         src: '/img/ico_oraclecloud.svg',
         alt: '오라클 클라우드',
-        name: '오라클 클라우드',
+        name: 'Oracle Cloud',
         type: 'back',
     },
     // {
