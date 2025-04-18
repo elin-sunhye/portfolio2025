@@ -555,10 +555,10 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
 
             .col {
-                width: calc((100% - 2rem) / 3);
+                width: calc((100% - 4rem) / 3);
 
                 p {
                     &:first-of-type {
@@ -570,6 +570,10 @@
                     }
                     &:last-of-type {
                         margin: 1rem 0 2rem;
+
+                        height: 10rem;
+
+                        line-height: 1.3;
                     }
                 }
 
