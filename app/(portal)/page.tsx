@@ -425,15 +425,21 @@ export default function Home() {
 
                         <div className={`flex_start ${style.cont}`}>
                             {careerArr.map((career: cardType, idx: number) => {
+                                const classNum =
+                                    idx + 1 > 6 ? idx % 5 : idx + 1;
                                 return (
-                                    <Card
+                                    <div
                                         key={`career_${idx}`}
-                                        data={career}
-                                        onClick={() => {
-                                            setIsModalOpen(!isModalOpen);
-                                            setClickData(career);
-                                        }}
-                                    />
+                                        className={style[`card_${classNum}`]}
+                                    >
+                                        <Card
+                                            data={career}
+                                            onClick={() => {
+                                                setIsModalOpen(!isModalOpen);
+                                                setClickData(career);
+                                            }}
+                                        />
+                                    </div>
                                 );
                             })}
                         </div>
@@ -573,7 +579,7 @@ export default function Home() {
                         <div className={style.img_box}>
                             {clickData.title.includes('Back') ? (
                                 <>
-                                    <span>
+                                    {/* <span>
                                         <Image
                                             src={`/img/img_career_back_1.svg`}
                                             alt={'사이트 이미지 1'}
@@ -588,7 +594,7 @@ export default function Home() {
                                             width={0}
                                             height={0}
                                         />
-                                    </span>
+                                    </span> */}
                                 </>
                             ) : clickData.title.includes('Wisdom') ? (
                                 <>
@@ -668,7 +674,7 @@ export default function Home() {
                                 </>
                             ) : (
                                 <>
-                                    <span>
+                                    {/* <span>
                                         <Image
                                             src={`/img/img_career_sandan_1.svg`}
                                             alt={'사이트 이미지 1'}
@@ -683,7 +689,7 @@ export default function Home() {
                                             width={0}
                                             height={0}
                                         />
-                                    </span>
+                                    </span> */}
                                 </>
                             )}
                         </div>
