@@ -5,7 +5,7 @@ export const careerArr: cardType[] = [
     {
         title: 'SulOrder',
         desc: '주류 도•소매 공유 경제 플랫폼 / 프리랜서',
-        site: '',
+        site: 'https://github.com/elin-sunhye/sul_order_Pub',
         skills: ['HTML', 'CSS', 'J-Query'],
         points: ['키오스크 디자인', '화면 구현 퍼블리싱'],
     },
@@ -13,7 +13,7 @@ export const careerArr: cardType[] = [
     {
         title: 'Eagle Pass',
         desc: '골프장 인도어 키오스크 / 프리랜서',
-        site: '',
+        site: 'https://github.com/elin-sunhye/eagle_pass_Pub',
         skills: ['HTML', 'CSS', 'J-Query'],
         points: ['앱 디자인', '화면 구현 퍼블리싱'],
     },
