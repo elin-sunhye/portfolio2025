@@ -3,6 +3,21 @@ import { cardType } from '@/type/commonType';
 // 커리어 리스트
 export const careerArr: cardType[] = [
     {
+        title: 'SulOrder',
+        desc: '주류 도•소매 공유 경제 플랫폼 / 프리랜서',
+        site: '',
+        skills: ['HTML', 'CSS', 'J-Query'],
+        points: ['키오스크 디자인', '화면 구현 퍼블리싱'],
+    },
+
+    {
+        title: 'Eagle Pass',
+        desc: '골프장 인도어 키오스크 / 프리랜서',
+        site: '',
+        skills: ['HTML', 'CSS', 'J-Query'],
+        points: ['앱 디자인', '화면 구현 퍼블리싱'],
+    },
+    {
         title: 'Back Office',
         desc: '프로젝트 운영, 관리, 지원 시스템',
         site: '',
