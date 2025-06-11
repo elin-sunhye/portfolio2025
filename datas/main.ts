@@ -1,14 +1,14 @@
 import { certifiType } from '@/type/mainType';
 
-// 스킬 배열 ---------------------------------
-export const skillArr: string[] = ['back', 'front', 'design'];
-
-export const fullSkillArr: {
+export interface skillType {
     src: string;
     alt: string;
     name: string;
     type: string;
-}[] = [
+}
+
+// 스킬 배열 ---------------------------------
+export const fullSkillArr: skillType[] = [
     {
         src: '/img/ico_node.svg',
         alt: '노드',

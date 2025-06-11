@@ -4,7 +4,7 @@ import style from './page.module.scss';
 import Image from 'next/image';
 import Rolling from '@/component/common/rolling/Rolling';
 import { useEffect, useRef, useState } from 'react';
-import { certifiArr, fullSkillArr, skillArr } from '@/datas/main';
+import { certifiArr, fullSkillArr, skillType } from '@/datas/main';
 import { certifiType } from '@/type/mainType';
 import { cardType } from '@/type/commonType';
 import SubTop from '@/component/common/SubTop/Subtop';
@@ -18,29 +18,46 @@ import { useRouter, useSearchParams } from 'next/navigation';
 export default function Home() {
     const router = useRouter();
 
+    // skill ---------------------------------
+    const [skillArr, setSkillArr] = useState<string[]>([]);
+    useEffect(() => {
+        const types = new Set<string>();
+
+        fullSkillArr.forEach((s: skillType) => {
+            // 중복 add 안됨
+            types.add(s.type);
+        });
+
+        // 타입 변환 (출력 형식 매핑)
+        // [...types].map(() => {})
+        const result = Array.from(types).map((type) =>
+            type === 'back'
+                ? 'BACK<br />END'
+                : type === 'front'
+                ? 'FRONT<br />END'
+                : 'DESIGN'
+        );
+
+        setSkillArr(result);
+    }, [fullSkillArr]);
     // 스킬 클릭한 배열
     // const [clickSkill, setClickSkill] = useState<string[]>([]);
-
-    // useEffect(() => {
-    //   console.log('clickSkill', clickSkill);
-    // }, [clickSkill]);
-
-    // 모달 ---------------------------------
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     // 클릭 데이터 ---------------------------------
     const [clickData, setClickData] = useState<cardType>({} as cardType);
 
     // career ---------------------------------
     const careerRef = useRef<HTMLDivElement>(null);
-
     // 스크롤 배경
     const scrollBgRef = useRef<HTMLDivElement>(null);
 
     // project ---------------------------------
     const projectRef = useRef<HTMLDivElement>(null);
 
-    // ref 이동 ---------------------------------
+    // 모달 ---------------------------------
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    // ref 이동 (메뉴 클릭 시) ---------------------------------
     const params = useSearchParams();
     useEffect(() => {
         if (params.get('section') === 'career') {
@@ -56,71 +73,49 @@ export default function Home() {
         }
     }, [params]);
 
-    // 페이지 로드 시 ---------------------------------
+    // scrollBgRef, careerRef, projectRef ---------------------------------
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            // scroll
-            // let lastScroll = 0;
-            window.addEventListener('scroll', function () {
-                // const currentScroll = document.documentElement.scrollTop;
+        if (typeof window === 'undefined') return;
 
-                // career 배경 스크롤 이동
-                if (scrollBgRef.current !== null) {
-                    if (window.scrollY >= window.innerHeight / 1.5) {
-                        const num1 = String(
-                            window.scrollY / 2.25 - window.innerHeight
-                        );
-
-                        scrollBgRef.current.style.setProperty(
-                            'transform',
-                            `translate(-50%, ${num1}px)`
-                        );
-                        // lastScroll = currentScroll;
-                    }
-                }
-
-                if (careerRef.current !== null) {
-                    const observerCallback = (
-                        entries: IntersectionObserverEntry[]
-                    ) => {
-                        const [entry] = entries;
-                        if (!entry.isIntersecting) {
-                            router.push('/', { scroll: false });
-                        }
-                    };
-                    const observerOption = {
-                        threshold: 1.0,
-                    };
-                    const observer = new IntersectionObserver(
-                        observerCallback,
-                        observerOption
-                    );
-
-                    observer.observe(careerRef.current);
-                }
-
-                if (projectRef.current !== null) {
-                    const observerCallback = (
-                        entries: IntersectionObserverEntry[]
-                    ) => {
-                        const [entry] = entries;
-                        if (!entry.isIntersecting) {
-                            router.push('/', { scroll: false });
-                        }
-                    };
-                    const observerOption = {
-                        threshold: 1.0,
-                    };
-                    const observer = new IntersectionObserver(
-                        observerCallback,
-                        observerOption
-                    );
-
-                    observer.observe(projectRef.current);
+        // 영역 옵저버
+        // careerRef.current, projectRef.current가 화면에서 벗어나면 router.push('/', { scroll: false })
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    router.push('/', { scroll: false });
                 }
             });
-        }
-    }, []);
+        };
+
+        const observer = new IntersectionObserver(observerCallback, {
+            threshold: 0.95,
+        });
+
+        if (careerRef.current) observer.observe(careerRef.current);
+        if (projectRef.current) observer.observe(projectRef.current);
+
+        // career 배경 스크롤 이동
+        const handleScroll = () => {
+            if (scrollBgRef.current) {
+                if (window.scrollY >= window.innerHeight / 1.5) {
+                    const y = window.scrollY / 2.25 - window.innerHeight;
+                    scrollBgRef.current.style.setProperty(
+                        'transform',
+                        `translate(-50%, ${y}px)`
+                    );
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (careerRef.current) observer.unobserve(careerRef.current);
+            if (projectRef.current) observer.unobserve(projectRef.current);
+            observer.disconnect();
+        };
+    }, [scrollBgRef, careerRef, projectRef]);
 
     return (
         <>
@@ -130,8 +125,8 @@ export default function Home() {
                     <h1>
                         FULL STACK <br />
                         SUNHYE
+                        <p>• 2025 PORTFOLIO •</p>
                     </h1>
-                    <p>• 2025 PORTFOLIO •</p>
 
                     <span>
                         <Image
@@ -150,6 +145,7 @@ export default function Home() {
                     speed={'120s'}
                     bg={'var(--orange-01)'}
                     color={'var(--yellow-01)'}
+                    hoverStop={false}
                 >
                     <Image
                         src={'/img/ico_flower.svg'}
@@ -176,156 +172,48 @@ export default function Home() {
                         <div
                             key={skill + idx}
                             className={`flex_center ${style.skill_box}`}
-                            // className={`flex_center ${style.inner} ${
-                            //   clickSkill.some((ss) => ss === skill) ? style.open : ''
-                            // }`}
-                            // onClick={() => {
-                            //   if (clickSkill.length === 0) {
-                            //     // 최초 클릭
-                            //     setClickSkill([skill]);
-                            //   } else {
-                            //     if (clickSkill.some((ss) => ss === skill)) {
-                            //       // 중복
-                            //       const remove = clickSkill.filter((ns) => ns !== skill);
-                            //       setClickSkill(remove);
-                            //     } else {
-                            //       // 중복아님
-                            //       setClickSkill([...clickSkill, skill]);
-                            //     }
-                            //   }
-                            // }}
                         >
-                            {skill === 'back' ? (
-                                <>
-                                    <h6 className={'flex_center'}>
-                                        BACK
-                                        <br />
-                                        END
-                                        <span className={style.img}>
-                                            <Image
-                                                src={'/img/ico_sun_line.svg'}
-                                                alt={'해 라인 아이콘'}
-                                                width={0}
-                                                height={0}
-                                            />
-                                        </span>
-                                    </h6>
-                                    <ul className={'flex_start'}>
-                                        {fullSkillArr.map(
-                                            (
-                                                back: {
-                                                    src: string;
-                                                    alt: string;
-                                                    name: string;
-                                                    type: string;
-                                                },
-                                                idxBack: number
-                                            ) =>
-                                                back.type === skill && (
-                                                    <li
-                                                        key={`skill_back_${idxBack}`}
-                                                    >
-                                                        <span>
-                                                            <Image
-                                                                src={back.src}
-                                                                alt={`${back} 아이콘`}
-                                                                width={0}
-                                                                height={0}
-                                                            />
-                                                        </span>
-                                                        {back.name}
-                                                    </li>
-                                                )
-                                        )}
-                                    </ul>
-                                </>
-                            ) : skill === 'front' ? (
-                                <>
-                                    <h6 className={'flex_center'}>
-                                        FRONT
-                                        <br />
-                                        END
-                                        <span className={style.img}>
-                                            <Image
-                                                src={'/img/ico_eye.svg'}
-                                                alt={'눈 아이콘'}
-                                                width={0}
-                                                height={0}
-                                            />
-                                        </span>
-                                    </h6>
-                                    <ul className={'flex_start'}>
-                                        {fullSkillArr.map(
-                                            (
-                                                front: {
-                                                    src: string;
-                                                    alt: string;
-                                                    name: string;
-                                                    type: string;
-                                                },
-                                                idxBack: number
-                                            ) =>
-                                                front.type === skill && (
-                                                    <li
-                                                        key={`skill_front_${idxBack}`}
-                                                    >
-                                                        <span>
-                                                            <Image
-                                                                src={front.src}
-                                                                alt={`${front} 아이콘`}
-                                                                width={0}
-                                                                height={0}
-                                                            />
-                                                        </span>
-                                                        {front.name}
-                                                    </li>
-                                                )
-                                        )}
-                                    </ul>
-                                </>
-                            ) : (
-                                <>
-                                    <h6 className={'flex_center'}>
-                                        DESIGN
-                                        <span className={style.img}>
-                                            <Image
-                                                src={'/img/ico_v_2.svg'}
-                                                alt={'브이 아이콘'}
-                                                width={0}
-                                                height={0}
-                                            />
-                                        </span>
-                                    </h6>
-                                    <ul className={'flex_start'}>
-                                        {fullSkillArr.map(
-                                            (
-                                                design: {
-                                                    src: string;
-                                                    alt: string;
-                                                    name: string;
-                                                    type: string;
-                                                },
-                                                idxBack: number
-                                            ) =>
-                                                design.type === skill && (
-                                                    <li
-                                                        key={`skill_design_${idxBack}`}
-                                                    >
-                                                        <span>
-                                                            <Image
-                                                                src={design.src}
-                                                                alt={`${design} 아이콘`}
-                                                                width={0}
-                                                                height={0}
-                                                            />
-                                                        </span>
-                                                        {design.name}
-                                                    </li>
-                                                )
-                                        )}
-                                    </ul>
-                                </>
-                            )}
+                            <h6 className={'flex_center'}>
+                                {skill.split('<br />')[0]}
+                                <br />
+                                {skill.split('<br />')[1]}
+                                <span className={style.img}>
+                                    <Image
+                                        src={
+                                            skill.includes('BACK')
+                                                ? '/img/ico_sun_line.svg'
+                                                : skill.includes('FRONT')
+                                                ? '/img/ico_eye.svg'
+                                                : '/img/ico_v_2.svg'
+                                        }
+                                        alt={'해 라인 아이콘'}
+                                        width={0}
+                                        height={0}
+                                    />
+                                </span>
+                            </h6>
+                            <ul className={'flex_start'}>
+                                {fullSkillArr.map(
+                                    (detail: skillType, idxSkill: number) =>
+                                        skill
+                                            .toLowerCase()
+                                            .includes(detail.type) && (
+                                            <li
+                                                key={`${detail.type}skill_${idxSkill}`}
+                                            >
+                                                <span>
+                                                    <Image
+                                                        src={detail.src}
+                                                        alt={`${detail} 아이콘`}
+                                                        width={0}
+                                                        height={0}
+                                                    />
+                                                </span>
+                                                {detail.name}
+                                            </li>
+                                        )
+                                )}
+                            </ul>
                         </div>
                     );
                 })}
@@ -468,35 +356,7 @@ export default function Home() {
                                         {pj.title}
                                     </p>
 
-                                    <p>
-                                        {pj.title.includes('StockSim') ? (
-                                            <>
-                                                실제 주식 시장 데이터를 기반으로
-                                                가상 자금을 운용하며 투자 연습을
-                                                할 수 있는 모의 투자
-                                                플랫폼입니다. 자신의
-                                                포트폴리오를 구성해 매수·매도
-                                                전략을 시험해보고, 시시각각
-                                                변하는 시세 차익과 배당 수익을
-                                                체험할 수 있습니다.
-                                            </>
-                                        ) : pj.title.includes('Dream') ? (
-                                            <>
-                                                취준생들이 멘토링을 하며 정보 및
-                                                자료를 공유할 수 있는 플랫폼
-                                                입니다. 사용자들이 멘토링을 통해
-                                                미니 프로젝트를 진행해볼 수
-                                                있으며, 관리자들이 제공하는 정보
-                                                및 자료를 통해 정보를 얻을 수
-                                                있습니다. 있습니다.
-                                            </>
-                                        ) : (
-                                            <>
-                                                주물 • 주조 및 산업 부자재 전문
-                                                기업 사이트 입니다.
-                                            </>
-                                        )}
-                                    </p>
+                                    <p>{pj.cont}</p>
 
                                     <Btn
                                         href={pj.site}
@@ -564,6 +424,7 @@ export default function Home() {
                     <div className={style.modal_box}>
                         <span className={style.desc}>{clickData.desc}</span>
                         <p className={style.title}>{clickData.title}</p>
+                        <p className={style.cont}>{clickData.cont}</p>
                         <p className={style.skills}>
                             {clickData.skills.map(
                                 (skill: string, idx: number) => (
@@ -694,10 +555,7 @@ export default function Home() {
                             )}
                         </div>
 
-                        {clickData.title.includes('Back') ||
-                        clickData.title.includes('Sandan') ? (
-                            <></>
-                        ) : (
+                        {clickData.site !== '' && (
                             <Btn
                                 title={clickData.title}
                                 id={clickData.title}

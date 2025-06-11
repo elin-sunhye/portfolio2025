@@ -48,7 +48,9 @@ export default function Rolling({
             className={`flex_start ${style.rolling_box} ${
                 deirection ? style.right : ''
             }`}
-            style={{ backgroundColor: bg ? bg : 'var(--white)' }}
+            style={{
+                background: bg ? bg : 'var(--white)',
+            }}
             onMouseEnter={hoverStop || hoverStop === false ? undefined : onStop}
             onMouseLeave={hoverStop || hoverStop === false ? undefined : onRun}
         >

@@ -1,46 +1,69 @@
 .footer {
-    background-color: var(--black);
+    // background-color: var(--black);
+    background: url('../../../public/img/img_pager_footer.svg') no-repeat 0 0 /
+        cover;
 
     & * {
         color: var(--white);
     }
 
-    .top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    // 무한 롤링
+    & > a {
+        div {
+            cursor: pointer;
+            p {
+                gap: 5rem !important;
+                cursor: pointer;
 
-        margin-bottom: 1rem;
+                .ico_flower {
+                    width: 30px;
+                    height: auto;
 
-        // 메뉴
-        ul {
-            font-weight: 600;
-
-            li {
-                display: inline-block;
-                width: 50%;
-
-                &:first-of-type,
-                &:nth-of-type(2) {
                     margin-bottom: 1rem;
                 }
             }
         }
+    }
+    .wrap {
+        padding-top: 5rem;
 
-        // 로고
-        .logo_circle {
-            width: 80px;
-            height: 80px;
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            img {
-                width: 100%;
-                height: auto;
+            margin-bottom: 1rem;
+
+            // 메뉴
+            ul {
+                font-weight: 600;
+
+                li {
+                    display: inline-block;
+                    width: 50%;
+
+                    &:first-of-type,
+                    &:nth-of-type(2) {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            // 로고
+            .logo_circle {
+                width: 80px;
+                height: 80px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
-    }
 
-    // 카피라이트
-    .copy_right {
-        font-size: var(--fs-14);
+        // 카피라이트
+        .copy_right {
+            font-size: var(--fs-14);
+        }
     }
 }

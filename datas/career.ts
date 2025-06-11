@@ -4,7 +4,8 @@ import { cardType } from '@/type/commonType';
 export const careerArr: cardType[] = [
     {
         title: 'SulOrder',
-        desc: '주류 도•소매 공유 경제 플랫폼 / 프리랜서',
+        desc: '프리랜서',
+        cont: '주류 도•소매 공유 경제 플랫폼',
         site: 'https://github.com/elin-sunhye/sul_order_Pub',
         skills: ['HTML', 'CSS', 'J-Query'],
         points: ['키오스크 디자인', '화면 구현 퍼블리싱'],
@@ -12,14 +13,16 @@ export const careerArr: cardType[] = [
 
     {
         title: 'Eagle Pass',
-        desc: '골프장 인도어 키오스크 / 프리랜서',
+        desc: '프리랜서',
+        cont: '골프장 인도어 키오스크 & 애플리케이션',
         site: 'https://github.com/elin-sunhye/eagle_pass_Pub',
         skills: ['HTML', 'CSS', 'J-Query'],
         points: ['앱 디자인', '화면 구현 퍼블리싱'],
     },
     {
         title: 'Back Office',
-        desc: '프로젝트 운영, 관리, 지원 시스템',
+        desc: 'deps',
+        cont: '프로젝트 운영, 관리, 지원 시스템',
         site: '',
         skills: [
             'React.js',
@@ -39,7 +42,8 @@ export const careerArr: cardType[] = [
     },
     {
         title: 'Wisdom',
-        desc: '경남대학과 지역산업의 공생 발전을 위한 산학연 플랫폼 (LINC 사업)',
+        desc: 'deps',
+        cont: '경남대학과 지역산업의 공생 발전을 위한 산학연 플랫폼 (LINC 사업)',
         site: 'https://wisdom.kyungnam.ac.kr/',
         skills: [
             'React.js',
@@ -68,7 +72,8 @@ export const careerArr: cardType[] = [
     },
     {
         title: 'GNCAR',
-        desc: '경남 TP 버추얼 개발 기술 지원 플랫폼',
+        desc: 'deps',
+        cont: '경남 TP 버추얼 개발 기술 지원 플랫폼',
         site: 'https://gncar.gntp.or.kr/',
         skills: [
             'React.js',
@@ -94,7 +99,8 @@ export const careerArr: cardType[] = [
     },
     {
         title: 'GNWP',
-        desc: '경상남도 통합 일자리 플랫폼',
+        desc: 'deps',
+        cont: '경상남도 통합 일자리 플랫폼',
         site: 'https://job.giba.or.kr/',
         skills: [
             'React.js',
@@ -116,7 +122,8 @@ export const careerArr: cardType[] = [
     },
     {
         title: 'GNHOME',
-        desc: '경남 공동 주택 관리 통합 플랫폼',
+        desc: 'deps',
+        cont: '경남 공동 주택 관리 통합 플랫폼',
         site: 'https://gnhome.kr/',
         skills: [
             'React.js',
@@ -139,7 +146,8 @@ export const careerArr: cardType[] = [
     },
     {
         title: '3D Sandan',
-        desc: '경남 공단 환경 알리미',
+        desc: 'deps',
+        cont: '경남 공단 환경 알리미',
         site: '',
         skills: ['HTML5', 'CSS', 'JavaScript', 'jQuery'],
         points: [
