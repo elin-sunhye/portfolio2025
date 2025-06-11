@@ -10,7 +10,7 @@ export default function Card({ data, onClick }: cardProps) {
     return (
         <div className={style.card} onClick={onClick}>
             <p>{data.title}</p>
-            <span>{data.desc}</span>
+            <span>{data.cont}</span>
         </div>
     );
 }

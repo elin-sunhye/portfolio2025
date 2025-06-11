@@ -5,6 +5,7 @@ export type StatusType = 'success' | 'warning' | 'info' | 'error';
 export interface cardType {
     title: string;
     desc: string;
+    cont: string;
     site: string;
     skills: string[];
     points: string[];

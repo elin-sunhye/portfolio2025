@@ -5,6 +5,7 @@ export const projectArr: cardType[] = [
     {
         title: 'StockSim',
         desc: '가상 주식 투자 시뮬레이터',
+        cont: ' 실제 주식 시장 데이터를 기반으로 가상 자금을 운용하며 투자 연습을 할 수 있는 모의 투자 플랫폼입니다. 자신의 포트폴리오를 구성해 매수·매도 전략을 시험해보고, 시시각각 변하는 시세 차익과 배당 수익을 체험할 수 있습니다.',
         site: 'https://stocksim.store/swagger-ui/index.html',
         skills: [
             'Spring Boot',
@@ -26,7 +27,8 @@ export const projectArr: cardType[] = [
     },
     {
         title: 'DreamPath',
-        desc: '멘토링 전문 사이트',
+        desc: '멘토링 전문 취춘생 사이트',
+        cont: ' 취준생들이 멘토링을 하며 정보 및 자료를 공유할 수 있는 플랫폼 입니다. 사용자들이 멘토링을 통해 미니 프로젝트를 진행해볼 수 있으며, 관리자들이 제공하는 정보 및 자료를 통해 정보를 얻을 수 있습니다. 있습니다.',
         site: 'https://dreampathpj.store',
         skills: [
             'Spring Boot',
@@ -44,7 +46,8 @@ export const projectArr: cardType[] = [
     },
     {
         title: 'Wiko',
-        desc: '',
+        desc: '주물 • 주조 및 산업 부자재 전문 기업',
+        cont: '주물 • 주조 및 산업 부자재 전문 기업 사이트 입니다.',
         site: 'https://wiko.netlify.app/',
         skills: [
             'React.js',

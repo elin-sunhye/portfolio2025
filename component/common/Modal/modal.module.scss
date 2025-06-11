@@ -23,7 +23,7 @@
         transform: translate(-50%, -50%);
 
         width: 50%;
-        height: 70rem;
+        max-height: 70rem;
 
         background: url('../../../public/img/img_paper_bg_5.svg') no-repeat 0 0 /
             cover;
@@ -52,6 +52,7 @@
             // // overflow-y: auto;
 
             margin: 0 auto;
+            padding-bottom: 2rem;
         }
     }
 }

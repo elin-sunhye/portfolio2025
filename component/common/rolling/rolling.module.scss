@@ -11,6 +11,10 @@
         padding: 3rem 0 2.2rem 0;
 
         p {
+            &:first-of-type {
+                margin-left: 5rem;
+            }
+
             gap: 1rem;
 
             width: max-content;
