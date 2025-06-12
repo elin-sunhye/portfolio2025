@@ -28,6 +28,7 @@
     &.sm {
         height: 3.2rem;
         padding: 0 1.2rem;
+        font-size: var(--fs-14);
     }
 
     &.md {
@@ -109,7 +110,7 @@
 
     &.br_square_round_2 {
         &.xsm {
-            border-radius: var(--br-8);
+            border-radius: var(--br-5);
         }
 
         &.sm {
@@ -143,9 +144,37 @@
 }
 
 // 반응형
-// 모s바일
 @media screen and (max-width: 768px) {
-    button.btn {
-        font-size: var(--fs-14);
+    .btn {
+        // size
+        &.xsm {
+            height: 1rem;
+            padding: 0 0.5rem;
+            font-size: var(--fs-10);
+        }
+
+        &.sm {
+            height: 2rem;
+            padding: 0 1rem;
+            font-size: var(--fs-10);
+        }
+
+        &.md {
+            // 기본 사이즈
+            height: 3rem;
+            padding: 0 1.2rem;
+            font-size: var(--fs-14);
+        }
+
+        &.lg {
+            height: 4rem;
+            padding: 0 2rem;
+            font-size: var(--fs-16);
+        }
+
+        &.xlg {
+            height: 5rem;
+            font-size: var(--fs-16);
+        }
     }
 }
