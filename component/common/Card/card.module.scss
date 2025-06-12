@@ -31,3 +31,28 @@
         text-align: center;
     }
 }
+
+// --------------------------------------
+// 뱐응형 ---------------------------------
+// --------------------------------------
+@media screen and (max-width: 1422px) {
+    .card {
+        & > p {
+            font-size: var(--fs-48);
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .card {
+        & > p {
+            font-size: var(--fs-36);
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .card {
+        & > p {
+            font-size: var(--fs-24);
+        }
+    }
+}

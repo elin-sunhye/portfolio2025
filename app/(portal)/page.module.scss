@@ -1,4 +1,4 @@
-// 애니메이션
+// 애니메이션 ---------------------------------
 @keyframes heartbeat {
     from {
         transform: scale(1);
@@ -23,7 +23,7 @@
     }
 }
 
-// 모달
+// 모달 ---------------------------------
 .modal_box {
     .cont,
     .skills,
@@ -108,7 +108,7 @@
         margin: 0 auto;
 
         h1 {
-            width: calc(100% - 350px);
+            width: calc(100% - 35rem);
 
             font-size: var(--fs-72);
             font-weight: 900;
@@ -123,7 +123,7 @@
 
         span {
             display: inline-block;
-            width: 350px;
+            width: 35rem;
 
             img {
                 width: 100%;
@@ -149,7 +149,7 @@
 // 스킬 ---------------------------------
 .skill_section {
     width: 100%;
-    height: 62rem;
+    height: 60rem;
 
     .skill_box {
         flex-wrap: wrap;
@@ -193,9 +193,12 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                flex-wrap: wrap;
                 gap: 1rem;
 
-                width: 45%;
+                // width: 45%;
+                width: fit-content;
+                min-width: 21rem;
                 height: 5rem;
 
                 font-size: var(--fs-20);
@@ -203,7 +206,7 @@
                 span {
                     display: inline-block;
 
-                    width: calc(100% - 17rem);
+                    width: 5rem;
                     aspect-ratio: 1 / 1;
                     overflow: hidden;
 
@@ -220,7 +223,7 @@
                 }
 
                 p {
-                    width: 16rem;
+                    width: calc(100% - 6rem);
                 }
             }
         }
@@ -361,8 +364,8 @@
                         .img {
                             // transform: rotate(
                             //   20deg
-                            // ); /* 이미지를 시계 방향으로 30도 회전합니다. */
-                            // transform-origin: bottom left; /* 회전 중심을 요소의 좌측 상단으로 설정합니다. */
+                            // ); /* 이미지를 시계 방향으로 30도 회전 */
+                            // transform-origin: bottom left; /* 회전 중심을 요소의 좌측 상단으로 설정*/
                             transform: rotate(10deg);
                         }
                     }
@@ -387,10 +390,9 @@
 
     .resume_wrap {
         align-items: flex-end;
-        gap: 10rem;
 
         .left {
-            width: 46%;
+            width: calc(100% - 45rem);
 
             .shortcut {
                 position: relative;
@@ -476,7 +478,7 @@
         }
 
         .right {
-            width: 30%;
+            width: 35rem;
 
             img {
                 width: 100%;
@@ -615,19 +617,24 @@
             gap: 2rem;
 
             width: 100%;
+            height: 20rem;
 
             & > div {
+                align-content: flex-start;
                 flex-wrap: wrap;
 
-                width: calc((100% - 2rem) / 2);
-                padding: 5rem 3rem;
+                width: calc((100% - 4rem) / 3);
+                height: 100%;
+
+                padding: 3rem;
+
                 background: url('../../public/img/img_paper_bg_1.svg') no-repeat
                     0 0 / cover;
                 background-color: var(--white);
 
-                &:first-of-type {
-                    width: 100%;
-                }
+                // &:first-of-type {
+                //     width: 100%;
+                // }
 
                 p {
                     width: 100%;
@@ -707,3 +714,519 @@
 //             0 9px 0 var(--gray-5), 0 50px 30px rgba(0, 0, 0, 0.3);
 //     }
 // }
+
+// --------------------------------------
+// 뱐응형 ---------------------------------
+// --------------------------------------
+@media screen and (max-width: 1590px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        height: 62rem;
+
+        .skill_box {
+            ul {
+                li {
+                    min-width: 20rem;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1530px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            ul {
+                gap: 1rem 2rem;
+                li {
+                    min-width: auto;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1422px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            h6 {
+                height: 10rem;
+
+                font-size: var(--fs-48);
+            }
+
+            ul {
+                height: calc(100% - 13rem);
+                li {
+                    height: 4rem;
+
+                    span {
+                        width: 4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            .left {
+                .title {
+                    margin: 2rem;
+                    font-size: var(--fs-48);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1122px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            ul {
+                li {
+                    height: 3rem;
+
+                    span {
+                        width: 3rem;
+                    }
+                }
+            }
+
+            &:last-of-type {
+                h6 {
+                    .img {
+                        top: -5rem;
+                        right: 6rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // 자격증 ---------------------------------
+    .certification_section {
+        .certification_wap {
+            .crti_card {
+                height: 22rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1062px) {
+    // 메인 비주얼 ---------------------------------
+    .main_visual {
+        & > div {
+            h1 {
+                width: calc(100% - 30rem);
+            }
+
+            span {
+                width: 30rem;
+            }
+        }
+    }
+
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            padding: 3rem;
+            ul {
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            .left {
+                width: calc(100% - 30rem);
+            }
+
+            .right {
+                width: 30rem;
+            }
+        }
+    }
+
+    // 커리어 ---------------------------------
+    .career_section {
+        position: unset;
+
+        background: url('../../public/img/img_career_bg.svg') repeat 0 0 / 100%;
+
+        .scroll_bg {
+            display: none;
+        }
+
+        .career_wrap {
+            // 컨텐츠
+            .career_box {
+                .cont {
+                    & > div {
+                        width: calc((100% - 1rem) / 2);
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 942px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        flex-wrap: wrap;
+
+        height: auto;
+
+        .skill_box {
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            width: 100%;
+
+            h6 {
+                width: 20rem;
+            }
+
+            ul {
+                width: calc(100% - 25rem);
+                height: 100%;
+
+                li {
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+    // 프로젝트 ---------------------------------
+    .project_section {
+        // 컨텐츠
+        .project_wrap {
+            .project_box {
+                gap: 3rem;
+
+                .col {
+                    width: 100%;
+
+                    p {
+                        &:first-of-type {
+                            width: 100%;
+                        }
+                        &:last-of-type {
+                            margin: 1rem 0;
+
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 자격증 ---------------------------------
+    .certification_section {
+        .certification_wap {
+            .crti_card {
+                flex-wrap: wrap;
+                gap: 1rem;
+                height: auto;
+
+                & > div {
+                    width: 100%;
+
+                    padding: 2rem;
+
+                    &:last-of-type {
+                        &::before {
+                            width: 8rem;
+                            height: 18rem;
+                        }
+
+                        span {
+                            &:last-of-type {
+                                margin-right: 6rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 874px) {
+    // 메인 비주얼 ---------------------------------
+    .main_visual {
+        height: auto;
+        padding: 3rem 0;
+        & > div {
+            flex-wrap: wrap-reverse;
+
+            h1 {
+                width: 100%;
+                font-size: var(--fs-60);
+            }
+
+            span {
+                width: 20rem;
+            }
+        }
+    }
+
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            flex-wrap: wrap-reverse;
+            .left {
+                width: 100%;
+
+                .shortcut {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    margin-top: 1rem;
+
+                    position: unset;
+
+                    height: auto;
+
+                    a,
+                    p {
+                        position: unset;
+                        width: calc((100% - 1rem) / 2);
+                        height: 4rem;
+                        font-size: var(--fs-20);
+                    }
+
+                    a {
+                        &:first-of-type {
+                            left: unset;
+                            top: unset;
+                            transform: unset;
+                        }
+
+                        &:last-of-type {
+                            right: unset;
+                            top: unset;
+                            transform: unset;
+                        }
+                    }
+                    p {
+                        &:first-of-type {
+                            left: unset;
+                            bottom: unset;
+                            transform: unset;
+                        }
+
+                        &:last-of-type {
+                            right: unset;
+                            bottom: unset;
+                            transform: unset;
+                        }
+                    }
+                }
+            }
+
+            .right {
+                width: 20rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    // 모달 ---------------------------------
+    .modal_box {
+        .img_box {
+            flex-wrap: wrap;
+
+            max-height: 50rem;
+            overflow: hidden;
+            overflow-y: auto;
+
+            span {
+                width: 100%;
+            }
+        }
+
+        .btn_url {
+            font-size: var(--fs-36);
+            color: var(--white);
+
+            background-color: var(--pink-01);
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+    }
+
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            h6 {
+                height: 8rem;
+
+                font-size: var(--fs-36);
+            }
+
+            &:first-of-type {
+                h6 {
+                    .img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &:last-of-type {
+                h6 {
+                    .img {
+                        top: -2.5rem;
+                        right: 4rem;
+
+                        width: 3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            .left {
+                .title {
+                    margin: 2rem auto;
+
+                    width: 31rem;
+
+                    font-size: var(--fs-36);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    // 메인 비주얼 ---------------------------------
+    .main_visual {
+        & > div {
+            h1 {
+                font-size: var(--fs-48);
+            }
+
+            span {
+                width: 15rem;
+            }
+        }
+    }
+
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            h6 {
+                width: fit-content;
+                height: auto;
+
+                font-size: var(--fs-24);
+            }
+
+            ul {
+                width: 100%;
+
+                li {
+                    font-size: var(--fs-16);
+                }
+            }
+
+            &:first-of-type {
+                h6 {
+                    .img {
+                        width: 144%;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                h6 {
+                    .img {
+                        top: -2.5rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            &:last-of-type {
+                h6 {
+                    .img {
+                        top: -5rem;
+                        right: 2rem;
+                    }
+                }
+            }
+        }
+    }
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            .left {
+                .title {
+                    width: 100%;
+
+                    font-size: var(--fs-24);
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    // 스킬 ---------------------------------
+    .skill_section {
+        .skill_box {
+            ul {
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // 자소서 ---------------------------------
+    .resume_section {
+        .resume_wrap {
+            .left {
+                .shortcut {
+                    a,
+                    p {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .right {
+                width: 15rem;
+            }
+        }
+    }
+
+    // 커리어 ---------------------------------
+    .career_section {
+        .career_wrap {
+            // 컨텐츠
+            .career_box {
+                .cont {
+                    & > div {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
