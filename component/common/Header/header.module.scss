@@ -1,3 +1,4 @@
+// 메뉴 버튼 ---------------------------------
 .menu_box {
     position: fixed;
     left: 13rem;
@@ -42,6 +43,7 @@
     }
 }
 
+// 사이드 메뉴 ---------------------------------
 .menu_wrap {
     position: fixed;
     left: 0;
@@ -68,8 +70,8 @@
         background-color: var(--orange-01);
 
         .btn_close {
-            font-family: var(--Brice);
-            font-size: var(--fs-36);
+            // font-family: var(--Brice);
+            // font-size: var(--fs-36);
 
             padding: 0 !important;
             margin: 0 5rem 0 auto !important;
@@ -144,5 +146,66 @@
                 }
             }
         }
+    }
+}
+
+// --------------------------------------
+// 뱐응형 ---------------------------------
+// --------------------------------------
+@media screen and (max-width: 1200px) {
+    // 메뉴 버튼 ---------------------------------
+    .menu_box {
+        left: 8rem;
+        top: 5rem;
+    }
+}
+@media screen and (max-width: 1024px) {
+    // 사이드 메뉴 ---------------------------------
+    .menu_wrap {
+        .side_menu {
+            width: 50rem;
+
+            .menu {
+                margin: 5rem 0 3rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    // 메뉴 버튼 ---------------------------------
+    .menu_box {
+        left: 5rem;
+        top: 3rem;
+
+        width: 10rem;
+        height: 10rem;
+
+        .face {
+            width: 4rem;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    // 사이드 메뉴 ---------------------------------
+    .menu_wrap {
+        .side_menu {
+            width: 100%;
+
+            .menu {
+                li {
+                    a,
+                    p {
+                        font-size: var(--fs-20);
+                        padding: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    // 메뉴 버튼 ---------------------------------
+    .menu_box {
+        left: 3rem;
     }
 }

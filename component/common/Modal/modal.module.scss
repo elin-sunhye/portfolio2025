@@ -2,6 +2,7 @@
     position: fixed;
     left: 0;
     transform: translate(0, -50%);
+    z-index: 999;
 
     width: 100vw;
     height: 100vh;
@@ -23,15 +24,14 @@
         transform: translate(-50%, -50%);
 
         width: 50%;
-        max-height: 70rem;
+        min-width: 60rem;
+        max-height: 90%;
+        overflow: hidden;
 
         background: url('../../../public/img/img_paper_bg_5.svg') no-repeat 0 0 /
             cover;
 
         .btn_close {
-            font-family: var(--Brice);
-            font-size: var(--fs-36);
-
             margin: 2rem 0;
             margin-left: auto;
 
@@ -53,6 +53,25 @@
 
             margin: 0 auto;
             padding-bottom: 2rem;
+        }
+    }
+}
+
+// --------------------------------------
+// 뱐응형 ---------------------------------
+// --------------------------------------
+@media screen and (max-width: 1062px) {
+    .modal_wrap {
+        .modal_box {
+            width: calc(100% - 10rem);
+            min-width: 30rem;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal_wrap {
+        .modal_box {
+            width: calc(100% - 4rem);
         }
     }
 }
